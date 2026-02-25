@@ -1,8 +1,5 @@
-import NewsModelUa from "../../external/news/NewsModelUa.js";
-import NewsModelDe from "../../external/news/NewsModelDe.js";
-import NewsModelTr from "../../external/news/NewsModelTr.js";
-import NewsModelEn from "../../external/news/NewsModelEn.js";
 import type { CronJobConfig } from "../types/cron.type.js";
+import { getNewsRedis } from "../../external/news/newsRedis/NewsGetRedisHelper.js";
 
 //-------------------------------------------------------------------------------------//
 
@@ -17,10 +14,11 @@ export const jobs: CronJobConfig[] = [
       console.log("🔄 cron refresh news");
 
       await Promise.all([
-        NewsModelUa.allNewsUkr(),
-        NewsModelDe.allNewsDe(),
-        NewsModelTr.allNewsTr(),
-        NewsModelEn.allNewsWorld(),
+        getNewsRedis("Germany-news"),
+        getNewsRedis("World-news"),
+        getNewsRedis("Indie-news"),
+        getNewsRedis("Turkey-news"),
+        getNewsRedis("Ukraine-news"),
       ]);
     },
   },
