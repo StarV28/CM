@@ -184,7 +184,7 @@ colDefs.value = [
   {
     field: "id",
     headerName: "Choice",
-    width: 80,
+    width: 40,
     // minWidth: 60,
     // maxWidth: 80,
     pinned: "left",
@@ -194,7 +194,7 @@ colDefs.value = [
   {
     field: "img",
     headerName: "Logo",
-    width: 60,
+    width: 40,
     // minWidth: 60,
     // maxWidth: 80,
     // suppressSizeToFit: true,
@@ -207,7 +207,7 @@ colDefs.value = [
   {
     field: "name",
     headerName: "Name",
-    width: 130,
+    width: 200,
     suppressSizeToFit: true,
     pinned: "left",
     cellRenderer: CoinLink ?? null,
