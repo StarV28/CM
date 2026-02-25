@@ -184,9 +184,9 @@ colDefs.value = [
   {
     field: "id",
     headerName: "Choice",
-    width: 40,
-    // minWidth: 60,
-    // maxWidth: 80,
+    width: 50,
+    minWidth: 50,
+    maxWidth: 60,
     pinned: "left",
     cellStyle: { border: "none", padding: "0", textAlign: "center" },
     cellRenderer: "favoriteCoin",
@@ -194,9 +194,9 @@ colDefs.value = [
   {
     field: "img",
     headerName: "Logo",
-    width: 40,
-    // minWidth: 60,
-    // maxWidth: 80,
+    width: 50,
+    minWidth: 50,
+    maxWidth: 80,
     // suppressSizeToFit: true,
     pinned: "left",
     cellRenderer: (p: ICellRendererParams) =>
