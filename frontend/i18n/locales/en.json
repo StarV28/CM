@@ -1,0 +1,141 @@
+{
+  "seo": {
+    "title": "Crypto Monitoring — Live Prices, Charts, News (Realtime)",
+    "description": "Live cryptocurrency prices, dynamic charts, top 50 coins updates, running exchange rates line, multilingual crypto news and more.",
+    "ogTitle": "Crypto Monitoring — Live Prices & Charts",
+    "ogDescription": "Real-time crypto prices, charts, news and analytics.",
+    "bottomText1": "Stay updated with live cryptocurrency prices, charts, and top coins. Explore our detailed market analytics and news.",
+    "bottomText2": "Our platform supports multiple languages, live charts, and top 50 coins ranking. Perfect for traders and crypto enthusiasts.",
+    "topCoins": "Top 50 Coins",
+    "charts": "Charts",
+    "news": "News",
+    "coinTitle": "{name} — Live Price, Charts & Info",
+    "coinDescription": "Get real-time price, market cap, and trading data for {name}. Updated with latest stats."
+  },
+  "seoText": {
+    "heading": "Live Cryptocurrency Market Overview",
+    "paragraph1": "Stay updated with real-time cryptocurrency prices, dynamic exchange rate charts, and top 50 coin rankings. Our platform provides instant updates from major crypto exchanges, detailed market analytics, and multilingual news to help you track the latest trends.",
+    "paragraph2": "Explore Bitcoin, Ethereum, and other leading cryptocurrencies with live charts, market insights, and up-to-date news. Perfect for traders, investors, and crypto enthusiasts seeking accurate, real-time data."
+  },
+  "404": {
+    "message": "Sorry, the page you are looking for doesn't exist.",
+    "btn": "Go to Home"
+  },
+  "menu": {
+    "language": "Languages",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "auth": {
+    "name": "Name",
+    "email": "E-mail",
+    "pass": "Password",
+    "c-pass": "Confirm Password",
+    "send": "Send",
+    "dont": "Don’t have an account?",
+    "register": "Register here!",
+    "show-pass": "Show password",
+    "code-enter": "Enter code",
+    "enter-email": "Enter your E-mail",
+    "sign-up": "Registration",
+    "login": "Log In",
+    "forget-pass": "Forget Password",
+    "google": "LogIn & Sign Up from Google",
+    "attempts": "attempts left",
+    "forgot": "forgot password ?"
+  },
+  "user": {
+    "account": "My Account",
+    "name": "User Name",
+    "email": "User E-mail",
+    "choice": "Your Choice",
+    "coin": "Coin",
+    "date": "Date choice",
+    "del-coin": "Delete Coin",
+    "logout": "Log Out",
+    "update": "Update Account",
+    "back": "Back Account"
+  },
+  "exchanges": {
+    "btn-open": "Show Exchanges"
+  },
+  "coins": {
+    "title50": "Top 50 Coins",
+    "title100": "Top 100 Coins",
+    "titleAll": "All Coins"
+  },
+  "news": {
+    "title": "News"
+  },
+  "coin": {
+    "back": "Top 50 Coins",
+    "marketCap": "Market Cap",
+    "marketCap24": "market cap change 24h",
+    "totalSupply": "Total supply",
+    "maxSupply": "Max supply",
+    "circSupply": "circulating supply",
+    "volume24": "volume 24h",
+    "high24": "high 24h",
+    "low24": "low 24h",
+    "priceChPre7d": "price change percentage 7d",
+    "priceChPre30d": "price change percentage 30d",
+    "calculator": "Calculator",
+    "history": "history",
+    "data": "Data",
+    "desc": "Description",
+    "volumeChange24": "Volume change 24h",
+    "priceChPre24h": "price change percentage 24h",
+    "website": "Website",
+    "explorer": "Explorer"
+  },
+  "footer": {
+    "disc": "Disclaimer",
+    "priv": "Privacy",
+    "proposal": "For questions about cooperation or proposals, please contact:"
+  },
+  "disc": {
+    "title-desc": "Terms of Use & Disclaimer",
+    "data": "Last updated:",
+    "p1": "This website provides cryptocurrency market data, exchange rates, charts and news aggregated automatically from third-party sources, including but not limited to Binance, CoinGecko, Kraken, major news outlets, and other public APIs and RSS feeds.",
+    "p2": "By using this website, you agree to the following terms:",
+    "h51": "1. No Financial Advice",
+    "p3": "All information on this website is for informational and educational purposes only.We do not provide financial, investment, trading, or legal advice.You should not make financial decisions based solely on information provided here.",
+    "h52": "2. Data Accuracy",
+    "p4": "Market prices, charts, news headlines and other data are fetched automatically from external services. We do not guarantee the accuracy, speed, completeness, or reliability of any data. Cryptocurrency markets are volatile, and displayed values may be delayed or incorrect.",
+    "h53": "3. No Liability",
+    "h61": "We are not responsible for:",
+    "li1": "financial losses",
+    "li2": "trading mistakes",
+    "li3": "technical errors",
+    "li4": "missing or outdated information",
+    "li5": "unavailability of data providers",
+    "li6": "content errors in third-party RSS feeds",
+    "p5": "You use this website at your own risk.",
+    "h54": "4. Third-Party Content",
+    "p6": "All trademarks, logos, brand names and data belong to their respective owners. This website is not affiliated with Binance, CoinGecko, Kraken, or any other data provider. If any third-party content appears here, it is displayed under fair use or according to API/RSS terms.",
+    "h55": "5. External Links",
+    "p7": "We may display external links or news excerpts. We are not responsible for their content.",
+    "h56": "6. Changes to Terms",
+    "p8": "We may update these terms at any time. Continued use of the website means acceptance of changes."
+  },
+  "priv": {
+    "title": "Privacy Policy",
+    "p1": "This website does not collect personal data unless explicitly provided by users (e.g., contact form, analytics consent).",
+    "h31": "1. Cookies & Analytics",
+    "p2": "We may use cookies to:",
+    "li1": "improve user experience",
+    "li2": "store display settings",
+    "li3": "analyze website traffic (e.g., Google Analytics)",
+    "p3": "You can disable cookies in your browser at any time.",
+    "h32": "2. Third-Party Services",
+    "p4": "Third-party services (analytics, embedded news, API providers) may collect non-personal technical data such as:",
+    "li4": "browser type",
+    "li5": "IP region (non-identifying)",
+    "li6": "device type",
+    "p5": "We do not control how third-party services process their data.",
+    "h33": "3. No Selling of Personal Data",
+    "p6": "We do not sell or transfer personal information to third parties.",
+    "h34": "4. Changes to This Policy",
+    "p7": "We may update this policy from time to time."
+  }
+}

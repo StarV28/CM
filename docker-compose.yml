@@ -1,0 +1,53 @@
+services:
+  api-data:
+    build: ./backend/api-data
+    container_name: cm_api_data
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "${API_DATA_PORT}:${API_DATA_PORT}"
+    mem_limit: 2500m
+    cpus: 1
+
+  market-data:
+    build: ./backend/market-data
+    container_name: cm_market_data
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "${MARKET_DATA_PORT}:${MARKET_DATA_PORT}"
+    mem_limit: 2500m
+    cpus: 1
+
+  frontend:
+    build: ./frontend
+    container_name: cm_frontend
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api-data
+      - market-data
+    mem_limit: 1500m
+    cpus: 1
+
+  redis:
+    image: redis:7-alpine
+    container_name: cm_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 200mb --maxmemory-policy allkeys-lru
+    ports:
+      - "6379:6379"
+    mem_limit: 256m
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: redis_commander
+    restart: unless-stopped
+    environment:
+      - REDIS_HOSTS=local:cm_redis:6379
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis

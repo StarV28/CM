@@ -1,0 +1,141 @@
+{
+  "seo": {
+    "title": "Kripto İzleme — Canlı Fiyatlar, Grafikler, Haberler",
+    "description": "Canlı kripto para fiyatları, dinamik grafikler, ilk 50 coin sıralamaları ve çok dilli haberler.",
+    "ogTitle": "Kripto İzleme — Canlı Fiyatlar & Grafikler",
+    "ogDescription": "Gerçek zamanlı kripto fiyatları, grafikler, haberler ve analizler.",
+    "bottomText1": "Canlı kripto para fiyatları, grafikler ve en iyi coinleri takip edin. Detaylı piyasa analizleri ve haberlerimizi keşfedin.",
+    "bottomText2": "Platformumuz birden fazla dili, canlı grafikler ve en iyi 50 coin sıralamasını destekler. Yatırımcılar ve kripto meraklıları için idealdir.",
+    "topCoins": "En İyi 50 Coin",
+    "charts": "Grafikler",
+    "news": "Haberler",
+    "coinTitle": "{name} — Canlı Fiyat, Grafikler & Bilgi",
+    "coinDescription": "{name} için gerçek zamanlı fiyat, piyasa değeri ve ticaret verilerini alın. En son istatistiklerle güncellenir."
+  },
+  "seoText": {
+    "heading": "Canlı Kripto Para Piyasası Genel Bakışı",
+    "paragraph1": "Canlı kripto para fiyatları, dinamik döviz kurları grafiklerini ve ilk 50 coin sıralamalarını takip edin. Platformumuz büyük kripto borsalarından anlık güncellemeler, detaylı piyasa analizleri ve çok dilli haberler sunar.",
+    "paragraph2": "Bitcoin, Ethereum ve diğer önde gelen kripto paraları canlı grafikler, piyasa içgörüleri ve güncel haberlerle keşfedin. Yatırımcılar, traderlar ve kripto meraklıları için idealdir."
+  },
+  "404": {
+    "message": "Üzgünüz, aradığınız sayfa mevcut değil.",
+    "btn": "Ana Sayfaya Git"
+  },
+  "menu": {
+    "language": "Diller",
+    "dark": "Koyu",
+    "light": "Açık"
+  },
+  "auth": {
+    "name": "İsim",
+    "email": "E-posta",
+    "pass": "Şifre",
+    "c-pass": "Şifreyi doğrulayın",
+    "send": "Gönder",
+    "dont": "Hesabınız yok mu?",
+    "register": "Buradan kaydolun!",
+    "show-pass": "Şifreyi göster",
+    "code-enter": "Kodu girin",
+    "enter-email": "E-postanızı girin",
+    "sign-up": "Kayıt Ol",
+    "login": "Giriş Yap",
+    "forget-pass": "Şifreyi Unuttum",
+    "google": "Google ile Giriş & Kayıt Ol",
+    "attempts": "kalan deneme",
+    "forgot": "Şifreyi mi unuttunuz?"
+  },
+  "user": {
+    "account": "Hesabım",
+    "name": "Kullanıcı Adı",
+    "email": "Kullanıcı E-postası",
+    "choice": "Seçiminiz",
+    "coin": "Coin",
+    "date": "Seçim Tarihi",
+    "del-coin": "Coin Sil",
+    "logout": "Çıkış Yap",
+    "update": "Hesabı Güncelle",
+    "back": "Hesaba Dön"
+  },
+  "exchanges": {
+    "btn-open": "Borsaları Göster"
+  },
+  "coins": {
+    "title50": "En İyi 50 Coin",
+    "title100": "En İyi 100 Coin",
+    "titleAll": "Tüm Coinler"
+  },
+  "news": {
+    "title": "Haberler"
+  },
+  "coin": {
+    "back": "Top 50 Coin",
+    "marketCap": "Piyasa Değeri",
+    "marketCap24": "24s Piyasa Değişimi",
+    "totalSupply": "Toplam arz",
+    "maxSupply": "Maksimum arz",
+    "circSupply": "Dolaşımdaki arz",
+    "volume24": "24s Hacim",
+    "high24": "24s En Yüksek",
+    "low24": "24s En Düşük",
+    "priceChPre7d": "7 günlük fiyat değişimi",
+    "priceChPre30d": "30 günlük fiyat değişimi",
+    "calculator": "Hesaplayıcı",
+    "history": "Geçmiş",
+    "data": "Veriler",
+    "desc": "Açıklama",
+    "volumeChange24": "24s Hacim Değişimi",
+    "priceChPre24h": "24s Fiyat Değişimi (%)",
+    "website": "Web Sitesi",
+    "explorer": "Blockchain Gezgini"
+  },
+  "footer": {
+    "disc": "Sorumluluk Reddi",
+    "priv": "Gizlilik",
+    "proposal": "İş birliği için iletişim:"
+  },
+  "disc": {
+    "title-desc": "Kullanım Şartları ve Sorumluluk Reddi",
+    "data": "Son güncelleme:",
+    "p1": "Bu site, Binance, CoinGecko, Kraken ve diğer API/RSS kaynaklarından otomatik olarak toplanan kripto para piyasa verilerini sağlar.",
+    "p2": "Bu siteyi kullanarak aşağıdaki şartları kabul etmiş olursunuz:",
+    "h51": "1. Finansal Tavsiye Değildir",
+    "p3": "Bilgiler yalnızca eğitim ve bilgilendirme amaçlıdır.",
+    "h52": "2. Veri Doğruluğu",
+    "p4": "Verilerin doğruluğu garanti edilmez.",
+    "h53": "3. Sorumluluk Kabul Edilmez",
+    "h61": "Aşağıdakilerden sorumlu değiliz:",
+    "li1": "mali kayıplar",
+    "li2": "ticaret hataları",
+    "li3": "teknik hatalar",
+    "li4": "eksik veya eski bilgiler",
+    "li5": "hizmet sağlayıcı hataları",
+    "li6": "RSS içerik hataları",
+    "p5": "Kullanım tamamen sizin sorumluluğunuzdadır.",
+    "h54": "4. Üçüncü Taraf İçerikleri",
+    "p6": "Tüm markalar sahiplerine aittir.",
+    "h55": "5. Dış Bağlantılar",
+    "p7": "Harici içeriklerden sorumlu değiliz.",
+    "h56": "6. Şartlardaki Değişiklikler",
+    "p8": "Şartlar güncellenebilir."
+  },
+  "priv": {
+    "title": "Gizlilik Politikası",
+    "p1": "Kişisel veri yalnızca kullanıcı tarafından gönüllü olarak sağlanırsa toplanır.",
+    "h31": "1. Çerezler ve Analitik",
+    "p2": "Çerezler şu amaçlarla kullanılabilir:",
+    "li1": "kullanıcı deneyimini iyileştirmek",
+    "li2": "görünüm ayarlarını kaydetmek",
+    "li3": "trafik analizi yapmak",
+    "p3": "Çerezler tarayıcıdan kapatılabilir.",
+    "h32": "2. Üçüncü Taraf Hizmetleri",
+    "p4": "Bazı teknik verileri toplayabilir:",
+    "li4": "tarayıcı türü",
+    "li5": "IP bölgesi",
+    "li6": "cihaz türü",
+    "p5": "Veri işleme politikaları kontrolümüz dışındadır.",
+    "h33": "3. Veri Satışı Yok",
+    "p6": "Kişisel veriler satılmaz veya paylaşılmaz.",
+    "h34": "4. Politika Güncellemeleri",
+    "p7": "Politika zaman zaman güncellenebilir."
+  }
+}

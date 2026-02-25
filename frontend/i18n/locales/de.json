@@ -1,0 +1,141 @@
+{
+  "seo": {
+    "title": "Krypto-Monitoring — Live-Preise, Charts, News (Echtzeit)",
+    "description": "Live-Kryptowährungspreise, dynamische Charts, Top-50-Münzen, laufende Wechselkurse und mehrsprachige Krypto-News.",
+    "ogTitle": "Krypto-Monitoring — Live-Preise & Charts",
+    "ogDescription": "Echtzeit-Kryptopreise, Charts, Nachrichten und Analysen.",
+    "bottomText1": "Bleiben Sie auf dem Laufenden mit Live-Kryptowährungspreisen, Diagrammen und Top-Münzen. Entdecken Sie unsere detaillierte Marktanalyse und Nachrichten.",
+    "bottomText2": "Unsere Plattform unterstützt mehrere Sprachen, Live-Charts und die Top-50-Münzen-Rangliste. Ideal für Trader und Krypto-Enthusiasten.",
+    "topCoins": "Top 50 Münzen",
+    "charts": "Charts",
+    "news": "Nachrichten",
+    "coinTitle": "{name} — Live-Preis, Charts & Infos",
+    "coinDescription": "Erhalten Sie Echtzeit-Preis, Marktkapitalisierung und Handelsdaten für {name}. Mit den neuesten Statistiken aktualisiert."
+  },
+  "seoText": {
+    "heading": "Live-Überblick über den Kryptowährungsmarkt",
+    "paragraph1": "Bleiben Sie auf dem Laufenden mit Echtzeit-Kryptowährungspreisen, dynamischen Wechselkursdiagrammen und den Top-50-Münzen. Unsere Plattform bietet sofortige Updates von großen Krypto-Börsen, detaillierte Marktanalysen und mehrsprachige Nachrichten.",
+    "paragraph2": "Entdecken Sie Bitcoin, Ethereum und andere führende Kryptowährungen mit Live-Charts, Marktinformationen und aktuellen Neuigkeiten. Ideal für Trader, Investoren und Krypto-Enthusiasten."
+  },
+  "404": {
+    "message": "Entschuldigung, die von Ihnen gesuchte Seite existiert nicht.",
+    "btn": "Zur Startseite"
+  },
+  "menu": {
+    "language": "Sprachen",
+    "dark": "Dunkel",
+    "light": "Hell"
+  },
+  "auth": {
+    "name": "Name",
+    "email": "E-Mail",
+    "pass": "Passwort",
+    "c-pass": "Passwort bestätigen",
+    "send": "Senden",
+    "dont": "Haben Sie noch kein Konto?",
+    "register": "Hier registrieren!",
+    "show-pass": "Passwort anzeigen",
+    "code-enter": "Code eingeben",
+    "enter-email": "Geben Sie Ihre E-Mail ein",
+    "sign-up": "Registrierung",
+    "login": "Anmelden",
+    "forget-pass": "Passwort vergessen",
+    "google": "Mit Google anmelden & registrieren",
+    "attempts": "verbleibende Versuche",
+    "forgot": "Passwort vergessen?"
+  },
+  "user": {
+    "account": "Mein Konto",
+    "name": "Benutzername",
+    "email": "Benutzer-E-Mail",
+    "choice": "Ihre Auswahl",
+    "coin": "Münze",
+    "date": "Datum der Auswahl",
+    "del-coin": "Münze löschen",
+    "logout": "Abmelden",
+    "update": "Konto aktualisieren",
+    "back": "Zurück zum Konto"
+  },
+  "exchanges": {
+    "btn-open": "Börsen anzeigen"
+  },
+  "coins": {
+    "title50": "Top 50 Coins",
+    "title100": "Top 100 Coins",
+    "titleAll": "Alle Coins"
+  },
+  "news": {
+    "title": "Nachrichten"
+  },
+  "coin": {
+    "back": "Top 50 Münzen",
+    "marketCap": "Marktkapitalisierung",
+    "marketCap24": "Marktkapitalisierung 24h Änderung",
+    "totalSupply": "Gesamtangebot",
+    "maxSupply": "Maximales Angebot",
+    "circSupply": "Umlaufangebot",
+    "volume24": "Volumen 24h",
+    "high24": "Hoch 24h",
+    "low24": "Tief 24h",
+    "priceChPre7d": "Preisänderung 7 Tage",
+    "priceChPre30d": "Preisänderung 30 Tage",
+    "calculator": "Rechner",
+    "history": "Verlauf",
+    "data": "Daten",
+    "desc": "Beschreibung",
+    "volumeChange24": "Volumenänderung 24 Std.",
+    "priceChPre24h": "Preisänderung (%) 24 Std.",
+    "website": "Webseite",
+    "explorer": "Explorer"
+  },
+  "footer": {
+    "disc": "Haftungsausschluss",
+    "priv": "Datenschutz",
+    "proposal": "Für Kooperationsanfragen wenden Sie sich bitte an:"
+  },
+  "disc": {
+    "title-desc": "Nutzungsbedingungen & Haftungsausschluss",
+    "data": "Zuletzt aktualisiert:",
+    "p1": "Diese Website stellt Kryptowährungsmarktdaten, Wechselkurse, Diagramme und Nachrichten bereit, die automatisch aus Drittquellen wie Binance, CoinGecko, Kraken, großen Nachrichtenportalen und anderen öffentlichen APIs und RSS-Feeds gesammelt werden.",
+    "p2": "Durch die Nutzung dieser Website stimmen Sie den folgenden Bedingungen zu:",
+    "h51": "1. Keine Finanzberatung",
+    "p3": "Alle Informationen dienen ausschließlich Informations- und Bildungszwecken. Wir bieten keine Finanz-, Investitions-, Handels- oder Rechtsberatung an. Treffen Sie keine Entscheidungen ausschließlich basierend auf hier bereitgestellten Daten.",
+    "h52": "2. Datengenauigkeit",
+    "p4": "Preise, Diagramme und Nachrichten werden automatisch von externen Diensten abgerufen. Wir übernehmen keine Garantie für deren Genauigkeit, Geschwindigkeit, Vollständigkeit oder Zuverlässigkeit. Kryptomärkte sind volatil, angezeigte Werte können verzögert oder fehlerhaft sein.",
+    "h53": "3. Keine Haftung",
+    "h61": "Wir haften nicht für:",
+    "li1": "finanzielle Verluste",
+    "li2": "Handelsfehler",
+    "li3": "technische Probleme",
+    "li4": "fehlende oder veraltete Informationen",
+    "li5": "Ausfälle von Datenanbietern",
+    "li6": "Inhaltsfehler in RSS-Feeds",
+    "p5": "Sie nutzen diese Website auf eigenes Risiko.",
+    "h54": "4. Inhalte Dritter",
+    "p6": "Alle Marken und Daten gehören ihren jeweiligen Eigentümern. Wir sind nicht mit Binance, CoinGecko, Kraken oder anderen Anbietern verbunden. Externe Inhalte werden gemäß Fair Use oder API/RSS-Bedingungen angezeigt.",
+    "h55": "5. Externe Links",
+    "p7": "Wir übernehmen keine Verantwortung für externe Inhalte oder verlinkte Seiten.",
+    "h56": "6. Änderungen der Bedingungen",
+    "p8": "Wir können diese Bedingungen jederzeit ändern. Die weitere Nutzung bedeutet Zustimmung."
+  },
+  "priv": {
+    "title": "Datenschutzerklärung",
+    "p1": "Diese Website sammelt keine personenbezogenen Daten, es sei denn, sie werden ausdrücklich vom Benutzer bereitgestellt.",
+    "h31": "1. Cookies & Analyse",
+    "p2": "Wir können Cookies verwenden, um:",
+    "li1": "die Benutzererfahrung zu verbessern",
+    "li2": "Anzeigeeinstellungen zu speichern",
+    "li3": "den Website-Traffic zu analysieren",
+    "p3": "Sie können Cookies jederzeit im Browser deaktivieren.",
+    "h32": "2. Drittanbieter-Dienste",
+    "p4": "Drittanbieter können technische Daten wie:",
+    "li4": "Browsertyp",
+    "li5": "IP-Region",
+    "li6": "Gerätetyp",
+    "p5": "Wir haben keine Kontrolle darüber, wie diese Dienste Daten verarbeiten.",
+    "h33": "3. Keine Weitergabe",
+    "p6": "Wir verkaufen oder übertragen keine persönlichen Daten.",
+    "h34": "4. Änderungen",
+    "p7": "Diese Richtlinie kann regelmäßig aktualisiert werden."
+  }
+}

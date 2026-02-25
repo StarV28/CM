@@ -1,0 +1,51 @@
+@charset "UTF-8";
+:root {
+  --bg-color: #ffffff;
+  --text-color: #555555;
+  --accent-color: rgba(156, 94, 255, 0.2);
+}
+
+html.dark {
+  --bg-color: #0f1115;
+  --text-color: #d0d0d0;
+  --accent-color: #b388ff;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* Кастомная тема AG Grid */
+.ag-theme-custom {
+  --ag-background-color: var(--bg-color);
+  --ag-foreground-color: var(--text-color);
+  --ag-header-background-color: var(--header-bg);
+  --ag-header-foreground-color: var(--header-text);
+  --ag-odd-row-background-color: var(--odd-row-bg);
+  --ag-border-color: transparent; /* убираем линии */
+}
+
+/* Центрирование картинок в ячейках */
+.ag-theme-custom .ag-cell img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Убираем все внутренние границы */
+.ag-theme-custom .ag-cell,
+.ag-theme-custom .ag-header-cell {
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+}

@@ -1,0 +1,122 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #555555;
+  --accent-color: rgba(156, 94, 255, 0.2);
+  --fan-color: rgb(154, 113, 192);
+}
+
+html.dark {
+  --bg-color: #0f1115;
+  --text-color: #d0d0d0;
+  --accent-color: #b488ff2d;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* Кастомная тема AG Grid */
+.ag-theme-custom {
+  --ag-background-color: var(--bg-color);
+  --ag-foreground-color: var(--text-color);
+  --ag-header-background-color: var(--header-bg);
+  --ag-header-foreground-color: var(--header-text);
+  --ag-odd-row-background-color: var(--odd-row-bg);
+  --ag-border-color: transparent; /* убираем линии */
+}
+
+/* Центрирование картинок в ячейках */
+.ag-theme-custom .ag-cell img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Убираем все внутренние границы */
+.ag-theme-custom .ag-cell,
+.ag-theme-custom .ag-header-cell {
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+}
+.favorite__inform {
+  position: absolute;
+  top: 70%;
+  left: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  z-index: 100;
+  max-width: 350px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: rgb(149, 149, 149, 0.95);
+  box-shadow: 1px 1px 5px #ffffff;
+
+  p {
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 1.4;
+    color: #0f1115;
+  }
+  a {
+    width: 100%;
+    padding: 5px 7px;
+    background-color: green;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    box-shadow: 1px 1px 5px #ffffff;
+  }
+}
+.favorite__blok-btn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+}
+.box {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  z-index: 100;
+  padding: 0px 25px;
+  border-radius: 6px;
+  text-align: center;
+  background-color: var(--bg-color);
+  box-shadow: 2px -2px 2px 5px var(--accent-color);
+
+  p {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    // color: var(--text-color);
+    color: orange;
+  }
+}
+.trade-cell-ag {
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
