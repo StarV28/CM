@@ -9,7 +9,7 @@ const feeds: string[] = [
 ];
 
 export default class NewsModelDe {
-  static async allNewsUkr(): Promise<void> {
+  static async allNewsDe(): Promise<void> {
     try {
       const newsApi: News[] = await NewsApiModel.newsAPI("ua");
       NewsHelperRSS.allNews(feeds, "Germany", newsApi);

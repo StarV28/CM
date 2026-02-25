@@ -11,7 +11,7 @@ const feeds = [
 //-------------------------------------------------------------------------------------//
 
 export default class NewsModelHi {
-  static async allNewsUkr(): Promise<void> {
+  static async allNewsHi(): Promise<void> {
     try {
       const newsApi: News[] = await NewsApiModel.newsAPI("ua");
       NewsHelperRSS.allNews(feeds, "Indie", newsApi);

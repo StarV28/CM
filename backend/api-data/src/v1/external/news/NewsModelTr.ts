@@ -13,7 +13,7 @@ const feeds = [
 //-------------------------------------------------------------------------------------//
 
 export default class NewsModelTr {
-  static async allNewsUkr(): Promise<void> {
+  static async allNewsTr(): Promise<void> {
     try {
       const newsApi: News[] = await NewsApiModel.newsAPI("ua");
       NewsHelperRSS.allNews(feeds, "Turkey", newsApi);
