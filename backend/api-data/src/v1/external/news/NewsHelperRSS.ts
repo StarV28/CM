@@ -193,8 +193,6 @@ export default class NewsHelperRSS {
         urlToImage:
           n.enclosure?.$?.url ?? n["media:content"]?.$?.url ?? undefined,
       }));
-
-      console.log("NEW VERSION 777777");
       return newsItems;
     } catch (err) {
       console.error("Feed error:", feedUrl, (err as Error).message);
