@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@types/express-mysql-session": "^3.0.6",
+    "@types/ioredis": "^4.28.10",
     "@types/xml2js": "^0.4.14",
     "@upstash/redis": "^1.35.8",
     "axios": "^1.13.2",
@@ -50,6 +51,7 @@
     "express": "^5.1.0",
     "express-mysql-session": "^3.0.3",
     "express-session": "^1.18.2",
+    "ioredis": "^5.9.3",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.1",
     "multer": "^2.0.2",

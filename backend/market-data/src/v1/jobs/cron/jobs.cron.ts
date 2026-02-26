@@ -4,8 +4,31 @@ import { collectRates } from "../../application/rates/collectRates.js";
 import ColectDataCMC from "../../application/coins/collectDataCMC.js";
 import { collectTrCoinsMySQL } from "../../application/coins/collectCoinsMySQL.js";
 import { CronJobConfig } from "../types/cron.type.js";
+import NewsModelDe from "../../domain/news/NewsModelDe.js";
+import NewsModelEn from "../../domain/news/NewsModelEn.js";
+import NewsModelHi from "../../domain/news/NewsModelHi.js";
+import NewsModelTr from "../../domain/news/NewsModelTr.js";
+import NewsModelUa from "../../domain/news/NewsModelUa.js";
 
 export const jobs: CronJobConfig[] = [
+  {
+    name: "news",
+    schedule: "0 */20 * * * *",
+    ttlMs: 1000 * 60 * 10,
+    retries: 2,
+    timeoutMs: 1000 * 60 * 3,
+    handler: async () => {
+      console.log("🔄 cron refresh news");
+
+      await Promise.all([
+        NewsModelUa.allNewsUkr(),
+        NewsModelDe.allNewsDe(),
+        NewsModelTr.allNewsTr(),
+        NewsModelEn.allNewsWorld(),
+        NewsModelHi.allNewsHi(),
+      ]);
+    },
+  },
   {
     name: "tr_coins_mysql",
     schedule: "0 0 */4 * * *",

@@ -15,6 +15,9 @@ export interface Config {
     user?: string;
     password?: string;
   };
+  url: {
+    redis_url?: string;
+  };
   port?: string;
   secretKey?: string;
   jwtSecret?: string;
@@ -34,6 +37,9 @@ const config: Config = {
   email: {
     user: process.env.MAIL_USER,
     password: process.env.EMAIL_PASSWORD,
+  },
+  url: {
+    redis_url: process.env.REDIS_URL,
   },
   port: process.env.PORT,
   secretKey: process.env.SECRET_KEY,
