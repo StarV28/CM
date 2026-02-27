@@ -177,15 +177,15 @@ colDefs.value = [
     field: "rank",
     headerName: "Rank",
     width: 40,
-    // suppressSizeToFit: true,
+    suppressSizeToFit: true,
     pinned: "left",
     cellStyle: { border: "none", padding: "0", textAlign: "center" },
   },
   {
     field: "id",
     headerName: "Choice",
-    width: 50,
-    minWidth: 50,
+    width: 40,
+    minWidth: 40,
     maxWidth: 60,
     pinned: "left",
     cellStyle: { border: "none", padding: "0", textAlign: "center" },
@@ -197,7 +197,7 @@ colDefs.value = [
     width: 50,
     minWidth: 50,
     maxWidth: 80,
-    // suppressSizeToFit: true,
+    suppressSizeToFit: true,
     pinned: "left",
     cellRenderer: (p: ICellRendererParams) =>
       `<div style="display:flex;justify-content:center;align-items:center;height:100%;">
@@ -374,7 +374,7 @@ function mapCoinsToRowData(coinsArray: Coins[]): RowData[] {
 const updateColHeaders = () => {
   if (!colDefs.value || colDefs.value.length < 3) return;
   colDefs.value[0].headerName = window.innerWidth > 768 ? "Rank" : "R";
-  colDefs.value[2].width = window.innerWidth > 768 ? 200 : 180;
+  colDefs.value[2].width = window.innerWidth > 768 ? 200 : 170;
 };
 
 //-------------------------------------------------------------------------------------//
