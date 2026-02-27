@@ -374,7 +374,7 @@ function mapCoinsToRowData(coinsArray: Coins[]): RowData[] {
 const updateColHeaders = () => {
   if (!colDefs.value || colDefs.value.length < 3) return;
   colDefs.value[0].headerName = window.innerWidth > 768 ? "Rank" : "R";
-  colDefs.value[2].width = window.innerWidth > 768 ? 200 : 130;
+  colDefs.value[2].width = window.innerWidth > 768 ? 200 : 180;
 };
 
 //-------------------------------------------------------------------------------------//

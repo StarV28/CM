@@ -1,5 +1,5 @@
 import axios from "axios";
-import { News } from "../../modules/types/news.js";
+import type { News } from "./types/news.type.js";
 import dotenv from "dotenv";
 dotenv.config();
 //-------------------------------------------------------------------------------------//

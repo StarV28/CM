@@ -4,11 +4,12 @@ import { collectRates } from "../../application/rates/collectRates.js";
 import ColectDataCMC from "../../application/coins/collectDataCMC.js";
 import { collectTrCoinsMySQL } from "../../application/coins/collectCoinsMySQL.js";
 import { CronJobConfig } from "../types/cron.type.js";
+
+import NewsModelUa from "../../domain/news/NewsModelUa.js";
 import NewsModelDe from "../../domain/news/NewsModelDe.js";
+import NewsModelTr from "../../domain/news/NewsModelTr.js";
 import NewsModelEn from "../../domain/news/NewsModelEn.js";
 import NewsModelHi from "../../domain/news/NewsModelHi.js";
-import NewsModelTr from "../../domain/news/NewsModelTr.js";
-import NewsModelUa from "../../domain/news/NewsModelUa.js";
 
 export const jobs: CronJobConfig[] = [
   {

@@ -1,6 +1,6 @@
 import NewsApiModel from "./NewsApiModel.js";
 import NewsHelperRSS from "./NewsHelperRSS.js";
-import { News } from "../../modules/types/news.js";
+import type { News } from "./types/news.type.js";
 
 const feeds: string[] = [
   "https://www.btc-echo.de/feed/",

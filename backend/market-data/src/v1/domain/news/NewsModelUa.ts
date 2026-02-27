@@ -1,4 +1,4 @@
-import { News } from "../../modules/types/news.js";
+import type { News } from "./types/news.type.js";
 import NewsApiModel from "./NewsApiModel.js";
 import NewsHelperRSS from "./NewsHelperRSS.js";
 
