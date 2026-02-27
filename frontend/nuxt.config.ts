@@ -66,7 +66,11 @@ export default defineNuxtConfig({
       { code: "tr", name: "Türkçe", file: "tr.json", flag: "🇹🇷" },
       { code: "hi", name: "हिन्दी", file: "hi.json", flag: "🇮🇳" },
     ],
-    detectBrowserLanguage: false,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "lang",
+      redirectOn: "root",
+    },
   },
   nitro: {},
 });
