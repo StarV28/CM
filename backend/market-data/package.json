@@ -64,6 +64,7 @@
     "telegram": "github:gram-js/gramjs",
     "typescript-eslint": "^8.37.0",
     "uuid": "^11.1.0",
-    "ws": "^8.18.3"
+    "ws": "^8.18.3",
+    "xml2js": "^0.6.2"
   }
 }
