@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import fs from "fs";
 // import path from "path";
 
@@ -68,6 +69,8 @@
 //   },
 // };
 
+=======
+>>>>>>> 066ad36 (update sitemap)
 const langs = ["en", "de", "ua", "tr", "hi"];
 const pages = [
   "/",

@@ -1,4 +1,5 @@
 import svgLoader from "vite-svg-loader";
+<<<<<<< HEAD
 import sitemapConfig from "./sitemap.config";
 // import fs from "fs";
 // import path from "path";
@@ -7,6 +8,8 @@ import sitemapConfig from "./sitemap.config";
 //   url: string;
 //   links: Record<string, string>;
 // }
+=======
+>>>>>>> 066ad36 (update sitemap)
 
 //---------------------------------------//
 
@@ -15,6 +18,10 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/eslint",
     "@nuxt/image",
+<<<<<<< HEAD
+=======
+    ["@nuxtjs/sitemap", require("./sitemap.config")],
+>>>>>>> 066ad36 (update sitemap)
     "@nuxtjs/i18n",
     "@pinia/nuxt",
     ["@nuxtjs/sitemap", sitemapConfig],
@@ -35,6 +42,13 @@ export default defineNuxtConfig({
       },
       meta: [
         {
+<<<<<<< HEAD
+=======
+          name: "google-site-verification",
+          content: "4dVMpIuGlpYBfh_P6sX50tz7yE5cCmD6y4AMQx6iWiE",
+        },
+        {
+>>>>>>> 066ad36 (update sitemap)
           name: "viewport",
           content: "width=device-width, initial-scale=1",
         },
@@ -65,7 +79,7 @@ export default defineNuxtConfig({
     host: "localhost",
   },
   vite: {
-    plugins: [svgLoader()],
+    plugins: [svgLoader() as any],
   },
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -89,6 +103,7 @@ export default defineNuxtConfig({
       redirectOn: "root",
     },
   },
+<<<<<<< HEAD
   // @ts-expect-e: Nuxt3 does not have sitemap types yet
   // sitemap: {
   //   hostname: "https://cmcoins.wpslab.app",
@@ -139,5 +154,7 @@ export default defineNuxtConfig({
   //     return sitemapRoutes;
   //   },
   // },
+=======
+>>>>>>> 066ad36 (update sitemap)
   nitro: {},
 });
