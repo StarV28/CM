@@ -36,8 +36,6 @@ services:
     image: redis:7-alpine
     container_name: cm_redis
     restart: unless-stopped
-    ports:
-      - "127.0.0.1:8081:8081"
     command: redis-server --appendonly yes --requirepass the_LonG_PaSsWorD --maxmemory 200mb --maxmemory-policy allkeys-lru
     mem_limit: 256m
 
@@ -47,7 +45,7 @@ services:
     restart: unless-stopped
     environment:
       - REDIS_HOSTS=local:cm_redis:6379:0:the_LonG_PaSsWorD
-    expose:
-      - "8081"
+    ports:
+      - "127.0.0.1:8081:8081"
     depends_on:
       - redis
