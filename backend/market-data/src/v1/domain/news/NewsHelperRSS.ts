@@ -31,7 +31,7 @@ export default class NewsHelperRSS {
         )
         .flatMap((r) => r.value);
 
-      const news = newsApi ? [...rssNews, ...newsApi] : rssNews;
+      const news = [...rssNews, ...(newsApi ?? [])];
 
       await cacheRedisServer.set(`${local}-news`, news, 60 * 30);
     } catch (err) {
@@ -54,6 +54,10 @@ export default class NewsHelperRSS {
 
       const { data } = response as { data: string };
 
+      if (!data.includes("<rss") && !data.includes("<feed")) {
+        console.log("Not RSS");
+      }
+
       const parsed = await parseStringPromise(data, { explicitArray: false });
       const items: RssItem[] = parsed?.rss?.channel?.item
         ? Array.isArray(parsed.rss.channel.item)
@@ -73,7 +77,6 @@ export default class NewsHelperRSS {
           n.enclosure?.$?.url ?? n["media:content"]?.$?.url ?? undefined,
       }));
 
-      console.log("NEW VERSION 777777");
       return newsItems;
     } catch (err) {
       console.error("Feed error:", feedUrl, (err as Error).message);
