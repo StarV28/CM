@@ -1,11 +1,12 @@
 import svgLoader from "vite-svg-loader";
-import fs from "fs";
-import path from "path";
+import sitemapConfig from "./sitemap.config";
+// import fs from "fs";
+// import path from "path";
 //---------------------------------------//
-interface SitemapRoute {
-  url: string;
-  links: Record<string, string>;
-}
+// interface SitemapRoute {
+//   url: string;
+//   links: Record<string, string>;
+// }
 
 //---------------------------------------//
 
@@ -14,9 +15,17 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/eslint",
     "@nuxt/image",
-    "@nuxtjs/sitemap",
     "@nuxtjs/i18n",
     "@pinia/nuxt",
+    ["@nuxtjs/sitemap", sitemapConfig],
+  ],
+  plugins: [
+    "./plugins/google-verification.server.ts",
+    "./plugins/Vue3Marquee.client.ts",
+    "./plugins/ws.client.ts",
+    "./plugins/apexcharts.client.ts",
+    "./plugins/agGridVue.client.ts",
+    "./plugins/error-logger.client.ts",
   ],
   app: {
     head: {
@@ -28,10 +37,6 @@ export default defineNuxtConfig({
         {
           name: "viewport",
           content: "width=device-width, initial-scale=1",
-        },
-        {
-          name: "google-site-verification",
-          content: "4dVMpIuGlpYBfh_P6sX50tz7yE5cCmD6y4AMQx6iWiE",
         },
       ],
       script: [
@@ -62,13 +67,6 @@ export default defineNuxtConfig({
   vite: {
     plugins: [svgLoader()],
   },
-  plugins: [
-    "./plugins/Vue3Marquee.client.ts",
-    "./plugins/ws.client.ts",
-    "./plugins/apexcharts.client.ts",
-    "./plugins/agGridVue.client.ts",
-    "./plugins/error-logger.client.ts",
-  ],
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
@@ -91,55 +89,55 @@ export default defineNuxtConfig({
       redirectOn: "root",
     },
   },
-  // @ts-expect-error: Nuxt3 does not have sitemap types yet
-  sitemap: {
-    hostname: "https://cmcoins.wpslab.app",
-    gzip: true,
-    routes: async (): Promise<SitemapRoute[]> => {
-      const languages = ["en", "de", "ua", "tr", "hi"];
+  // @ts-expect-e: Nuxt3 does not have sitemap types yet
+  // sitemap: {
+  //   hostname: "https://cmcoins.wpslab.app",
+  //   gzip: true,
+  //   routes: async (): Promise<SitemapRoute[]> => {
+  //     const languages = ["en", "de", "ua", "tr", "hi"];
 
-      // ===== Получаем все страницы Nuxt 3 =====
-      const pagesDir = path.resolve("./pages");
-      const walkPages = (dir: string, base = ""): string[] => {
-        const entries = fs.readdirSync(dir, { withFileTypes: true });
-        const routes: string[] = [];
+  //     // ===== Получаем все страницы Nuxt 3 =====
+  //     const pagesDir = path.resolve("./pages");
+  //     const walkPages = (dir: string, base = ""): string[] => {
+  //       const entries = fs.readdirSync(dir, { withFileTypes: true });
+  //       const routes: string[] = [];
 
-        for (const entry of entries) {
-          if (entry.name.startsWith("_")) continue; // игнорируем динамические
-          if (entry.isDirectory()) {
-            routes.push(
-              ...walkPages(
-                path.join(dir, entry.name),
-                path.join(base, entry.name),
-              ),
-            );
-          } else if (entry.name.endsWith(".vue")) {
-            const route = path.join(base, entry.name.replace(".vue", ""));
-            routes.push(route === "/index" ? "/" : route);
-          }
-        }
-        return routes;
-      };
+  //       for (const entry of entries) {
+  //         if (entry.name.startsWith("_")) continue; // игнорируем динамические
+  //         if (entry.isDirectory()) {
+  //           routes.push(
+  //             ...walkPages(
+  //               path.join(dir, entry.name),
+  //               path.join(base, entry.name),
+  //             ),
+  //           );
+  //         } else if (entry.name.endsWith(".vue")) {
+  //           const route = path.join(base, entry.name.replace(".vue", ""));
+  //           routes.push(route === "/index" ? "/" : route);
+  //         }
+  //       }
+  //       return routes;
+  //     };
 
-      const allRoutes = walkPages(pagesDir);
+  //     const allRoutes = walkPages(pagesDir);
 
-      // ===== Формируем sitemap с hreflang =====
-      const sitemapRoutes: SitemapRoute[] = [];
+  //     // ===== Формируем sitemap с hreflang =====
+  //     const sitemapRoutes: SitemapRoute[] = [];
 
-      allRoutes.forEach((page) => {
-        const route: SitemapRoute = {
-          url: page,
-          links: {} as Record<string, string>,
-        };
-        languages.forEach((lang) => {
-          route.links[lang] =
-            `https://cmcoins.wpslab.app/${lang}${page === "/" ? "" : page}`;
-        });
-        sitemapRoutes.push(route);
-      });
+  //     allRoutes.forEach((page) => {
+  //       const route: SitemapRoute = {
+  //         url: page,
+  //         links: {} as Record<string, string>,
+  //       };
+  //       languages.forEach((lang) => {
+  //         route.links[lang] =
+  //           `https://cmcoins.wpslab.app/${lang}${page === "/" ? "" : page}`;
+  //       });
+  //       sitemapRoutes.push(route);
+  //     });
 
-      return sitemapRoutes;
-    },
-  },
+  //     return sitemapRoutes;
+  //   },
+  // },
   nitro: {},
 });
