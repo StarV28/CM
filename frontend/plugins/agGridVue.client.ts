@@ -1,5 +1,5 @@
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
-import { defineNuxtPlugin } from "#app";
+import { defineNuxtPlugin } from "nuxt/app";
 import { AgGridVue } from "ag-grid-vue3";
 
 export default defineNuxtPlugin((nuxtApp) => {

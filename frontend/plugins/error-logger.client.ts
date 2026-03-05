@@ -1,4 +1,4 @@
-import { defineNuxtPlugin, useRuntimeConfig } from "#app";
+import { defineNuxtPlugin, useRuntimeConfig } from "nuxt/app";
 //-------------------------------------------------------------------------------------//
 export type FrontendErrorPayload = {
   type: "js" | "vue" | "fetch" | "promise";

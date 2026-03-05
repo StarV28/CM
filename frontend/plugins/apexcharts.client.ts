@@ -1,5 +1,5 @@
 import VueApexCharts from "vue3-apexcharts";
-import { defineNuxtPlugin } from "#app";
+import { defineNuxtPlugin } from "nuxt/app";
 
 export default defineNuxtPlugin((nuxtApp) => {
   if (!import.meta.client) return;
