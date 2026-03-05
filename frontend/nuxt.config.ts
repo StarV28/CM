@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
   ],
   plugins: [
-    "./plugins/google-verification.server.ts",
     "./plugins/Vue3Marquee.client.ts",
     "./plugins/ws.client.ts",
     "./plugins/apexcharts.client.ts",
