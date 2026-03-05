@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         },
         {
           name: "google-site-verification",
-          content: "4dVMpIuGlpYBfh_P6sX50tz7yE5cCmD6y4AMQx6iWiE",
+          content: "google537cfa2634da0649.html",
         },
       ],
       script: [
