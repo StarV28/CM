@@ -1,4 +1,4 @@
-// import svgLoader from "vite-svg-loader";
+import svgLoader from "vite-svg-loader";
 import sitemapConfig from "./sitemap.config";
 
 //---------------------------------------//
@@ -61,9 +61,9 @@ export default defineNuxtConfig({
     port: 3001,
     host: "localhost",
   },
-  // vite: {
-  //   plugins: [svgLoader()],
-  // },
+  vite: {
+    plugins: [svgLoader() as any],
+  },
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
