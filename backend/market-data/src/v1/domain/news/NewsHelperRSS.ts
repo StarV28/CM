@@ -33,7 +33,7 @@ export default class NewsHelperRSS {
 
       const news = [...rssNews, ...(newsApi ?? [])];
 
-      await cacheRedisServer.set(`${local}-news`, news, 60 * 30);
+      await cacheRedisServer.set(`${local}-news`, news, 60 * 60);
     } catch (err) {
       console.error("Error allNews", (err as Error)?.message);
     }

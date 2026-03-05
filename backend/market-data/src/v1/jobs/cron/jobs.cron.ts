@@ -14,8 +14,8 @@ import NewsModelHi from "../../domain/news/NewsModelHi.js";
 export const jobs: CronJobConfig[] = [
   {
     name: "news",
-    schedule: "0 */20 * * * *",
-    ttlMs: 1000 * 60 * 10,
+    schedule: "0 0 * * * *",
+    ttlMs: 1000 * 60 * 50,
     retries: 2,
     timeoutMs: 1000 * 60 * 3,
     handler: async () => {
