@@ -178,18 +178,19 @@ colDefs.value = [
     field: "rank",
     headerName: "Rank",
     width: 40,
+    maxWidth: 60,
     suppressSizeToFit: true,
     pinned: "left",
-    cellStyle: { border: "none", padding: "0", textAlign: "center" },
+    cellStyle: { border: "none", padding: "0, 3", textAlign: "center" },
   },
   {
     field: "id",
     headerName: "Choice",
-    width: 40,
+    width: 50,
     minWidth: 40,
-    maxWidth: 60,
+    maxWidth: 80,
     pinned: "left",
-    cellStyle: { border: "none", padding: "0", textAlign: "center" },
+    cellStyle: { border: "none", padding: "0, 3", textAlign: "center" },
     cellRenderer: "favoriteCoin",
   },
   {
@@ -209,6 +210,7 @@ colDefs.value = [
     field: "name",
     headerName: "Name",
     width: 200,
+    minWidth: 150,
     suppressSizeToFit: true,
     pinned: "left",
     cellRenderer: CoinLink ?? null,
@@ -226,6 +228,7 @@ colDefs.value = [
     field: "price",
     headerName: "Price",
     minWidth: 140,
+    suppressSizeToFit: true,
     cellRenderer: (params: ValueFormatterParams) => {
       const price = params.value;
       const diff = params.data.priceDiff || 0;
@@ -282,12 +285,14 @@ colDefs.value = [
   {
     field: "value_24",
     headerName: "24h Volume",
+    suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) => `$ ${formatNumber(p.value)}`,
   },
   {
     field: "volume_change_24h",
     headerName: "Vol 24h %",
     width: 130,
+    suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) =>
       typeof p.value === "number" ? `${p.value.toFixed(2)}%` : "-",
     cellStyle: (p: ValueFormatterParams) =>
@@ -296,11 +301,13 @@ colDefs.value = [
   {
     field: "market_cap",
     headerName: "Market Cap",
+    suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) => `$ ${formatNumber(p.value)}`,
   },
   {
     field: "high24h",
     headerName: "High 24h",
+    suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? `$ ${formatNumber(p.value)}` : "-",
   },
@@ -308,6 +315,7 @@ colDefs.value = [
   {
     field: "low24h",
     headerName: "Low 24h",
+    suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? `$ ${formatNumber(p.value)}` : "-",
   },
