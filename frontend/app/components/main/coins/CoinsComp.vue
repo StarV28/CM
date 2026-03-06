@@ -177,18 +177,14 @@ colDefs.value = [
   {
     field: "rank",
     headerName: "Rank",
-    width: 40,
-    maxWidth: 60,
-    suppressSizeToFit: true,
+    width: 60,
     pinned: "left",
     cellStyle: { border: "none", padding: "0, 3", textAlign: "center" },
   },
   {
     field: "id",
     headerName: "Choice",
-    width: 50,
-    minWidth: 40,
-    maxWidth: 80,
+    width: 70,
     pinned: "left",
     cellStyle: { border: "none", padding: "0, 3", textAlign: "center" },
     cellRenderer: "favoriteCoin",
@@ -196,9 +192,7 @@ colDefs.value = [
   {
     field: "img",
     headerName: "Logo",
-    width: 50,
-    minWidth: 50,
-    maxWidth: 80,
+    width: 70,
     suppressSizeToFit: true,
     pinned: "left",
     cellRenderer: (p: ICellRendererParams) =>
@@ -285,7 +279,7 @@ colDefs.value = [
   {
     field: "value_24",
     headerName: "24h Volume",
-    suppressSizeToFit: true,
+    width: 120,
     valueFormatter: (p: ValueFormatterParams) => `$ ${formatNumber(p.value)}`,
   },
   {
@@ -301,12 +295,14 @@ colDefs.value = [
   {
     field: "market_cap",
     headerName: "Market Cap",
+    width: 120,
     suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) => `$ ${formatNumber(p.value)}`,
   },
   {
     field: "high24h",
     headerName: "High 24h",
+    width: 120,
     suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? `$ ${formatNumber(p.value)}` : "-",
@@ -315,6 +311,7 @@ colDefs.value = [
   {
     field: "low24h",
     headerName: "Low 24h",
+    width: 120,
     suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? `$ ${formatNumber(p.value)}` : "-",
