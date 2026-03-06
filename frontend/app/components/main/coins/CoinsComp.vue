@@ -177,18 +177,14 @@ colDefs.value = [
   {
     field: "rank",
     headerName: "Rank",
-    width: 60,
-    minWidth: 40,
-    maxWidth: 80,
+    width: 80,
     pinned: "left",
     cellStyle: { border: "none", padding: "0, 3", textAlign: "center" },
   },
   {
     field: "id",
     headerName: "Choice",
-    width: 70,
-    minWidth: 40,
-    maxWidth: 80,
+    width: 80,
     pinned: "left",
     cellStyle: { border: "none", padding: "0, 3", textAlign: "center" },
     cellRenderer: "favoriteCoin",
@@ -225,7 +221,8 @@ colDefs.value = [
   {
     field: "price",
     headerName: "Price",
-    minWidth: 140,
+    width: 120,
+    maxWidth: 200,
     suppressSizeToFit: true,
     cellRenderer: (params: ValueFormatterParams) => {
       const price = params.value;
@@ -299,16 +296,12 @@ colDefs.value = [
   {
     field: "market_cap",
     headerName: "Market Cap",
-    width: 120,
-    maxWidth: 200,
     suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) => `$ ${formatNumber(p.value)}`,
   },
   {
     field: "high24h",
     headerName: "High 24h",
-    width: 120,
-    maxWidth: 200,
     suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? `$ ${formatNumber(p.value)}` : "-",
@@ -317,8 +310,6 @@ colDefs.value = [
   {
     field: "low24h",
     headerName: "Low 24h",
-    width: 120,
-    maxWidth: 200,
     suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? `$ ${formatNumber(p.value)}` : "-",
@@ -326,7 +317,7 @@ colDefs.value = [
   {
     field: "total_supply",
     headerName: "Total Supply",
-    hide: true,
+    // hide: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? formatNumber(p.value) : "-",
   },
@@ -334,7 +325,7 @@ colDefs.value = [
   {
     field: "max_supply",
     headerName: "Max Supply",
-    hide: true,
+    // hide: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? formatNumber(p.value) : "-",
   },
