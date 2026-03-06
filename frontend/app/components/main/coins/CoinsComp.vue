@@ -116,6 +116,7 @@ const onShowTopCoins = async (limit: number | null) => {
 //--API ag-grid-------------------------------------//
 const onGridReady = (params: GridReadyEvent) => {
   gridApi.value = params.api;
+  updateColHeaders();
 };
 
 //-------------------------------------------------------------------------------------//
@@ -371,15 +372,31 @@ function mapCoinsToRowData(coinsArray: Coins[]): RowData[] {
 }
 
 //-------------------------------------------------------------------------------------//
-const updateColHeaders = () => {
+function updateColHeaders() {
   if (!colDefs.value || colDefs.value.length < 3) return;
-  colDefs.value[0].headerName = window.innerWidth > 768 ? "Rank" : "R";
-  colDefs.value[2].width = window.innerWidth > 768 ? 200 : 170;
-};
+  // colDefs.value[0].headerName = window.innerWidth > 768 ? "Rank" : "R";
+  if (!gridApi.value) return;
+
+  const isMobile = window.innerWidth < 768;
+
+  // Update header name separately
+  const rankCol = gridApi.value.getColumn("rank");
+  if (rankCol) {
+    rankCol.getColDef().headerName = isMobile ? "R" : "Rank";
+  }
+
+  gridApi.value.applyColumnState({
+    state: [
+      { colId: "rank", pinned: isMobile ? null : "left" },
+      { colId: "id", pinned: isMobile ? null : "left" },
+      { colId: "img", pinned: isMobile ? null : "left" },
+      { colId: "name", pinned: "left" },
+    ],
+  });
+}
 
 //-------------------------------------------------------------------------------------//
 onMounted(async () => {
-  // socketStore.send({ type: "get-coins" });
   updateColHeaders();
   window.addEventListener("resize", updateColHeaders);
 
