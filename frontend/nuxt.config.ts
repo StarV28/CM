@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     exclude: ["/auth/**", "/account"],
   },
   plugins: [
-    "./plugins/seo-i18n.server.ts",
+    "./plugins/seo-i18n.ts",
     "./plugins/Vue3Marquee.client.ts",
     "./plugins/ws.client.ts",
     "./plugins/apexcharts.client.ts",

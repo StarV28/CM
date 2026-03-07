@@ -34,6 +34,8 @@
 </template>
 
 <script setup lang="ts">
+const { $seoHead } = useNuxtApp();
+($seoHead as () => void)();
 const { t } = useI18n();
 </script>
 

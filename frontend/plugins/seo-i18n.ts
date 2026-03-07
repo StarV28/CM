@@ -1,4 +1,9 @@
-import { defineNuxtPlugin, useHead, useRuntimeConfig } from "#imports";
+import {
+  defineNuxtPlugin,
+  useHead,
+  useRuntimeConfig,
+  useRoute,
+} from "#imports";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig();
@@ -6,36 +11,28 @@ export default defineNuxtPlugin((nuxtApp) => {
   const locales = ["en", "de", "ua", "tr", "hi"];
   const defaultLocale = "en";
 
-  nuxtApp.hook("app:rendered", ({ ssrContext }) => {
-    // Получаем путь запроса на сервере
-    const rawUrl = ssrContext?.event?.req?.url || "/";
+  nuxtApp.provide("$seoHead", () => {
+    const route = useRoute();
+    const path =
+      route.path.endsWith("/") && route.path !== "/"
+        ? route.path.slice(0, -1)
+        : route.path;
 
-    // Нормализуем путь (убираем слэш в конце, если есть)
-    const normalizedRoute =
-      rawUrl !== "/" && rawUrl.endsWith("/") ? rawUrl.slice(0, -1) : rawUrl;
-
-    // Определяем текущий язык
     let currentLang = defaultLocale;
     for (const l of locales) {
-      if (normalizedRoute === `/${l}` || normalizedRoute.startsWith(`/${l}/`)) {
-        currentLang = l;
-        break;
-      }
+      if (path === `/${l}` || path.startsWith(`/${l}/`)) currentLang = l;
     }
 
-    // Путь без префикса языка
     const pathWithoutLang =
       currentLang === defaultLocale
-        ? normalizedRoute
-        : normalizedRoute.replace(`/${currentLang}`, "");
+        ? path
+        : path.replace(`/${currentLang}`, "");
 
-    // Формируем canonical с учётом языка
     const canonicalHref =
       currentLang === defaultLocale
         ? `${baseUrl}${pathWithoutLang}`
         : `${baseUrl}/${currentLang}${pathWithoutLang}`;
 
-    // Формируем hreflang ссылки
     const alternateLinks = locales.map((l) => {
       const href =
         l === defaultLocale
@@ -44,14 +41,12 @@ export default defineNuxtPlugin((nuxtApp) => {
       return { rel: "alternate", hreflang: l, href };
     });
 
-    // x-default ссылка для всех остальных
     alternateLinks.push({
       rel: "alternate",
       hreflang: "x-default",
       href: `${baseUrl}${pathWithoutLang}`,
     });
 
-    // Устанавливаем head
     useHead({
       link: [{ rel: "canonical", href: canonicalHref }, ...alternateLinks],
     });
