@@ -18,10 +18,10 @@
 //   ),
 // };
 
-export default {
-  siteUrl: "https://cmcoins.wpslab.app",
+// export default {
+//   siteUrl: "https://cmcoins.wpslab.app",
 
-  gzip: true,
+//   gzip: true,
 
-  exclude: ["/auth/**", "/account"],
-};
+//   exclude: ["/auth/**", "/account"],
+// };

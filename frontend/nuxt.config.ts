@@ -1,18 +1,26 @@
 import svgLoader from "vite-svg-loader";
-import sitemapConfig from "./sitemap.config";
+// import sitemapConfig from "./sitemap.config";
 
 //---------------------------------------//
 
 export default defineNuxtConfig({
   ssr: true,
+  site: {
+    url: "https://cmcoins.wpslab.app",
+  },
   modules: [
     "@nuxt/eslint",
     "@nuxt/image",
-    ["@nuxtjs/sitemap", sitemapConfig],
+    // ["@nuxtjs/sitemap", sitemapConfig],
+    "@nuxtjs/sitemap",
     "@nuxtjs/i18n",
     "@pinia/nuxt",
   ],
+  sitemap: {
+    exclude: ["/auth/**", "/account"],
+  },
   plugins: [
+    "./plugins/seo-i18n.client.ts",
     "./plugins/Vue3Marquee.client.ts",
     "./plugins/ws.client.ts",
     "./plugins/apexcharts.client.ts",
@@ -22,9 +30,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Crypto Monitoring",
-      htmlAttrs: {
-        lang: "en",
-      },
+      // htmlAttrs: {
+      //   lang: "en",
+      // },
       meta: [
         {
           name: "viewport",
@@ -69,12 +77,10 @@ export default defineNuxtConfig({
   //---Language i18n---------------------------------------------------------------------------------//
 
   i18n: {
+    baseUrl: "https://cmcoins.wpslab.app",
     langDir: "locales/",
     strategy: "prefix_except_default",
     defaultLocale: "en",
-
-    baseUrl: "https://cmcoins.wpslab.app",
-
     locales: [
       { code: "en", name: "English", file: "en.json", flag: "🇬🇧" },
       { code: "de", name: "Deutsch", file: "de.json", flag: "🇩🇪" },
