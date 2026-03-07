@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     exclude: ["/auth/**", "/account"],
   },
   plugins: [
-    "./plugins/seo-i18n.ts",
+    "./plugins/seo-i18n.server.ts",
     "./plugins/Vue3Marquee.client.ts",
     "./plugins/ws.client.ts",
     "./plugins/apexcharts.client.ts",
@@ -59,6 +59,7 @@ export default defineNuxtConfig({
       apiUrl: process.env.NUXT_PUBLIC_BECK_URL_API,
       wsUrl: process.env.NUXT_PUBLIC_BECK_URL_WS,
       binance_ref: process.env.NUXT_PUBLIC_BINANCE_REF,
+      siteUrl: "https://cmcoins.wpslab.app",
     },
   },
   typescript: {
