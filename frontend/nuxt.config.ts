@@ -72,6 +72,9 @@ export default defineNuxtConfig({
     langDir: "locales/",
     strategy: "prefix_except_default",
     defaultLocale: "en",
+
+    baseUrl: "https://cmcoins.wpslab.app",
+
     locales: [
       { code: "en", name: "English", file: "en.json", flag: "🇬🇧" },
       { code: "de", name: "Deutsch", file: "de.json", flag: "🇩🇪" },
@@ -83,6 +86,7 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: "lang",
       redirectOn: "root",
+      alwaysRedirect: false,
     },
   },
   nitro: {},
