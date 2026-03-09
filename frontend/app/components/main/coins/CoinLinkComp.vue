@@ -1,9 +1,9 @@
 <template>
-  <NuxtLink v-if="coinLink" class="link" :to="coinLink" style="cursor: pointer">
+  <NuxtLink v-if="coinLink" class="link" :to="coinLink">
     {{ label }}
   </NuxtLink>
 
-  <span v-else class="link">
+  <span v-else class="link__label">
     {{ label }}
   </span>
 </template>
@@ -39,12 +39,4 @@ const coinLink = computed(() => {
 });
 </script>
 
-<style scoped lang="scss">
-.link {
-  font-weight: 500;
-  line-height: 1.1;
-  color: var(--text-color);
-  text-decoration: none;
-  cursor: pointer;
-}
-</style>
+<style scoped lang="scss"></style>

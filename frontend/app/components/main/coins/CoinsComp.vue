@@ -42,8 +42,10 @@
         :row-data="rowData"
         :column-defs="colDefs"
         :components="component"
+        :row-buffer="5"
+        :suppress-column-virtualisation="true"
+        :suppress-row-transform="true"
         style="height: 700px"
-        :context="{ vueComponent: true }"
         @grid-ready="onGridReady"
       />
     </client-only>
@@ -56,6 +58,7 @@ import { useCoinsStore } from "@/stores/coinsStore";
 import { useSocketStore } from "@/stores/socketStore";
 import { useFavoriteStore } from "@/stores/favoriteStore";
 import { formatNumber } from "@/utils/formatNumber";
+import { useAuthStore } from "@/stores/authStore";
 import FavoriteCoinComp from "@/components/main/coins/FavoriteCoinComp.vue";
 import CoinLink from "@/components/main/coins/CoinLinkComp.vue";
 import TradButtonComp from "@/components/main/coins/TradButtonComp.vue";
@@ -75,6 +78,7 @@ import QrcodeComp from "../../donat/QrcodeComp.vue";
 const coinsStore = useCoinsStore();
 const socketStore = useSocketStore();
 const favoriteStore = useFavoriteStore();
+const authStore = useAuthStore();
 const coins = ref<Coins[]>([]);
 
 const rowData = ref<RowData[]>();
@@ -176,25 +180,24 @@ watch(
 colDefs.value = [
   {
     field: "rank",
+    colId: "rank",
     headerName: "Rank",
     width: 80,
-    pinned: "left",
-    cellStyle: { border: "none", padding: "0, 3", textAlign: "center" },
+    cellStyle: { border: "none", padding: "0", textAlign: "center" },
   },
   {
     field: "id",
+    colId: "id",
     headerName: "Choice",
-    width: 80,
-    pinned: "left",
-    cellStyle: { border: "none", padding: "0, 3", textAlign: "center" },
+    cellStyle: { border: "none", padding: "0", textAlign: "center" },
     cellRenderer: "favoriteCoin",
   },
   {
     field: "img",
+    colId: "img",
     headerName: "Logo",
     width: 70,
     suppressSizeToFit: true,
-    pinned: "left",
     cellRenderer: (p: ICellRendererParams) =>
       `<div style="display:flex;justify-content:center;align-items:center;height:100%;">
          <img src="${p.value}" width="24" height="24" style="border-radius:50%;" />
@@ -202,27 +205,26 @@ colDefs.value = [
   },
   {
     field: "name",
+    colId: "name",
     headerName: "Name",
-    width: 200,
-    minWidth: 150,
+    width: 170,
     suppressSizeToFit: true,
-    pinned: "left",
+    cellClass: "coin-link-cell",
     cellRenderer: CoinLink ?? null,
   },
   {
     headerName: "Trade",
     colId: "trade",
     width: 190,
-    pinned: "right",
     cellClass: "trade-cell-ag",
     cellRenderer: "tradButton",
     valueGetter: () => null,
   },
   {
     field: "price",
+    colId: "price",
     headerName: "Price",
-    width: 120,
-    maxWidth: 200,
+    width: 170,
     suppressSizeToFit: true,
     cellRenderer: (params: ValueFormatterParams) => {
       const price = params.value;
@@ -251,6 +253,7 @@ colDefs.value = [
   },
   {
     field: "price_change_24",
+    colId: "price_change_24",
     headerName: "24h Change",
     width: 120,
     cellStyle: (params: ValueFormatterParams) => {
@@ -261,6 +264,7 @@ colDefs.value = [
   },
   {
     field: "price_change_7d",
+    colId: "price_change_7d",
     headerName: "7d Change",
     width: 120,
     cellStyle: (params: ValueFormatterParams) => {
@@ -271,6 +275,7 @@ colDefs.value = [
   },
   {
     field: "percent_change_30d",
+    colId: "percent_change_30d",
     headerName: "30d %",
     width: 110,
     cellStyle: (p: ValueFormatterParams) =>
@@ -279,12 +284,14 @@ colDefs.value = [
 
   {
     field: "value_24",
+    colId: "value_24",
     headerName: "24h Volume",
     width: 120,
     valueFormatter: (p: ValueFormatterParams) => `$ ${formatNumber(p.value)}`,
   },
   {
     field: "volume_change_24h",
+    colId: "volume_change_24h",
     headerName: "Vol 24h %",
     width: 130,
     suppressSizeToFit: true,
@@ -295,13 +302,17 @@ colDefs.value = [
   },
   {
     field: "market_cap",
+    colId: "market_cap",
     headerName: "Market Cap",
+    width: 140,
     suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) => `$ ${formatNumber(p.value)}`,
   },
   {
     field: "high24h",
+    colId: "high24h",
     headerName: "High 24h",
+    width: 140,
     suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? `$ ${formatNumber(p.value)}` : "-",
@@ -309,14 +320,18 @@ colDefs.value = [
 
   {
     field: "low24h",
+    colId: "low24h",
     headerName: "Low 24h",
+    width: 140,
     suppressSizeToFit: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? `$ ${formatNumber(p.value)}` : "-",
   },
   {
     field: "total_supply",
+    colId: "total_supply",
     headerName: "Total Supply",
+    width: 140,
     // hide: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? formatNumber(p.value) : "-",
@@ -324,7 +339,9 @@ colDefs.value = [
 
   {
     field: "max_supply",
+    colId: "max_supply",
     headerName: "Max Supply",
+    width: 140,
     // hide: true,
     valueFormatter: (p: ValueFormatterParams) =>
       p.value ? formatNumber(p.value) : "-",
@@ -377,23 +394,61 @@ function mapCoinsToRowData(coinsArray: Coins[]): RowData[] {
 //-------------------------------------------------------------------------------------//
 function updateColHeaders() {
   if (!colDefs.value || colDefs.value.length < 3) return;
-  // colDefs.value[0].headerName = window.innerWidth > 768 ? "Rank" : "R";
   if (!gridApi.value) return;
 
   const isMobile = window.innerWidth < 768;
 
-  // Update header name separately
-  const rankCol = gridApi.value.getColumn("rank");
-  if (rankCol) {
-    rankCol.getColDef().headerName = isMobile ? "R" : "Rank";
+  if (isMobile) {
+    gridApi.value.applyColumnState({
+      state: [
+        { colId: "id", pinned: "left" },
+        { colId: "name", pinned: "left" },
+        { colId: "price" },
+        { colId: "img" },
+        { colId: "rank" },
+        { colId: "value_24" },
+        { colId: "volume_change_24h" },
+        { colId: "price_change_24" },
+        { colId: "price_change_7d" },
+        { colId: "percent_change_30d" },
+        { colId: "market_cap" },
+        { colId: "high24h" },
+        { colId: "low24h" },
+        { colId: "total_supply" },
+        { colId: "max_supply" },
+        { colId: "trade" },
+      ],
+      applyOrder: true,
+    });
+  } else {
+    gridApi.value.applyColumnState({
+      state: [
+        { colId: "rank", pinned: "left" },
+        { colId: "img", pinned: "left" },
+        { colId: "name", pinned: "left" },
+        { colId: "id", pinned: "left" },
+        { colId: "price" },
+        { colId: "value_24" },
+        { colId: "volume_change_24h" },
+        { colId: "price_change_24" },
+        { colId: "price_change_7d" },
+        { colId: "percent_change_30d" },
+        { colId: "market_cap" },
+        { colId: "high24h" },
+        { colId: "low24h" },
+        { colId: "total_supply" },
+        { colId: "max_supply" },
+        { colId: "trade", pinned: "right" },
+      ],
+      applyOrder: true,
+    });
   }
 
+  // update header width name
   gridApi.value.applyColumnState({
     state: [
-      { colId: "rank", pinned: isMobile ? null : "left" },
-      { colId: "id", pinned: isMobile ? null : "left" },
-      { colId: "img", pinned: isMobile ? null : "left" },
-      { colId: "name", pinned: "left" },
+      { colId: "name", width: isMobile ? 130 : 170 },
+      { colId: "id", width: isMobile ? 40 : 80 },
     ],
   });
 }
@@ -411,6 +466,8 @@ onMounted(async () => {
     }
     await loadCoins(50);
     socketStore.connect();
+  } else {
+    authStore.logout();
   }
 });
 onBeforeUnmount(() => {
@@ -432,6 +489,7 @@ onBeforeUnmount(() => {
   border-bottom: 1px solid var(--accent-color);
   padding: 20px 0;
 }
+
 .coins__top-btn {
   display: inline-flex;
   align-items: center;
@@ -467,6 +525,27 @@ onBeforeUnmount(() => {
     font-size: 12px;
     font-family: "Montserrat", sans-serif;
     font-weight: 200;
+  }
+}
+.colDef__name {
+  color: red;
+}
+.ag-body-viewport {
+  -webkit-overflow-scrolling: touch;
+}
+:deep(.coin-link-cell a) {
+  color: var(--fan-color);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+:deep(.trade-cell-ag) a {
+  color: var(--fan-color);
+  text-decoration: none;
+  font-size: 12px;
+  &:hover {
+    text-decoration: underline;
   }
 }
 @media (max-width: 510px) {

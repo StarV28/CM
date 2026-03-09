@@ -60,7 +60,7 @@ export const useAuthStore = defineStore("authStore", () => {
         Authorization: `Bearer ${tokenCookie.value}`,
       },
     });
-    favoriteStore.favoriteArr = data.favorites;
+    favoriteStore.favoriteArr = data.favorites ?? [];
     userCookie.value = data.user;
   };
   //-------------------------------------------------------------------------------------//
@@ -79,7 +79,7 @@ export const useAuthStore = defineStore("authStore", () => {
 
       if (!result) throw new Error("No response from API");
 
-      favoriteStore.favoriteArr = result.favorites;
+      favoriteStore.favoriteArr = result.favorites ?? [];
 
       tokenCookie.value = result.token;
       userCookie.value = result.user;
@@ -112,7 +112,7 @@ export const useAuthStore = defineStore("authStore", () => {
       userCookie.value = result.user;
       tokenCookie.value = result.token;
 
-      favoriteStore.favoriteArr = result.favorites;
+      favoriteStore.favoriteArr = result.favorites ?? [];
     } catch (err) {
       error.value = (err as Error)?.message;
       return null;
@@ -164,7 +164,7 @@ export const useAuthStore = defineStore("authStore", () => {
 
       tokenCookie.value = res?.token ?? null;
 
-      favoriteStore.favoriteArr = res?.favorites;
+      favoriteStore.favoriteArr = res?.favorites ?? [];
 
       return res;
     } catch (err) {
@@ -178,7 +178,7 @@ export const useAuthStore = defineStore("authStore", () => {
   const logout = () => {
     userCookie.value = null;
     tokenCookie.value = null;
-    favoriteStore.favoriteArr = null;
+    favoriteStore.favoriteArr = [];
   };
   //-------------------------------------------------------------------------------------//
 
