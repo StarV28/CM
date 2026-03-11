@@ -4,6 +4,7 @@ const locales = ["en", "de", "ua", "tr", "hi"];
 export default {
   exclude: ["/auth/**", "/account"],
   i18n: true,
+  gzip: true,
   async urls() {
     const res = await fetch(
       "https://cmcoins.wpslab.app/api/v1/coins?limit=100",
@@ -17,7 +18,8 @@ export default {
         const prefix = loc === "en" ? "" : `/${loc}`;
 
         urls.push({
-          loc: `${prefix}/coins/${coin.name.toLowerCase().replace(/\s+/g, "-")}`,
+          // loc: `${prefix}/coins/${coin.name.toLowerCase().replace(/\s+/g, "-")}`,
+          loc: `${prefix}/coins/${coin.id}`,
         });
       }
     }
