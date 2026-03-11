@@ -1,21 +1,21 @@
 {
   "seo": {
-    "title": "Kripto İzleme — Canlı Fiyatlar, Grafikler, Haberler",
-    "description": "Canlı kripto para fiyatları, dinamik grafikler, ilk 50 coin sıralamaları ve çok dilli haberler.",
-    "ogTitle": "Kripto İzleme — Canlı Fiyatlar & Grafikler",
-    "ogDescription": "Gerçek zamanlı kripto fiyatları, grafikler, haberler ve analizler.",
-    "bottomText1": "Canlı kripto para fiyatları, grafikler ve en iyi coinleri takip edin. Detaylı piyasa analizleri ve haberlerimizi keşfedin.",
-    "bottomText2": "Platformumuz birden fazla dili, canlı grafikler ve en iyi 50 coin sıralamasını destekler. Yatırımcılar ve kripto meraklıları için idealdir.",
-    "topCoins": "En İyi 50 Coin",
-    "charts": "Grafikler",
-    "news": "Haberler",
-    "coinTitle": "{name} — Canlı Fiyat, Grafikler & Bilgi",
-    "coinDescription": "{name} için gerçek zamanlı fiyat, piyasa değeri ve ticaret verilerini alın. En son istatistiklerle güncellenir."
+    "title": "Canlı Kripto Para Fiyatları, Grafikler ve Piyasa Değeri — Crypto Monitoring",
+    "description": "Bitcoin ve Ethereum dahil canlı kripto para fiyatlarını takip edin. Gerçek zamanlı grafikler, piyasa değeri, işlem hacmi ve kripto piyasası trendlerini görüntüleyin.",
+    "ogTitle": "Canlı Kripto Fiyatları — Bitcoin, Ethereum ve En İyi Coinler",
+    "ogDescription": "Gerçek zamanlı kripto para fiyatları, grafikler, piyasa değeri ve kripto haberleri.",
+    "bottomText1": "Kripto para piyasasını canlı fiyatlar, gerçek zamanlı grafikler ve piyasa değeri verileri ile takip edin. Bitcoin, Ethereum ve diğer önde gelen dijital varlıkları izleyin.",
+    "bottomText2": "Platformumuz çoklu dil desteği, canlı kripto grafikler ve en iyi coin sıralamaları sunarak yatırımcıların kripto piyasasındaki gelişmeleri takip etmesine yardımcı olur.",
+    "topCoins": "En İyi 50 Kripto Para",
+    "charts": "Kripto Grafikler",
+    "news": "Kripto Haberleri",
+    "coinTitle": "{name} Fiyatı Canlı — Grafik, Piyasa Değeri ve İşlem Verileri",
+    "coinDescription": "{name} için canlı fiyatı, piyasa değerini, işlem hacmini ve fiyat grafiklerini görüntüleyin. Gerçek zamanlı kripto para piyasa verileri."
   },
   "seoText": {
-    "heading": "Canlı Kripto Para Piyasası Genel Bakışı",
-    "paragraph1": "Canlı kripto para fiyatları, dinamik döviz kurları grafiklerini ve ilk 50 coin sıralamalarını takip edin. Platformumuz büyük kripto borsalarından anlık güncellemeler, detaylı piyasa analizleri ve çok dilli haberler sunar.",
-    "paragraph2": "Bitcoin, Ethereum ve diğer önde gelen kripto paraları canlı grafikler, piyasa içgörüleri ve güncel haberlerle keşfedin. Yatırımcılar, traderlar ve kripto meraklıları için idealdir."
+    "heading": "Canlı Kripto Para Fiyatları ve Piyasa Genel Bakış",
+    "paragraph1": "Bitcoin, Ethereum ve diğer popüler coinler dahil canlı kripto para fiyatlarını takip edin. Platformumuz gerçek zamanlı kripto grafikler, piyasa değeri sıralamaları ve işlem hacmi verileri sunar.",
+    "paragraph2": "Canlı fiyat grafikleri, en iyi 50 kripto para ve güncel blockchain haberleri ile küresel kripto piyasasını keşfedin. Traderlar ve yatırımcılar için ideal."
   },
   "404": {
     "message": "Üzgünüz, aradığınız sayfa mevcut değil.",

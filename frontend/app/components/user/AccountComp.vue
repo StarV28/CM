@@ -2,7 +2,7 @@
   <LoadingComp v-if="authStore.loading" />
   <div v-else class="page-user">
     <div class="page-user__btn-back">
-      <NuxtLink to="/">{{ t("user.coin") }}</NuxtLink>
+      <NuxtLink :to="localePath('/')">{{ t("user.coin") }}</NuxtLink>
       <span>-></span>
       <span>{{ t("user.account") }}</span>
     </div>

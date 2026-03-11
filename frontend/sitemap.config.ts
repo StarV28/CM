@@ -1,27 +1,26 @@
-// const langs = ["en", "de", "ua", "tr", "hi"];
+const locales = ["en", "de", "ua", "tr", "hi"];
 
-// const pages = ["/", "/disclaimer", "/privacy"];
+//---------------------------------------//
+export default {
+  exclude: ["/auth/**", "/account"],
+  i18n: true,
+  async urls() {
+    const res = await fetch(
+      "https://cmcoins.wpslab.app/api/v1/coins?limit=100",
+    );
+    const data = await res.json();
 
-// export default {
-//   hostname: "https://cmcoins.wpslab.app",
-//   gzip: true,
-//   routes: langs.flatMap((lang) =>
-//     pages.map((p) => ({
-//       url: `/${lang}${p === "/" ? "" : p}`,
-//       links: Object.fromEntries(
-//         langs.map((l) => [
-//           l,
-//           `https://cmcoins.wpslab.app/${l}${p === "/" ? "" : p}`,
-//         ]),
-//       ),
-//     })),
-//   ),
-// };
+    const urls = [];
 
-// export default {
-//   siteUrl: "https://cmcoins.wpslab.app",
+    for (const coin of data.result) {
+      for (const loc of locales) {
+        const prefix = loc === "en" ? "" : `/${loc}`;
 
-//   gzip: true,
-
-//   exclude: ["/auth/**", "/account"],
-// };
+        urls.push({
+          loc: `${prefix}/coins/${coin.name.toLowerCase().replace(/\s+/g, "-")}`,
+        });
+      }
+    }
+    return urls;
+  },
+};

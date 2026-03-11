@@ -1,5 +1,5 @@
 import svgLoader from "vite-svg-loader";
-// import sitemapConfig from "./sitemap.config";
+import sitemapConfig from "./sitemap.config";
 
 //---------------------------------------//
 
@@ -11,14 +11,14 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/eslint",
     "@nuxt/image",
-    // ["@nuxtjs/sitemap", sitemapConfig],
+    ["@nuxtjs/sitemap", sitemapConfig],
     "@nuxtjs/sitemap",
     "@nuxtjs/i18n",
     "@pinia/nuxt",
   ],
-  sitemap: {
-    exclude: ["/auth/**", "/account"],
-  },
+  // sitemap: {
+  //   exclude: ["/auth/**", "/account"],
+  // },
   plugins: [
     "./plugins/Vue3Marquee.client.ts",
     "./plugins/ws.client.ts",

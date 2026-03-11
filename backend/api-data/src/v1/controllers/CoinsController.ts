@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express";
-import CoinsMode from "../external/coins/CoinsModel.js";
 import ItemDBService from "../modules/CRUD.js";
 import TranslatorService from "../modules/translatorService.js";
 import type { CoinDescRow, Locale } from "../modules/types/coin.js";
 import { createDescCoin } from "../tables/descCoin-table.js";
 import getPool from "../../../db/connect_MySQL.js";
+import CoinsModel from "../external/coins/CoinsModel.js";
 
 //-------------------------------------------------------------------------------------//
 
@@ -25,7 +25,7 @@ class CoinsController {
             .filter(Number.isFinite)
         : [];
 
-      const result = await CoinsMode.getCoinsTop(limit, favoriteIds);
+      const result = await CoinsModel.getCoinsTop(limit, favoriteIds);
       return res.json({ result });
     } catch (err) {
       console.error("Error fetching top coins:", err);
@@ -39,7 +39,9 @@ class CoinsController {
     next: NextFunction,
   ) {
     try {
-      const id = req.params.id;
+      const id = Array.isArray(req.params.id)
+        ? req.params.id[0]
+        : req.params.id;
       const coin = await ItemDBService.getByID("coins", "cmc_id", id);
       return res.status(200).json({ result: coin });
     } catch (err) {
@@ -80,7 +82,7 @@ class CoinsController {
 
       let originalEn = descRow.en;
       if (!originalEn) {
-        const result = await CoinsMode.getDescriptionCoin(id);
+        const result = await CoinsModel.getDescriptionCoin(id);
         originalEn = result?.description;
         const symbol = result?.symbol;
 
@@ -118,7 +120,7 @@ class CoinsController {
   private static async getDescription(id: number, locale: Locale) {
     try {
       const translator = new TranslatorService();
-      const result = await CoinsMode.getDescriptionCoin(id);
+      const result = await CoinsModel.getDescriptionCoin(id);
 
       let description = result?.description;
       if (description) {

@@ -28,7 +28,7 @@ const star = ref<HTMLElement | null>(null);
 
 const isFav = computed(() => {
   return favoriteStore.favoriteArr?.some(
-    (f) => f.coinId === props.params.value
+    (f) => f.coinId === props.params.value,
   );
 });
 //-------------------------------------------------------------------------------------//

@@ -3,12 +3,12 @@
   <div v-else>
     <div v-if="coin" class="coin">
       <section class="seo-text" style="opacity: 0; height: 0; overflow: hidden">
-        <h2>{{ t("seo.coinTitle") }}</h2>
-        <p>{{ t("seo.coinDescription") }}</p>
+        <h2>{{ t("seo.coinTitle", { name: coin.name }) }}</h2>
+        <p>{{ t("seo.coinDescription", { name: coin.name }) }}</p>
       </section>
 
       <div class="coin__back">
-        <nuxt-link to="/">{{ t("coin.back") }}</nuxt-link>
+        <nuxt-link :to="localePath('/')">{{ t("coin.back") }}</nuxt-link>
         <span> -> </span>
         <span>{{ coin.name }}</span>
       </div>
@@ -227,6 +227,7 @@ const id = String(route.params.id ?? "");
 const coin = ref<CoinWithDescription | null>();
 const formattedPrice = ref("");
 const { locale } = useSSRLocale();
+const localePath = useLocalePath();
 const descriptionTranslator = ref<string | null>(null);
 const { t } = useI18n();
 // const socketStore = useSocketStore();

@@ -5,8 +5,6 @@ const router: Router = express.Router();
 
 router.get("/", CoinsController.getTopCoinsController);
 
-// router.get("/all", CoinsController.getAllCoins);
-
 router.get("/:id", CoinsController.getCoinIdController);
 
 router.get("/:id/description", CoinsController.getDescriptionController);

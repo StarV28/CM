@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <NuxtLink to="/">
+    <NuxtLink :to="localePath('/')">
       <NuxtImg
         class="header__logo"
         src="/image/logo-CM.jpg"
@@ -94,7 +94,7 @@ const localeTitle = computed(() => {
 //-------------------------------------------------------------------------------------//
 onMounted(() => {
   const token = useCookie("token");
-  if (!token) return;
+  if (!token.value) return;
 
   const userData = useCookie("user").value;
   if (!userData) return;

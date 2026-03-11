@@ -90,7 +90,7 @@ const component = {
   tradButton: TradButtonComp,
 };
 const user = ref<User | null>(null);
-const favorites = ref<Favorite[] | null>(null);
+const favorites = ref<Favorite[] | null>([]);
 const activeLimit = ref<number | null>(50);
 const gridApi = ref<GridApi | null>(null);
 
@@ -106,6 +106,8 @@ async function loadCoins(limit: number | null) {
   user.value = useCookie<User | null>("user").value;
   if (user.value) {
     favorites.value = favoriteStore.favoriteArr ?? null;
+  } else {
+    favorites.value = null;
   }
 
   coins.value = (await coinsStore.getCoinsApi(limit, favorites.value)) || [];
@@ -155,7 +157,11 @@ watch(
 
 //-------------------------------------------------------------------------------------//
 function sortByFavorites(rows: RowData[]): RowData[] {
+  if (!user.value || !favorites.value?.length) {
+    return [...rows].sort((a, b) => a.rank - b.rank);
+  }
   const favIds = new Set(favoriteStore.favoriteArr?.map((f) => f.coinId));
+
   return [...rows].sort((a, b) => {
     const aFav = favIds.has(a.id);
     const bFav = favIds.has(b.id);
@@ -459,7 +465,7 @@ onMounted(async () => {
   window.addEventListener("resize", updateColHeaders);
 
   const tokenCookie = useCookie("token");
-  if (tokenCookie) {
+  if (tokenCookie.value) {
     const userData = useCookie("user").value;
     if (userData) {
       await favoriteStore.getListFavorite();
@@ -468,6 +474,8 @@ onMounted(async () => {
     socketStore.connect();
   } else {
     authStore.logout();
+    await loadCoins(50);
+    socketStore.connect();
   }
 });
 onBeforeUnmount(() => {

@@ -35,10 +35,11 @@
 </template>
 
 <script setup lang="ts">
-import { useSeoI18n } from "../composables/useSeoI18n";
+// import { useSeoI18n } from "../composables/useSeoI18n";
+
 //---------------------------------------//
 const loading = ref(true);
-useSeoI18n();
+// useSeoI18n();
 const { t } = useI18n();
 //---------------------------------------//
 onMounted(() => {

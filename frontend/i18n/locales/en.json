@@ -1,21 +1,21 @@
 {
   "seo": {
-    "title": "Crypto Monitoring — Live Prices, Charts, News (Realtime)",
-    "description": "Live cryptocurrency prices, dynamic charts, top 50 coins updates, running exchange rates line, multilingual crypto news and more.",
-    "ogTitle": "Crypto Monitoring — Live Prices & Charts",
-    "ogDescription": "Real-time crypto prices, charts, news and analytics.",
-    "bottomText1": "Stay updated with live cryptocurrency prices, charts, and top coins. Explore our detailed market analytics and news.",
-    "bottomText2": "Our platform supports multiple languages, live charts, and top 50 coins ranking. Perfect for traders and crypto enthusiasts.",
+    "title": "Live Cryptocurrency Prices, Charts & Market Cap — Crypto Monitoring",
+    "description": "Track live cryptocurrency prices including Bitcoin, Ethereum and top crypto coins. View real-time charts, market cap, trading volume and latest crypto market trends.",
+    "ogTitle": "Live Crypto Prices, Charts & Market Data — Crypto Monitoring",
+    "ogDescription": "Real-time cryptocurrency prices, Bitcoin and Ethereum charts, market cap, trading volume and latest crypto news.",
+    "bottomText1": "Monitor the cryptocurrency market with live prices, real-time charts and detailed market cap data. Track Bitcoin, Ethereum and other leading digital assets instantly.",
+    "bottomText2": "Our platform supports multiple languages, live crypto charts and top coin rankings, helping traders and investors stay informed about the latest cryptocurrency trends.",
     "topCoins": "Top 50 Coins",
     "charts": "Charts",
     "news": "News",
-    "coinTitle": "{name} — Live Price, Charts & Info",
-    "coinDescription": "Get real-time price, market cap, and trading data for {name}. Updated with latest stats."
+    "coinTitle": "{name} Price Live — Charts, Market Cap & Trading Data",
+    "coinDescription": "Check the live {name} price, market cap, trading volume and price charts. Real-time cryptocurrency market data and analytics."
   },
   "seoText": {
-    "heading": "Live Cryptocurrency Market Overview",
-    "paragraph1": "Stay updated with real-time cryptocurrency prices, dynamic exchange rate charts, and top 50 coin rankings. Our platform provides instant updates from major crypto exchanges, detailed market analytics, and multilingual news to help you track the latest trends.",
-    "paragraph2": "Explore Bitcoin, Ethereum, and other leading cryptocurrencies with live charts, market insights, and up-to-date news. Perfect for traders, investors, and crypto enthusiasts seeking accurate, real-time data."
+    "heading": "Live Cryptocurrency Prices and Market Overview",
+    "paragraph1": "Track live cryptocurrency prices including Bitcoin, Ethereum and other top coins. Our platform provides real-time crypto charts, market cap rankings, trading volume data and instant updates from major cryptocurrency exchanges.",
+    "paragraph2": "Explore the global crypto market with live price charts, top 50 cryptocurrencies and the latest blockchain news. Perfect for traders, investors and anyone interested in real-time digital asset analytics."
   },
   "404": {
     "message": "Sorry, the page you are looking for doesn't exist.",
