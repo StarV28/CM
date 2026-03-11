@@ -18,7 +18,8 @@ export default {
         const prefix = loc === "en" ? "" : `/${loc}`;
 
         urls.push({
-          loc: `${prefix}/coins/${coin.name.toLowerCase().replace(/\s+/g, "-")}`,
+          // loc: `${prefix}/coin/${coin.name.toLowerCase().replace(/\s+/g, "-")}`,
+          loc: `${prefix}/coin/${coin.id}`,
         });
       }
     }

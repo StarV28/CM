@@ -232,7 +232,7 @@ const descriptionTranslator = ref<string | null>(null);
 const { t } = useI18n();
 // const socketStore = useSocketStore();
 const loading = computed(() => coinsStore.loading);
-
+console.log("rout---------", route.params);
 //-------------------------------------------------------------------------------------//
 coin.value = await coinsStore.getCoinId(id);
 const res: unknown = await coinsStore.getDescriptionCoinId(id);
