@@ -109,7 +109,6 @@ async function loadCoins(limit: number | null) {
   } else {
     favorites.value = null;
   }
-
   coins.value = (await coinsStore.getCoinsApi(limit, favorites.value)) || [];
   rowData.value = sortByFavorites(mapCoinsToRowData(coins.value));
 }

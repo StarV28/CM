@@ -1,6 +1,14 @@
 const locales = ["en", "de", "ua", "tr", "hi"];
 
 //---------------------------------------//
+function slugify(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+//---------------------------------------//
 export default {
   exclude: ["/auth/**", "/account"],
   i18n: true,
@@ -18,8 +26,7 @@ export default {
         const prefix = loc === "en" ? "" : `/${loc}`;
 
         urls.push({
-          // loc: `${prefix}/coin/${coin.name.toLowerCase().replace(/\s+/g, "-")}`,
-          loc: `${prefix}/coin/${coin.id}`,
+          loc: `${prefix}/coin/${coin.id}-${slugify(coin.name)}`,
         });
       }
     }

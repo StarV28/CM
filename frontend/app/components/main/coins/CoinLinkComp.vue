@@ -26,6 +26,13 @@ const label = computed(() => {
   return `${d.name} (${String(d.symbol).toUpperCase()})`;
 });
 
+function slugify(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 const coinLink = computed(() => {
   const d = data.value;
   const loc = locale.value;
@@ -34,7 +41,7 @@ const coinLink = computed(() => {
 
   return {
     name: `coin-id___${loc}`,
-    params: { id: d.id },
+    params: { id: `${d.id}-${slugify(d.name)}` },
   };
 });
 </script>

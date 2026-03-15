@@ -223,7 +223,7 @@ import { buildTradeUrl } from "../../../utils/buildLinksEx.helper";
 
 const coinsStore = useCoinsStore();
 const route = useRoute();
-const id = String(route.params.id ?? "");
+const id = String(route.params.id).split("-")[0] ?? "";
 const coin = ref<CoinWithDescription | null>();
 const formattedPrice = ref("");
 const { locale } = useSSRLocale();
@@ -232,7 +232,6 @@ const descriptionTranslator = ref<string | null>(null);
 const { t } = useI18n();
 // const socketStore = useSocketStore();
 const loading = computed(() => coinsStore.loading);
-console.log("rout---------", route.params);
 //-------------------------------------------------------------------------------------//
 coin.value = await coinsStore.getCoinId(id);
 const res: unknown = await coinsStore.getDescriptionCoinId(id);
