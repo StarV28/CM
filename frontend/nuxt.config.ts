@@ -55,8 +55,9 @@ export default defineNuxtConfig({
   css: ["./app/assets/main.scss", "./app/assets/fonts.scss"],
   runtimeConfig: {
     public: {
-      apiUrl: process.env.NUXT_PUBLIC_BECK_URL_API,
-      wsUrl: process.env.NUXT_PUBLIC_BECK_URL_WS,
+      apiUrl:
+        process.env.NUXT_PUBLIC_BECK_URL_API || "https://wpslab.app/api/v1",
+      wsUrl: process.env.NUXT_PUBLIC_BECK_URL_WS || "https://wpslab.app/api/v1",
       binance_ref: process.env.NUXT_PUBLIC_BINANCE_REF,
       siteUrl: "https://wpslab.app",
     },
