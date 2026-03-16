@@ -14,9 +14,7 @@ export default {
   i18n: true,
   gzip: true,
   async urls() {
-    const res = await fetch(
-      "https://cmcoins.wpslab.app/api/v1/coins?limit=100",
-    );
+    const res = await fetch("https://wpslab.app/api/v1/coins?limit=100");
     const data = await res.json();
 
     const urls = [];

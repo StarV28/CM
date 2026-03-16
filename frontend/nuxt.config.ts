@@ -1,12 +1,14 @@
 import svgLoader from "vite-svg-loader";
 import sitemapConfig from "./sitemap.config";
 
+const baseURL = "https://wpslab.app";
+
 //---------------------------------------//
 
 export default defineNuxtConfig({
   ssr: true,
   site: {
-    url: "https://cmcoins.wpslab.app",
+    url: baseURL,
   },
   modules: [
     "@nuxt/eslint",
@@ -58,7 +60,7 @@ export default defineNuxtConfig({
       apiUrl: process.env.NUXT_PUBLIC_BECK_URL_API,
       wsUrl: process.env.NUXT_PUBLIC_BECK_URL_WS,
       binance_ref: process.env.NUXT_PUBLIC_BINANCE_REF,
-      siteUrl: "https://cmcoins.wpslab.app",
+      siteUrl: baseURL,
     },
   },
   typescript: {
@@ -77,7 +79,7 @@ export default defineNuxtConfig({
   //---Language i18n---------------------------------------------------------------------------------//
 
   i18n: {
-    baseUrl: "https://cmcoins.wpslab.app",
+    baseUrl: baseURL,
     langDir: "locales/",
     strategy: "prefix_except_default",
     defaultLocale: "en",
