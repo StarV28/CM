@@ -8,7 +8,7 @@ type JsonLdObject = {
   [key: string]: string | number | boolean | JsonLdObject | JsonLdObject[];
 };
 //---------------------------------------//
-const baseUrl = "https://cmcoins.wpslab.app";
+const baseUrl = "https://wpslab.app";
 //---------------------------------------//
 
 export function useSeo(
