@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="header__bottom">
+    <div v-if="IsMain" class="header__bottom">
       <section class="seo-text">
         <div class="seo-text__title">
           <h1>{{ t("seo.bottomText1") }}</h1>
@@ -68,7 +68,7 @@
 import { useSSRLocale } from "@/composables/useSSRLocale";
 import { icons } from "@/utils/icon";
 import type { User } from "../../../types/user";
-
+import { useRoute } from "vue-router";
 //-------------------------------------------------------------------------------------//
 type LocaleCode =
   | "en"
@@ -88,6 +88,9 @@ const { locale, setLang } = useSSRLocale();
 const localePath = useLocalePath();
 const user = ref<User | null>(null);
 const { t } = useI18n();
+const route = useRoute();
+//---------------------------------------//
+const IsMain = computed(() => route.path === "/");
 //--toggle land-----------------------------------------------------------------------------------//
 const toggleLang = () => {
   showLand.value = !showLand.value;
