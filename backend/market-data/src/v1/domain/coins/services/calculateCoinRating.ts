@@ -32,11 +32,11 @@ export async function calcCoinRating(trCoins: TradingCoins[]) {
       })
       .filter(
         (
-          c
+          c,
         ): c is TradingCoins & {
           market_cap: number;
           volume_24h: number;
-        } => c !== null && c.market_cap > 0 && c.volume_24h > 100_000
+        } => c !== null && c.market_cap > 0 && c.volume_24h > 100_000,
       );
 
     enriched.sort((a, b) => b.market_cap - a.market_cap);

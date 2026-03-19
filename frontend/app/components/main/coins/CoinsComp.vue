@@ -486,6 +486,7 @@ onBeforeUnmount(() => {
 .coins {
   margin-bottom: 20px;
 }
+
 .coins__head {
   width: 100%;
   display: flex;
@@ -566,6 +567,23 @@ onBeforeUnmount(() => {
   .btn {
     font-size: 12px;
     font-weight: 400;
+  }
+}
+@media (max-width: 520px) {
+  .seo-text {
+    h1 {
+      font-size: 10px;
+      font-weight: 400;
+    }
+    p {
+      font-size: 8px;
+    }
+    &__menu {
+      margin: 0;
+    }
+    &__link {
+      font-size: 8px;
+    }
   }
 }
 </style>

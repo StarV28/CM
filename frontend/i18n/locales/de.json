@@ -6,9 +6,9 @@
     "ogDescription": "Echtzeit-Kryptowährungspreise, Charts, Marktkapitalisierung und Handelsvolumen für Bitcoin, Ethereum und andere Top Coins.",
     "bottomText1": "Überwachen Sie den Kryptowährungsmarkt mit Live-Preisen, Echtzeit-Charts und detaillierten Marktkapitalisierungsdaten. Verfolgen Sie Bitcoin, Ethereum und andere führende digitale Assets.",
     "bottomText2": "Unsere Plattform unterstützt mehrere Sprachen, Live-Krypto-Charts und Rankings der wichtigsten Coins und hilft Tradern und Investoren, die neuesten Entwicklungen im Kryptomarkt zu verfolgen.",
-    "topCoins": "Top 50 Kryptowährungen",
-    "charts": "Krypto Charts",
-    "news": "Krypto News",
+    "topCoins": "Kryptowährungen",
+    "charts": "Charts",
+    "news": "News",
     "coinTitle": "{name} Preis Live — Charts, Marktkapitalisierung & Handelsdaten",
     "coinDescription": "Prüfen Sie den aktuellen {name} Preis, Marktkapitalisierung, Handelsvolumen und Kurscharts. Echtzeit-Kryptowährungsdaten und Marktanalysen."
   },

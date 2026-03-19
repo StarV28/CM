@@ -2,8 +2,8 @@
   <loading-comp v-if="loading" />
   <div v-else>
     <div v-if="coin" class="coin">
-      <section class="seo-text" style="opacity: 0; height: 0; overflow: hidden">
-        <h2>{{ t("seo.coinTitle", { name: coin.name }) }}</h2>
+      <section class="seo-text">
+        <h1>{{ t("seo.coinTitle", { name: coin.name }) }}</h1>
         <p>{{ t("seo.coinDescription", { name: coin.name }) }}</p>
       </section>
 
@@ -18,7 +18,7 @@
             <img :src="coin.logo" alt="Coin" />
           </div>
           <div class="main-coin__title-box">
-            <h1>{{ coin.name }}</h1>
+            <h2>{{ coin.name }}</h2>
             <h4>
               Rank: <span>{{ coin.rating }}</span>
             </h4>
@@ -348,6 +348,22 @@ h5 {
   width: 100%;
   flex: 1;
 }
+.seo-text {
+  h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    line-height: 1.1;
+    font-weight: 500;
+    color: var(--fan-color);
+  }
+  p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 200;
+    color: var(--fan-color);
+  }
+}
 .coin__back {
   padding: 15px 0 0 0;
   display: flex;
@@ -404,7 +420,7 @@ h5 {
   display: flex;
   gap: 5px;
   align-items: end;
-  h1 {
+  h2 {
     font-family: "Montserrat", sans-serif;
     font-size: 41px;
     font-weight: 700;
@@ -636,6 +652,15 @@ h5 {
   }
   h5 {
     font-size: 12px;
+  }
+  .seo-text {
+    h1 {
+      font-size: 16px;
+      font-weight: 400;
+    }
+    p {
+      font-size: 12px;
+    }
   }
   .coin {
     gap: 25px;

@@ -6,9 +6,9 @@
     "ogDescription": "Gerçek zamanlı kripto para fiyatları, grafikler, piyasa değeri ve kripto haberleri.",
     "bottomText1": "Kripto para piyasasını canlı fiyatlar, gerçek zamanlı grafikler ve piyasa değeri verileri ile takip edin. Bitcoin, Ethereum ve diğer önde gelen dijital varlıkları izleyin.",
     "bottomText2": "Platformumuz çoklu dil desteği, canlı kripto grafikler ve en iyi coin sıralamaları sunarak yatırımcıların kripto piyasasındaki gelişmeleri takip etmesine yardımcı olur.",
-    "topCoins": "En İyi 50 Kripto Para",
-    "charts": "Kripto Grafikler",
-    "news": "Kripto Haberleri",
+    "topCoins": "Madeni Paralar",
+    "charts": "Grafikler",
+    "news": "Haberleri",
     "coinTitle": "{name} Fiyatı Canlı — Grafik, Piyasa Değeri ve İşlem Verileri",
     "coinDescription": "{name} için canlı fiyatı, piyasa değerini, işlem hacmini ve fiyat grafiklerini görüntüleyin. Gerçek zamanlı kripto para piyasa verileri."
   },

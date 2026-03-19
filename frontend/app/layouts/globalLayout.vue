@@ -9,25 +9,6 @@
         <slot />
       </main>
       <footer>
-        <section
-          class="seo-text"
-          style="opacity: 0; height: 0; overflow: hidden"
-        >
-          <p>{{ t("seo.bottomText1") }}</p>
-          <ul>
-            <li>
-              <NuxtLink :to="`#coins`">{{ t("seo.topCoins") }}</NuxtLink>
-            </li>
-            <li>
-              <NuxtLink :to="`#charts`">{{ t("seo.charts") }}</NuxtLink>
-            </li>
-            <li>
-              <NuxtLink :to="`#news`">{{ t("seo.news") }}</NuxtLink>
-            </li>
-          </ul>
-          <p>{{ t("seo.bottomText2") }}</p>
-        </section>
-
         <footer-comp />
       </footer>
     </div>
@@ -40,7 +21,7 @@
 //---------------------------------------//
 const loading = ref(true);
 // useSeoI18n();
-const { t } = useI18n();
+// const { t } = useI18n();
 //---------------------------------------//
 onMounted(() => {
   loading.value = false;
