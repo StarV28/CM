@@ -70,7 +70,7 @@ export const googleAuthCallback = async (
 
     let user: User | null = await ItemDBService.findOne("users", userEmail);
 
-    const locale = req.query.state?.toString();
+    const locale = req.query.state?.toString() || "en";
 
     if (!user) {
       const created = await ItemDBService.create("users", {
@@ -94,9 +94,12 @@ export const googleAuthCallback = async (
 
     const token = prepareToken({ id: user.id, email: user.email });
 
-    return res.redirect(
-      `${config.url.frontend_url}/${locale}/auth-login?token=${token}`,
-    );
+    const path =
+      locale === "en"
+        ? `/auth/login?token=${token}`
+        : `/${locale}/auth/login?token=${token}`;
+
+    return res.redirect(`${config.url.frontend_url}${path}`);
   } catch (error) {
     console.error("Google OAuth Error:", (error as Error)?.message);
     next(error);
