@@ -31,6 +31,8 @@ export async function calcCoinRating(trCoins: TradingCoins[]) {
           top.kraken,
         ].filter(Boolean).length;
 
+        if (exchangeCount < 2) return null;
+
         const exchangeFactor = Math.log1p(exchangeCount);
 
         return {
