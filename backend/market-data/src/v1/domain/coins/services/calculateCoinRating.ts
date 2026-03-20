@@ -24,9 +24,18 @@ export async function calcCoinRating(trCoins: TradingCoins[]) {
 
         const market_cap = coin.price_usd * (top.circulating_supply ?? 0);
 
+        const exchangeCount = [
+          top.binance,
+          top.bybit,
+          top.okx,
+          top.kraken,
+        ].filter(Boolean).length;
+
+        const exchangeFactor = Math.log1p(exchangeCount);
+
         return {
           ...coin,
-          market_cap,
+          market_cap: market_cap * exchangeFactor,
           volume_24h: top.volume_24h ?? 0,
         };
       })
