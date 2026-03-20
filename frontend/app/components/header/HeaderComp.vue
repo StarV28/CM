@@ -44,17 +44,17 @@
         </div>
         <ul class="seo-text__menu">
           <li class="seo-text__item">
-            <NuxtLink :to="`#coins`" class="seo-text__link">{{
+            <NuxtLink class="seo-text__link" @click="scrollTo('coins')">{{
               t("seo.topCoins")
             }}</NuxtLink>
           </li>
           <li class="seo-text__item">
-            <NuxtLink :to="`#charts`" class="seo-text__link">{{
+            <NuxtLink class="seo-text__link" @click="scrollTo('charts')">{{
               t("seo.charts")
             }}</NuxtLink>
           </li>
           <li class="seo-text__item">
-            <NuxtLink :to="`#news`" class="seo-text__link">{{
+            <NuxtLink class="seo-text__link" @click="scrollTo('news')">{{
               t("seo.news")
             }}</NuxtLink>
           </li>
@@ -90,7 +90,8 @@ const user = ref<User | null>(null);
 const { t } = useI18n();
 const route = useRoute();
 //---------------------------------------//
-const IsMain = computed(() => route.path === "/");
+const pathMap = ["/", "/de", "/ua", "/tr", "/hi"];
+const IsMain = computed(() => pathMap.includes(route.path));
 //--toggle land-----------------------------------------------------------------------------------//
 const toggleLang = () => {
   showLand.value = !showLand.value;
@@ -103,6 +104,11 @@ const setLand = (land: LocaleCode) => {
   showLand.value = false;
   setLang(land);
 };
+//---------------------------------------//
+function scrollTo(id: string) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+}
 
 //-------------------------------------------------------------------------------------//
 const localeTitle = computed(() => {
@@ -214,8 +220,9 @@ onMounted(() => {
 }
 //---------------------------------------//
 .seo-text {
+  width: 100%;
   display: inline-flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
   gap: 15px;
   padding-bottom: 15px;
@@ -250,6 +257,7 @@ onMounted(() => {
   &__item {
     list-style: none;
     position: relative;
+    cursor: pointer;
 
     &::before {
       content: "";
@@ -281,7 +289,7 @@ onMounted(() => {
 }
 @media (max-width: 970px) {
   .seo-text {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 @media (max-width: 768px) {

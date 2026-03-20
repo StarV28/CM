@@ -9,7 +9,7 @@
     </section>
     <MainCoinsComp id="coins" />
     <AdComp id="AdSense" />
-    <MainExchangesComp id="charts" />
+    <MainExchangesComp />
     <MainNewsComp id="news" />
     <AdComp id="AdSense" />
   </GlobalLayout>

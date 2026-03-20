@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { useApi } from "@/composables/useApi";
-import { useSSRLocale } from "@/composables/useSSRLocale";
 
 //-------------------------------------------------------------------------------------//
 const loading = ref<boolean>(false);
@@ -17,7 +16,6 @@ interface News {
 //-------------------------------------------------------------------------------------//
 export const useNewsStore = defineStore("newsStore", () => {
   const api = useApi();
-  const { locale } = useSSRLocale();
   const news = ref<News[]>([]);
   const lastFetched = ref<number | null>(null);
   const land = ref("");
@@ -25,28 +23,29 @@ export const useNewsStore = defineStore("newsStore", () => {
 
   //-------------------------------------------------------------------------------------//
 
-  const getNews = async (): Promise<News[]> => {
+  const getNews = async (locale: string): Promise<News[]> => {
     loading.value = true;
 
     const oneHour = 20 * 60 * 1000;
     if (
       lastFetched.value &&
       Date.now() - lastFetched.value < oneHour &&
-      land.value === locale.value
+      land.value === locale
     ) {
       return news.value;
     }
     try {
       const data = await api.get<News[]>(
         "/news",
-        { params: { locale: locale.value } },
-        true
+        { params: { locale: locale } },
+        true,
       );
       if (data) {
         news.value = data;
         lastFetched.value = Date.now();
-        land.value = locale.value;
+        land.value = locale;
       }
+
       return news.value ?? [];
     } catch (err) {
       error.value = (err as Error)?.message;
@@ -56,19 +55,10 @@ export const useNewsStore = defineStore("newsStore", () => {
     }
   };
   //-------------------------------------------------------------------------------------//
-  watch(
-    locale,
-    (newLocale, oldLocale) => {
-      if (newLocale && newLocale !== oldLocale) {
-        getNews();
-      }
-    },
-    { immediate: true }
-  );
-  //-------------------------------------------------------------------------------------//
-  const startAutoUpdate = () => {
+
+  const startAutoUpdate = (locale: string) => {
     if (!interval) {
-      interval = setInterval(getNews, 20 * 60 * 1000);
+      interval = setInterval(() => getNews(locale), 20 * 60 * 1000);
     }
   };
 

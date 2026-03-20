@@ -1,7 +1,7 @@
 <template>
   <button class="btn" @click="openEx">{{ t("exchanges.btn-open") }}</button>
   <loading-comp v-if="loading" />
-  <div v-else :class="[isActive ? 'active' : '', 'ex-body']">
+  <div v-else id="charts" :class="[isActive ? 'active' : '', 'ex-body']">
     <div v-for="(ex, ind) in exchanges" :key="ind" class="ex-box">
       <client-only>
         <apexchart

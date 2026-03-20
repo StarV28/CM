@@ -1,6 +1,5 @@
 <template>
-  <loading-comp v-if="loading" />
-  <div v-else class="news-box">
+  <div v-if="news" class="news-box">
     <h3 class="title">{{ t("news.title") }}</h3>
     <div class="news">
       <div v-for="(item, ind) in news" :key="ind" class="news__item item">
@@ -31,7 +30,7 @@
 
 <script setup lang="ts">
 import { useNewsStore } from "@/stores/newsStore";
-
+import { useSSRLocale } from "@/composables/useSSRLocale";
 //-------------------------------------------------------------------------------------//
 
 interface NewsItem {
@@ -47,7 +46,8 @@ const newsStore = useNewsStore();
 const news = computed<NewsItem[]>(() => newsStore.news);
 const { t } = useI18n();
 const isClient = ref<boolean>(false);
-const loading = computed(() => newsStore.loading);
+// const loading = computed(() => newsStore.loading);
+const { locale } = useSSRLocale();
 //-------------------------------------------------------------------------------------//
 const getSafeImage = (url?: string) => {
   if (!url || url.trim() === "") return "/image/news-image.webp";
@@ -66,9 +66,20 @@ const onImageError = (event: Event) => {
   }
 };
 //-------------------------------------------------------------------------------------//
+watch(
+  locale,
+  (newLocale, oldLocale) => {
+    if (newLocale && newLocale !== oldLocale) {
+      newsStore.getNews(newLocale);
+    }
+  },
+  { immediate: true },
+);
+
+//-------------------------------------------------------------------------------------//
 
 onMounted(() => {
-  newsStore.startAutoUpdate();
+  newsStore.startAutoUpdate(locale.value);
   isClient.value = true;
 });
 onBeforeUnmount(() => {
