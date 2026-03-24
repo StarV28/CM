@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/image",
     ["@nuxtjs/sitemap", sitemapConfig],
-    "@nuxtjs/sitemap",
     "@nuxtjs/i18n",
     "@pinia/nuxt",
   ],
@@ -28,10 +27,7 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      title: "Crypto Monitoring",
-      // htmlAttrs: {
-      //   lang: "en",
-      // },
+      titleTemplate: "%s - Tradyx",
       meta: [
         {
           name: "viewport",

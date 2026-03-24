@@ -77,6 +77,7 @@ export const googleAuthCallback = async (
         email: payload.email,
         name: payload.name ?? null,
         locale: locale,
+        role: "user",
       });
       if (!created) return next(new Error("User creation failed"));
 
@@ -84,6 +85,7 @@ export const googleAuthCallback = async (
         id: created.insertId,
         email: payload.email,
         name: payload.name ?? null,
+        role: "user",
       };
     }
 
@@ -145,6 +147,7 @@ export const googleAnswerMe = async (
       id: userData.id,
       name: userData.name,
       email: userData.email,
+      role: userData.role,
     };
     res.json({
       user: user,

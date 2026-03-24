@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
-import getPool from "../../../../db/connect_MySQL.js";
+// import getPool from "../../../../db/connect_MySQL.js";
 import type { UserRequest, User } from "../../modules/types/user.js";
 import ItemDBService from "../../modules/CRUD.js";
-import { createUsersTable } from "../../tables/users.table.js";
+// import { createUsersTable } from "../../tables/users.table.js";
 
 //-------------------------------------------------------------------------------------//
 
@@ -11,13 +11,13 @@ export default class UsersModel {
 
   static async userCreate(data: UserRequest): Promise<User> {
     try {
-      const pool = await getPool();
+      // const pool = await getPool();
 
-      const [rows] = await pool.query(`SHOW TABLES LIKE 'users'`);
+      // const [rows] = await pool.query(`SHOW TABLES LIKE 'users'`);
 
-      if (Array.isArray(rows) && rows.length <= 0) {
-        await createUsersTable();
-      }
+      // if (Array.isArray(rows) && rows.length <= 0) {
+      //   await createUsersTable();
+      // }
 
       const user = data.data;
 
@@ -35,6 +35,7 @@ export default class UsersModel {
           id: existingUser.id,
           email: existingUser.email,
           name: existingUser.name ?? null,
+          role: existingUser.role,
           password: existingUser.password,
           success: false,
           message: "This address is already taken",
@@ -50,6 +51,7 @@ export default class UsersModel {
         email: user.email,
         name: user.name ?? null,
         password: hashPass,
+        role: user.role,
       };
 
       return createdUser;

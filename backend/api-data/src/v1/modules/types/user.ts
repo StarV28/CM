@@ -9,4 +9,5 @@ export type User = {
   locale?: string;
   success?: boolean;
   message?: string;
+  role: string;
 };

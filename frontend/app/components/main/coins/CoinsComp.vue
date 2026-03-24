@@ -569,21 +569,4 @@ onBeforeUnmount(() => {
     font-weight: 400;
   }
 }
-@media (max-width: 520px) {
-  .seo-text {
-    h1 {
-      font-size: 10px;
-      font-weight: 400;
-    }
-    p {
-      font-size: 8px;
-    }
-    &__menu {
-      margin: 0;
-    }
-    &__link {
-      font-size: 8px;
-    }
-  }
-}
 </style>

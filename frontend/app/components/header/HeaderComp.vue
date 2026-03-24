@@ -44,6 +44,11 @@
         </div>
         <ul class="seo-text__menu">
           <li class="seo-text__item">
+            <NuxtLink :to="localePath('analytics')" class="seo-text__link"
+              >Analytics Blog</NuxtLink
+            >
+          </li>
+          <li class="seo-text__item">
             <NuxtLink class="seo-text__link" @click="scrollTo('coins')">{{
               t("seo.topCoins")
             }}</NuxtLink>

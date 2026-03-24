@@ -61,7 +61,7 @@ export function useSeo(
             ({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Crypto Monitoring",
+              name: "Tradyx",
               url,
               description,
             } as JsonLdObject),

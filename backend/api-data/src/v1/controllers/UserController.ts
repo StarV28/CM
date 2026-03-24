@@ -88,6 +88,7 @@ export default class UserController {
         name: userData.name,
         email: userData.email,
         locale: userData.locale,
+        role: userData.role,
       };
 
       return res.status(200).json({
