@@ -23,13 +23,14 @@ type Schema = {
 };
 
 type CoinData = {
+  symbol: string;
   price: number;
   change24h: number;
   volume: number;
 };
 
 type Data = {
-  [symbol: string]: CoinData | string[];
+  coins: CoinData[];
   topCoins: string[];
 };
 
