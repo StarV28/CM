@@ -21,7 +21,7 @@ export function normalizeAnalytics(
   }));
 
   const analyticData = {
-    title: "Analytics Page",
+    title: "Analytical article on cryptocurrency",
     schema: {
       "@context": "https://schema.org",
       "@type": "Article",
