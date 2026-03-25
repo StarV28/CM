@@ -22,9 +22,16 @@
 </template>
 
 <script setup lang="ts">
+import authMiddleware from "../../../middleware/auth";
+//---------------------------------------//
+
 const text = ref("");
 const lang = ref("ua");
 const formRef = ref<HTMLFormElement | null>(null);
+//---------------------------------------//
+definePageMeta({
+  middleware: authMiddleware,
+});
 //---------------------------------------//
 
 const onSubmit = () => {

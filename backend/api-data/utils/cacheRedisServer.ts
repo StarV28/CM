@@ -13,4 +13,13 @@ export const cacheRedisServer = {
   async del(key: string) {
     await redis_server.del(key);
   },
+  async push(key: string, value: string) {
+    await redis_server.lpush(key, value);
+  },
+  async trim(key: string, start: number, stop: number) {
+    await redis_server.ltrim(key, start, stop);
+  },
+  async range(key: string, start: number, stop: number) {
+    return await redis_server.lrange(key, start, stop);
+  },
 };

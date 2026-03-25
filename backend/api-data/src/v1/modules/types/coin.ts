@@ -69,7 +69,11 @@ export interface CoinsCash {
   // market_cap_rank?: number;
 }
 
-export interface CoinDescRow {
+type SqlValue = string | number | boolean | Date | null | Buffer;
+
+type DbRow = Record<string, SqlValue>;
+
+export type CoinDescRow = DbRow & {
   id: number;
   coin_id?: string;
   en?: string;
@@ -77,5 +81,5 @@ export interface CoinDescRow {
   ua?: string;
   tr?: string;
   hi?: string;
-}
+};
 export type Locale = "en" | "de" | "ua" | "tr" | "hi";

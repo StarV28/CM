@@ -17,6 +17,8 @@ interface DeleteResult {
   id: string | number;
 }
 
+type SqlValue = string | number | boolean | Date | null | Buffer;
+
 //-------------------------------------------------------------------------------------//
 
 class ItemDBService {
@@ -25,7 +27,7 @@ class ItemDBService {
     try {
       const pool = await getPool();
       const [rows] = await pool.query<RowDataPacket[]>(
-        `SELECT * FROM \`${db}\``
+        `SELECT * FROM \`${db}\``,
       );
       return rows as T[];
     } catch (error: unknown) {
@@ -35,9 +37,9 @@ class ItemDBService {
   }
 
   // Создание новой записи
-  static async create<T extends object>(
+  static async create<T extends Record<string, SqlValue>>(
     db: string,
-    data: T
+    data: T,
   ): Promise<ResultSetHeader | null> {
     try {
       const pool = await getPool();
@@ -54,7 +56,7 @@ class ItemDBService {
   static async getByID<T = RowDataPacket>(
     db: string,
     nameID: string,
-    id: string | number
+    id: string | number,
   ): Promise<T | null> {
     try {
       const pool = await getPool();
@@ -88,7 +90,7 @@ class ItemDBService {
     db: string,
     nameID: string,
     id: string | number,
-    data: T
+    data: T,
   ): Promise<CreateResult | null> {
     try {
       const pool = await getPool();
@@ -110,7 +112,7 @@ class ItemDBService {
   static async deleteById(
     db: string,
     idName: string,
-    id: string | number
+    id: string | number,
   ): Promise<DeleteResult | null> {
     try {
       const pool = await getPool();

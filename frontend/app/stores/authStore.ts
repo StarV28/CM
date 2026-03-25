@@ -43,6 +43,8 @@ export const useAuthStore = defineStore("authStore", () => {
     httpOnly: false,
     sameSite: "lax",
     path: "/",
+    default: () => null,
+    watch: true,
   });
 
   //-------------------------------------------------------------------------------------//
