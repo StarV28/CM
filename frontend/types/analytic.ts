@@ -33,7 +33,11 @@ type Data = {
   topCoins: string[];
 };
 
-export type AnalyticsResponse = {
-  main: AnalyticArticle | null;
+export interface AnalyticsResponse {
+  articles: Articles | null;
+}
+
+export type Articles = {
+  main: AnalyticArticle;
   previous: AnalyticArticle[];
 };

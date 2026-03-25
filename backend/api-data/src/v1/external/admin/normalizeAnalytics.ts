@@ -11,9 +11,14 @@ export function normalizeAnalytics(
     throw new Error("Not enough coins data");
   }
   const date = new Date().toISOString().slice(0, 10);
-  const coinTopOne = coins[0];
-  const coinTopTwo = coins[1];
   const topCoinsSlug = coins.map((coin) => coin.symbol);
+
+  const dataCoins = coins.map((coin) => ({
+    symbol: coin.symbol,
+    price: coin.price_usd,
+    change24h: coin.volume_change_24h,
+    volume: Number(coin.total_supply),
+  }));
 
   const analyticData = {
     title: "Analytics Page",
@@ -30,16 +35,7 @@ export function normalizeAnalytics(
     },
     text: text,
     data: {
-      [coinTopOne.symbol]: {
-        price: coinTopOne.price_usd,
-        change24h: coinTopOne.volume_change_24h,
-        volume: Number(coinTopOne.total_supply),
-      },
-      [coinTopTwo.symbol]: {
-        price: coinTopTwo.price_usd,
-        change24h: coinTopTwo.volume_change_24h,
-        volume: Number(coinTopTwo.total_supply),
-      },
+      coins: dataCoins,
       topCoins: topCoinsSlug,
     },
     language: locale,
