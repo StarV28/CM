@@ -10,7 +10,7 @@ export function normalizeAnalytics(
   if (coins.length < 2) {
     throw new Error("Not enough coins data");
   }
-  const date = new Date().toISOString().slice(0, 10);
+  const date = new Date().toISOString().slice(0, 3);
   const topCoinsSlug = coins.map((coin) => coin.symbol);
 
   const dataCoins = coins.map((coin) => ({
