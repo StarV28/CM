@@ -33,7 +33,7 @@ const auth = (app: Express): void => {
       "/api/v1/auth/google",
       "/api/v1/auth/google/callback",
       "/api/v1/user/password",
-      "/api/v1/user/analytics",
+      "/api/v1/analytics",
     ];
 
     const isOpen = openPaths.some((p) => req.path.startsWith(p));
