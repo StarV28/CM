@@ -17,5 +17,5 @@ export const useAnalyticsStore = defineStore("analyticsStore", () => {
     return res ?? null;
   };
 
-  return getAnalytics;
+  return { getAnalytics };
 });

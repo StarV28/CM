@@ -7,7 +7,6 @@
         <textarea v-model="text" />
       </label>
       <label>
-        language
         <select id="" v-model="lang" name="lang">
           <option value="ua">ua</option>
           <option value="en">en</option>
@@ -23,8 +22,9 @@
 
 <script setup lang="ts">
 import authMiddleware from "../../../middleware/auth";
+import { useAdminStore } from "@/stores/adminStore";
 //---------------------------------------//
-
+const adminStore = useAdminStore();
 const text = ref("");
 const lang = ref("ua");
 const formRef = ref<HTMLFormElement | null>(null);
@@ -34,10 +34,16 @@ definePageMeta({
 });
 //---------------------------------------//
 
-const onSubmit = () => {
-  const payload = { text: text.value, lang: lang.value };
-  console.log("------------", payload);
+const onSubmit = async () => {
+  const payload = { text: text.value, locale: lang.value };
+  const result = await adminStore.createPostAnal(payload);
   formRef.value?.reset();
+
+  if (!result?.success) {
+    alert("Error send post");
+  } else {
+    alert("Success send Post");
+  }
 };
 </script>
 
