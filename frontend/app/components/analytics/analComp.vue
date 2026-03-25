@@ -9,6 +9,15 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useAnalyticsStore } from "@/stores/analyticStore";
+import { useSSRLocale } from "@/composables/useSSRLocale";
+
+//---------------------------------------//
+const { locale } = useSSRLocale();
+const lang = locale.value ?? "en";
+const analyticStore = useAnalyticsStore();
+await analyticStore.getAnalytics(lang);
+</script>
 
 <style scoped></style>

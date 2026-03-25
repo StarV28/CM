@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
 import GlobalLayout from "../layouts/globalLayout.vue";
+
 //---------------------------------------//
 onMounted(() => {
   const { setTheme } = useTheme();
