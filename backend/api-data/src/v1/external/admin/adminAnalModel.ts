@@ -13,7 +13,7 @@ export default class AnalModel {
       const pool = await getPool();
       const { text, locale } = data;
 
-      const limit = 10;
+      const limit = 5;
       const sql = `SELECT * FROM coins ORDER BY rating ASC LIMIT ${limit}
       `;
       const [rows] = await pool.query<RowDataPacket[]>(sql);
