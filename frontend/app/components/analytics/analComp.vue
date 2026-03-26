@@ -2,7 +2,7 @@
   <div class="main">
     <div class="main__nav">
       <span class="main__link-back">
-        <NuxtLink to="/">{{ t("menu.main") }} </NuxtLink>
+        <NuxtLink :to="localePath('/')">{{ t("menu.main") }} </NuxtLink>
         <span>-></span> <span>{{ t("anal.title") }}</span>
       </span>
     </div>
@@ -56,6 +56,7 @@
 import type { Articles } from "../../../types/analytic";
 //---------------------------------------//
 const { t } = useI18n();
+const localePath = useLocalePath();
 //---------------------------------------//
 
 defineProps<{ articles: Articles | null | undefined }>();
