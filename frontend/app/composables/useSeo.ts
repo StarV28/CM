@@ -46,7 +46,7 @@ export function useSeo(
       { name: "twitter:image", content: image },
     ],
     link: [
-      { rel: "canonical", href: url },
+      { rel: "canonical", href: "https://wpslab.app" },
       { rel: "alternate", hreflang: "en", href: `${baseUrl}/en` },
       { rel: "alternate", hreflang: "de", href: `${baseUrl}/de` },
       { rel: "alternate", hreflang: "uk", href: `${baseUrl}/ua` },
@@ -61,7 +61,7 @@ export function useSeo(
             ({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Tradyx",
+              name: "TradEx",
               url,
               description,
             } as JsonLdObject),

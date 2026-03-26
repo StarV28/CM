@@ -2,7 +2,7 @@
   <LoadingComp v-if="authStore.loading" />
   <div v-else class="page-user">
     <div class="page-user__btn-back">
-      <NuxtLink :to="localePath('/')">{{ t("user.coin") }}</NuxtLink>
+      <NuxtLink :to="localePath('/')">{{ t("menu.main") }}</NuxtLink>
       <span>-></span>
       <span>{{ t("user.account") }}</span>
     </div>
@@ -141,8 +141,6 @@ p {
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--text-color);
 
   a {
     font-size: 18px;

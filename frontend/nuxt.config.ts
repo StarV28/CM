@@ -15,9 +15,6 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@pinia/nuxt",
   ],
-  // sitemap: {
-  //   exclude: ["/auth/**", "/account"],
-  // },
   plugins: [
     "./plugins/Vue3Marquee.client.ts",
     "./plugins/ws.client.ts",
@@ -27,7 +24,7 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      titleTemplate: "%s - Tradyx",
+      titleTemplate: "%s - TradEx",
       meta: [
         {
           name: "viewport",

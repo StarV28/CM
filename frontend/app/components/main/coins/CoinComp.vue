@@ -8,7 +8,7 @@
       </section>
 
       <div class="coin__back">
-        <nuxt-link :to="localePath('/')">{{ t("coin.back") }}</nuxt-link>
+        <nuxt-link :to="localePath('/')">{{ t("menu.main") }}</nuxt-link>
         <span> -> </span>
         <span>{{ coin.name }}</span>
       </div>
@@ -369,8 +369,6 @@ h5 {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--text-color);
   a {
     font-size: 18px;
     text-decoration: none;

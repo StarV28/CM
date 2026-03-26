@@ -14,29 +14,33 @@ import { useSSRLocale } from "@/composables/useSSRLocale";
 
 //---------------------------------------//
 const { locale } = useSSRLocale();
-const lang = locale.value ?? "en";
 const analyticStore = useAnalyticsStore();
 //---------------------------------------//
-const { data: articles } = await useAsyncData("analytics", () =>
-  analyticStore.getAnalytics(lang),
+const { data: articles } = await useAsyncData(
+  () => `analytics-${locale.value}`,
+  () => analyticStore.getAnalytics(locale.value),
 );
 
 //---------------------------------------//
 
-watchEffect(() => {
-  if (!articles.value?.main) return;
+watch(
+  () => articles.value,
+  (val) => {
+    if (!val?.main) return;
 
-  useHead({
-    title: articles.value.main.title,
-    script: [
-      {
-        key: "ld-json",
-        type: "application/ld+json",
-        innerHTML: JSON.stringify(articles.value.main.schema),
-      },
-    ],
-  });
-});
+    useHead({
+      title: val.main.title,
+      script: [
+        {
+          key: "ld-json",
+          type: "application/ld+json",
+          innerHTML: JSON.stringify(val.main.schema),
+        },
+      ],
+    });
+  },
+  { immediate: true },
+);
 //---------------------------------------//
 onMounted(async () => {
   const { setTheme } = useTheme();

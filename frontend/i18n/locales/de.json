@@ -7,6 +7,7 @@
     "bottomText1": "Kryptowährungen in Echtzeit.",
     "bottomText2": "Preise, 24h-Änderung, Handelsvolumen und Top-Münzen.",
     "topCoins": "Kryptowährungen",
+    "anal": "Analyse-Blog",
     "charts": "Charts",
     "news": "News",
     "coinTitle": "{name} Preis Live — Charts, Marktkapitalisierung & Handelsdaten",
@@ -24,7 +25,8 @@
   "menu": {
     "language": "Sprachen",
     "dark": "Dunkel",
-    "light": "Hell"
+    "light": "Hell",
+    "main": "Startseite"
   },
   "auth": {
     "name": "Name",
@@ -137,5 +139,14 @@
     "p6": "Wir verkaufen oder übertragen keine persönlichen Daten.",
     "h34": "4. Änderungen",
     "p7": "Diese Richtlinie kann regelmäßig aktualisiert werden."
+  },
+  "anal": {
+    "title": "Analyse-Seite",
+    "titleh3": "Analytischer Artikel über Kryptowährungen",
+    "top": "Top Coins",
+    "price": "Preis",
+    "change": "24h Änderung",
+    "volume": "Volumen",
+    "previous": "Vorherige"
   }
 }

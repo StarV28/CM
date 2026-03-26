@@ -6,6 +6,7 @@
     "ogDescription": "Real-time cryptocurrency prices, Bitcoin and Ethereum charts, market cap, trading volume and latest crypto news.",
     "bottomText1": "Cryptocurrencies in real time.",
     "bottomText2": "Prices, 24h change, trading volume, and top coins.",
+    "anal": "Analytics Blog",
     "topCoins": "Coins",
     "charts": "Charts",
     "news": "News",
@@ -24,7 +25,8 @@
   "menu": {
     "language": "Languages",
     "dark": "Dark",
-    "light": "Light"
+    "light": "Light",
+    "main": "Main Page"
   },
   "auth": {
     "name": "Name",
@@ -137,5 +139,14 @@
     "p6": "We do not sell or transfer personal information to third parties.",
     "h34": "4. Changes to This Policy",
     "p7": "We may update this policy from time to time."
+  },
+  "anal": {
+    "title": "Analytics Page",
+    "titleh3": "Analytical article on cryptocurrency",
+    "top": "Top Coins",
+    "price": "price",
+    "change": "Change24h",
+    "volume": "Volume",
+    "previous": "Previous"
   }
 }
