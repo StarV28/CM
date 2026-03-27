@@ -150,10 +150,12 @@ const formatNumber = (n: number | string | null | undefined) => {
     list-style: none;
     display: flex;
     gap: 7px;
+    a {
+      text-decoration: none;
+    }
     h5 {
       width: 50px;
       color: var(--fan-color);
-      text-decoration: none;
       &:hover {
         text-decoration: underline;
       }
