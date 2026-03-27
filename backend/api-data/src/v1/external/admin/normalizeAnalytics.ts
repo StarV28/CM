@@ -14,7 +14,7 @@ export function normalizeAnalytics(
   const topCoinsSlug = coins.map((coin) => coin.symbol);
 
   const dataCoins = coins.map((coin) => ({
-    id: Number(coin.id),
+    id: Number(coin.cmc_id),
     symbol: coin.symbol,
     price: coin.price_usd,
     change24h: coin.volume_change_24h,

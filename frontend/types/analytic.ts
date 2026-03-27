@@ -1,5 +1,4 @@
 export type AnalyticArticle = {
-  id: number;
   title: string;
   schema: Schema;
   text: string;
@@ -23,7 +22,8 @@ type Schema = {
   };
 };
 
-type CoinData = {
+export type CoinData = {
+  id: number;
   symbol: string;
   price: number;
   change24h: number;

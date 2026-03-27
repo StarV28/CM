@@ -19,7 +19,7 @@
             class="top__items"
           >
             <ul class="top__list">
-              <NuxtLink :to="localePath(coinLink)">
+              <NuxtLink :to="localePath(getCoinRoute(coin))">
                 <h5 class="top__item-title">{{ coin.symbol }}</h5>
               </NuxtLink>
               <li class="top__item">
@@ -55,19 +55,18 @@
 </template>
 
 <script setup lang="ts">
-import type { Articles } from "../../../types/analytic";
+import type { Articles, CoinData } from "../../../types/analytic";
 //---------------------------------------//
 const { t } = useI18n();
 const localePath = useLocalePath();
 //---------------------------------------//
 
 const props = defineProps<{ articles: Articles | null | undefined }>();
-
+console.log("id----art--------", props.articles?.main);
 //---------------------------------------//
-const coinLink = computed(() => {
-  const data = props.articles?.main;
-  return { id: `${data?.id}-${data?.data.coins.map((c) => c.symbol)}` };
-});
+const getCoinRoute = (coin: CoinData) => {
+  return `/coin/${coin.id}-${coin.symbol}`;
+};
 
 //---------------------------------------//
 

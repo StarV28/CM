@@ -24,7 +24,7 @@ export interface CoinsRedis {
 }
 
 export type Coins = {
-  id: number;
+  cmc_id: number;
   symbol: string;
   name: string;
   logo: string;
