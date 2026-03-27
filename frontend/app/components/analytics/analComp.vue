@@ -19,7 +19,9 @@
             class="top__items"
           >
             <ul class="top__list">
-              <h5 class="top__item-title">{{ coin.symbol }}</h5>
+              <NuxtLink :to="localePath(coinLink)">
+                <h5 class="top__item-title">{{ coin.symbol }}</h5>
+              </NuxtLink>
               <li class="top__item">
                 <span>{{ t("anal.price") }}: </span
                 >{{ formatNumber(coin.price) }}$
@@ -59,9 +61,16 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 //---------------------------------------//
 
-defineProps<{ articles: Articles | null | undefined }>();
+const props = defineProps<{ articles: Articles | null | undefined }>();
 
 //---------------------------------------//
+const coinLink = computed(() => {
+  const data = props.articles?.main;
+  return { id: `${data?.id}-${data?.data.coins.map((c) => c.symbol)}` };
+});
+
+//---------------------------------------//
+
 const formatNumber = (n: number | string | null | undefined) => {
   const num = Number(n);
 

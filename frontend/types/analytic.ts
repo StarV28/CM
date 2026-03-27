@@ -1,4 +1,5 @@
 export type AnalyticArticle = {
+  id: number;
   title: string;
   schema: Schema;
   text: string;
