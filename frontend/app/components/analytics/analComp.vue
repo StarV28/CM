@@ -61,8 +61,7 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 //---------------------------------------//
 
-const props = defineProps<{ articles: Articles | null | undefined }>();
-console.log("id----art--------", props.articles?.main);
+defineProps<{ articles: Articles | null | undefined }>();
 //---------------------------------------//
 const getCoinRoute = (coin: CoinData) => {
   return `/coin/${coin.id}-${coin.symbol}`;
@@ -154,6 +153,10 @@ const formatNumber = (n: number | string | null | undefined) => {
     h5 {
       width: 50px;
       color: var(--fan-color);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
   &__list {

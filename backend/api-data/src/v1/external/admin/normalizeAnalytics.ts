@@ -13,7 +13,6 @@ export function normalizeAnalytics(
   const date = new Date().toISOString().slice(0, 19).replace("T", " ");
   const topCoinsSlug = coins.map((coin) => coin.symbol);
 
-  console.log("coin---------->", coins);
   const dataCoins = coins.map((coin) => ({
     id: Number(coin.cmc_id),
     symbol: coin.symbol,
