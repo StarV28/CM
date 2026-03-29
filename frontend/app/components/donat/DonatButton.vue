@@ -1,6 +1,6 @@
 <template>
   <div class="donate">
-    <h3>Support the project with a Donation</h3>
+    <h3>{{ t("donat.title") }}</h3>
     <div class="donate__box">
       <!-- <qrcode-vue :value="paymentUri" :size="50" class="donate__qr" /> -->
       <qrcode-comp />
@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import QrcodeComp from "./QrcodeComp.vue";
+const { t } = useI18n();
 
 // import QrcodeVue from "qrcode.vue";
 

@@ -148,5 +148,8 @@
     "change": "Change24h",
     "volume": "Volume",
     "previous": "Previous"
+  },
+  "donat": {
+    "title": "Support the project with a Donation"
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header__top top">
-      <NuxtLink :to="localePath('/')">
+      <NuxtLink class="top__box-logo" :to="localePath('/')">
         <NuxtImg
           class="top__logo"
           src="/image/logo-CM.jpg"
@@ -10,6 +10,10 @@
           height="45"
           alt="Logo-CM"
         />
+        <span>
+          <h5>TradMon</h5>
+          <p>cryptocurrency aggregator</p>
+        </span>
       </NuxtLink>
       <div class="top__nav naw">
         <nuxt-link
@@ -164,7 +168,33 @@ onMounted(() => {
 .top__logo {
   border-radius: 6px;
 }
+.top__box-logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
 
+  span {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    h5 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+      color: rgb(226, 176, 50);
+      letter-spacing: 1px;
+    }
+    p {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 200;
+      text-transform: capitalize;
+      color: var(--text-color);
+    }
+  }
+}
 .naw {
   display: flex;
   align-items: flex-end;
@@ -311,6 +341,25 @@ onMounted(() => {
   }
   .seo-text__link {
     font-size: 12px;
+  }
+}
+@media (max-width: 560px) {
+  .top__box-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: start;
+
+    span {
+      h5 {
+        font-size: 12px;
+        font-weight: 500px;
+      }
+      p {
+        font-size: 8px;
+        font-weight: 200;
+      }
+    }
   }
 }
 </style>

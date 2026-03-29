@@ -12,8 +12,8 @@
           alt="Logo"
         />
         <span>
-          <p>Crypto</p>
-          <p>Monitoring</p>
+          <h5>TradMon</h5>
+          <p>cryptocurrency aggregator</p>
         </span>
       </div>
       <div class="menu__footer-box footer-box">
@@ -81,12 +81,19 @@ const { t } = useI18n();
     display: flex;
     flex-direction: column;
     gap: 5px;
+    h5 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+      color: rgb(226, 176, 50);
+      letter-spacing: 1px;
+    }
     p {
       margin: 0;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 200;
-      font-family: "Montserrat", sans-serif;
-      text-transform: uppercase;
+      text-transform: capitalize;
     }
   }
 }
@@ -173,8 +180,12 @@ const { t } = useI18n();
 
     span {
       gap: 0px;
-      p {
+      h5 {
         font-size: 12px;
+        font-weight: 500;
+      }
+      p {
+        font-size: 8px;
         font-weight: 200;
       }
     }

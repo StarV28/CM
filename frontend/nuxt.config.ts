@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      titleTemplate: "%s - TradEx",
+      titleTemplate: "%s - TradMon",
       meta: [
         {
           name: "viewport",

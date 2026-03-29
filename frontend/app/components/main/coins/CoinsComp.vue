@@ -27,9 +27,10 @@
       </div>
       <div class="coins__qr-donate qr-donate">
         <div class="qr-donate__title">
-          <span>Support</span>
+          <!-- <span>Support</span>
           <span>the project</span>
-          <span>with a Donation</span>
+          <span>with a Donation</span> -->
+          <span>{{ t("donat.title") }}</span>
         </div>
         <qrcode-comp />
       </div>
@@ -530,9 +531,9 @@ onBeforeUnmount(() => {
   align-items: start;
 
   span {
+    max-width: 110px;
     font-size: 12px;
     font-family: "Montserrat", sans-serif;
-    font-weight: 200;
   }
 }
 .colDef__name {
