@@ -89,5 +89,6 @@ export default defineNuxtConfig({
       alwaysRedirect: false,
     },
   },
+  //---------------------------------------//
   nitro: {},
 });
