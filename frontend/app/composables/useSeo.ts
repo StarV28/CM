@@ -28,9 +28,12 @@ export function useSeo(
   const description = options.description || t("seo.description");
   const ogTitle = options.ogTitle || t("seo.ogTitle");
   const ogDescription = options.ogDescription || t("seo.ogDescription");
-  const currentLocale = locale.value; // синхронно
-  const url = options.url || `${baseUrl}/${currentLocale}`;
   const image = options.image || "/og-image-main.jpg";
+
+  const currentLocale = locale.value;
+  const path = currentLocale === "en" ? "" : `/${currentLocale}`;
+  const canonical = `${baseUrl}${path}`;
+  const url = options.url || `${canonical}`;
 
   useHead({
     title,
@@ -46,12 +49,14 @@ export function useSeo(
       { name: "twitter:image", content: image },
     ],
     link: [
-      { rel: "canonical", href: "https://wpslab.app" },
+      { rel: "canonical", href: `${canonical}` },
       { rel: "alternate", hreflang: "en", href: `${baseUrl}/en` },
       { rel: "alternate", hreflang: "de", href: `${baseUrl}/de` },
       { rel: "alternate", hreflang: "uk", href: `${baseUrl}/ua` },
       { rel: "alternate", hreflang: "tr", href: `${baseUrl}/tr` },
       { rel: "alternate", hreflang: "hi", href: `${baseUrl}/hi` },
+
+      { rel: "alternate", hreflang: "x-default", href: baseUrl },
     ],
     script: [
       {
