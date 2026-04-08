@@ -30,21 +30,22 @@
           <p>
             <a :href="`mailto:${email}`">E-mail: {{ email }}</a>
           </p>
+          <p>
+            <a href="https://my.wpslab.app" target="_blanc"
+              >Developer's website: my.wpslab.app</a
+            >
+          </p>
         </div>
       </div>
     </div>
     <div class="footer__copyright">
-      <span>
-        <icons.copy width="18" height="18" />
-        Copyright 2025 CM.
-      </span>
+      <span> © 2025 TradMon </span>
       <span> Made by Starovoit Volodymyr </span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { icons } from "@/utils/icon";
 //-------------------------------------------------------------------------------------//
 const email = ref("web.product.studio@gmail.com");
 const nuxtApp = useNuxtApp();

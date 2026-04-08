@@ -1,6 +1,7 @@
 // composables/useSeo.ts
 import { useHead } from "#app";
 import { useI18n } from "vue-i18n";
+import { useRoute } from "vue-router";
 
 //---------------------------------------//
 
@@ -22,7 +23,8 @@ export function useSeo(
     jsonLd?: JsonLdObject;
   } = {},
 ) {
-  const { t, locale } = useI18n();
+  const route = useRoute();
+  const { t } = useI18n();
 
   const title = options.title || t("seo.title");
   const description = options.description || t("seo.description");
@@ -30,9 +32,7 @@ export function useSeo(
   const ogDescription = options.ogDescription || t("seo.ogDescription");
   const image = options.image || "/og-image-main.jpg";
 
-  const currentLocale = locale.value;
-  const path = currentLocale === "en" ? "" : `/${currentLocale}`;
-  const canonical = `${baseUrl}${path}`;
+  const canonical = `${baseUrl}${route.fullPath}`;
   const url = options.url || `${canonical}`;
 
   useHead({
@@ -50,7 +50,7 @@ export function useSeo(
     ],
     link: [
       { rel: "canonical", href: `${canonical}` },
-      { rel: "alternate", hreflang: "en", href: `${baseUrl}/en` },
+      { rel: "alternate", hreflang: "en", href: `${baseUrl}/` },
       { rel: "alternate", hreflang: "de", href: `${baseUrl}/de` },
       { rel: "alternate", hreflang: "uk", href: `${baseUrl}/ua` },
       { rel: "alternate", hreflang: "tr", href: `${baseUrl}/tr` },
@@ -66,7 +66,7 @@ export function useSeo(
             ({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "TradEx",
+              name: "TradMon",
               url,
               description,
             } as JsonLdObject),
