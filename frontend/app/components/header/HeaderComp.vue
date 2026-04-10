@@ -333,14 +333,11 @@ onMounted(() => {
   }
   .seo-text__title {
     h1 {
-      font-size: 12px;
+      font-size: 14px;
     }
     p {
-      font-size: 8px;
+      font-size: 12px;
     }
-  }
-  .seo-text__link {
-    font-size: 12px;
   }
 }
 @media (max-width: 560px) {
@@ -352,12 +349,10 @@ onMounted(() => {
 
     span {
       h5 {
-        font-size: 12px;
         font-weight: 500px;
       }
       p {
-        font-size: 8px;
-        font-weight: 200;
+        font-size: 10px;
       }
     }
   }

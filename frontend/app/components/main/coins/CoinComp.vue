@@ -359,7 +359,7 @@ h5 {
   p {
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
-    line-height: 1.3;
+    line-height: 1.5;
     font-weight: 200;
     color: var(--fan-color);
   }
@@ -468,7 +468,7 @@ h5 {
 
   & a {
     padding: 5px 10px;
-    background-color: green;
+    background-color: rgb(0, 128, 0);
     font-size: 12px;
     color: #fff;
     border-radius: 2px;
@@ -649,7 +649,7 @@ h5 {
     font-size: 16px;
   }
   h5 {
-    font-size: 12px;
+    font-size: 14px;
   }
   .seo-text {
     h1 {
@@ -657,7 +657,7 @@ h5 {
       font-weight: 400;
     }
     p {
-      font-size: 12px;
+      font-size: 16px;
     }
   }
   .coin {
@@ -696,7 +696,7 @@ h5 {
     gap: 0px;
     padding-bottom: 0px;
     p {
-      font-size: 14px;
+      line-height: 1.5;
     }
   }
   span {

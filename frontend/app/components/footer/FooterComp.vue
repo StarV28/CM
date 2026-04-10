@@ -124,10 +124,13 @@ const { t } = useI18n();
 }
 .footer-box__email {
   max-width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   text-align: end;
+  gap: 10px;
 
   p {
-    font-size: 14px;
     font-weight: 400;
     line-height: 1.3;
     margin: 0;
@@ -182,11 +185,10 @@ const { t } = useI18n();
     span {
       gap: 0px;
       h5 {
-        font-size: 12px;
         font-weight: 500;
       }
       p {
-        font-size: 8px;
+        font-size: 10px;
         font-weight: 200;
       }
     }
@@ -198,13 +200,13 @@ const { t } = useI18n();
     align-items: flex-end;
 
     a {
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 400;
     }
   }
   .footer-box__email {
     p {
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 400;
       line-height: 1.3;
       margin: 0;

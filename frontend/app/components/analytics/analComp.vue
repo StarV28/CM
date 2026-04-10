@@ -126,12 +126,9 @@ const formatNumber = (n: number | string | null | undefined) => {
   &__title {
     margin: 0;
     font-weight: 300;
-    font-size: 14px;
   }
   &__text {
-    font-size: 14px;
-    font-weight: 200;
-    line-height: 1.3;
+    line-height: 1.5;
   }
   &__lists {
     display: flex;
@@ -193,14 +190,14 @@ const formatNumber = (n: number | string | null | undefined) => {
 }
 .previous__text {
   h5 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     margin: 0;
   }
   p {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 200;
-    line-height: 1.3;
+    line-height: 1.5;
   }
 }
 @media (min-width: 768px) {
@@ -214,13 +211,10 @@ const formatNumber = (n: number | string | null | undefined) => {
     }
   }
 }
-@media (min-width: 426px) {
+@media (min-width: 526px) {
   .top {
     &__title {
       font-size: 18px;
-    }
-    &__text {
-      font-size: 16px;
     }
     &__lists {
       width: 100%;

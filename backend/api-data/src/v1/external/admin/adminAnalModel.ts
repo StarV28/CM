@@ -30,7 +30,7 @@ export default class AnalModel {
       const key = `analytics:${locale}:${date}`;
       const listKey = `analytics:list:${locale}`;
 
-      await cacheRedisServer.set(key, analyticData, 432200);
+      await cacheRedisServer.set(key, analyticData, 604800);
 
       await cacheRedisServer.push(listKey, date);
 
