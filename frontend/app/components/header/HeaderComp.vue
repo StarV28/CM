@@ -182,11 +182,12 @@ onMounted(() => {
       margin: 0;
       font-size: 16px;
       font-weight: 700;
-      font-family: "Montserrat", sans-serif;
+      font-family: "Inter", sans-serif;
       color: rgb(226, 176, 50);
       letter-spacing: 1px;
     }
     p {
+      font-family: "Inter", sans-serif;
       margin: 0;
       font-size: 12px;
       font-weight: 200;
@@ -266,6 +267,7 @@ onMounted(() => {
     width: 100%;
     padding: 10px 0;
     h1 {
+      font-family: "Inter", sans-serif;
       font-size: 18px;
       line-height: 1.1;
       font-weight: 200;
@@ -273,6 +275,7 @@ onMounted(() => {
       margin: 0 0 7px 0;
     }
     p {
+      font-family: "Inter", sans-serif;
       font-size: 14px;
       line-height: 1.3;
       font-weight: 200;
@@ -315,7 +318,7 @@ onMounted(() => {
   }
 
   &__link {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     text-decoration: none;
     font-size: 14px;
     font-weight: 200;

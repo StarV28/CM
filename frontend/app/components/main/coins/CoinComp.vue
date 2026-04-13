@@ -326,14 +326,14 @@ watch(locale, async (newLocale, oldLocale) => {
 }
 h3 {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 19px;
   font-weight: 700;
   line-height: 1.1;
 }
 h5 {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 17px;
   font-weight: 600;
   line-height: 1.1;

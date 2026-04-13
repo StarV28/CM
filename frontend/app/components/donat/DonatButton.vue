@@ -36,7 +36,7 @@ const { t } = useI18n();
   text-align: center;
 
   h3 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "inter", sans-serif;
     font-size: 14px;
     font-weight: 200;
     color: var(--text-color);

@@ -58,6 +58,7 @@ const onSubmit = handleSubmit(async (values) => {
     id: user.value.id,
     name: values.userName ?? user.value?.name,
     email: values.email ?? user.value?.email,
+    role: "",
   };
 
   const res = await userStore.updateUser(payload);
@@ -72,8 +73,8 @@ const onSubmit = handleSubmit(async (values) => {
       "message" in res.errors[0]
         ? (res.errors[0] as ApiErrorResponse).message
         : typeof res.message === "string"
-        ? res.message
-        : "Error Update User";
+          ? res.message
+          : "Error Update User";
     alert(errorMessage);
     return;
   } else {

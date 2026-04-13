@@ -47,7 +47,7 @@
 
 <script setup lang="ts">
 //-------------------------------------------------------------------------------------//
-const email = ref("web.product.studio@gmail.com");
+const email = ref("tradmon.coins@gmail.com");
 const nuxtApp = useNuxtApp();
 const localePath = nuxtApp.$localePath;
 const { t } = useI18n();
@@ -86,11 +86,12 @@ const { t } = useI18n();
       margin: 0;
       font-size: 16px;
       font-weight: 700;
-      font-family: "Montserrat", sans-serif;
+      font-family: "Inter", sans-serif;
       color: rgb(226, 176, 50);
       letter-spacing: 1px;
     }
     p {
+      font-family: "Inter", sans-serif;
       margin: 0;
       font-size: 12px;
       font-weight: 200;
@@ -110,6 +111,7 @@ const { t } = useI18n();
   align-items: flex-end;
 
   a {
+    font-family: "Inter", sans-serif;
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
@@ -131,6 +133,7 @@ const { t } = useI18n();
   gap: 10px;
 
   p {
+    font-family: "Inter", sans-serif;
     font-weight: 400;
     line-height: 1.3;
     margin: 0;
@@ -161,7 +164,7 @@ const { t } = useI18n();
     gap: 5px;
     font-size: 10px;
     font-weight: 200;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     text-transform: capitalize;
     color: var(--text-color);
     text-decoration: none;
@@ -221,13 +224,6 @@ const { t } = useI18n();
   }
   .footer__icon {
     border-radius: 3px;
-  }
-}
-@media (max-width: 425px) {
-  .footer__copyright {
-    flex-direction: column;
-    align-items: end;
-    gap: 7px;
   }
 }
 </style>

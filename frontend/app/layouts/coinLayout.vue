@@ -4,7 +4,7 @@
       <header>
         <header-comp />
       </header>
-      <AdComp id="AdSense" />
+      <!-- <AdComp id="AdSense" /> -->
       <main>
         <div class="main">
           <main-coins-coin-comp />
@@ -19,9 +19,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import AdComp from "../components/ad/AdComp.vue";
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .wrapper {

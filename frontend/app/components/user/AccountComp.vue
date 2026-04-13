@@ -170,7 +170,7 @@ p {
 
   &__title {
     font-size: 31px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 700;
     line-height: 1.1;
     color: var(--fan-color);
@@ -194,7 +194,7 @@ p {
       color: var(--fan-color);
     }
     h3 {
-      font-family: "Montserrat", sans-serif;
+      font-family: "Inter", sans-serif;
       font-weight: 200;
       font-size: 18px;
     }
@@ -208,7 +208,7 @@ p {
 }
 .fav-coin__h2 {
   font-size: 31px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   line-height: 1.1;
   color: var(--fan-color);
@@ -236,7 +236,7 @@ p {
     color: var(--fan-color);
   }
   h3 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 200;
     font-size: 18px;
     text-transform: capitalize;
@@ -293,7 +293,7 @@ p {
   color: #ffff;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
   &:hover {

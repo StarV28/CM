@@ -533,7 +533,7 @@ onBeforeUnmount(() => {
   span {
     max-width: 110px;
     font-size: 12px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
   }
 }
 .colDef__name {

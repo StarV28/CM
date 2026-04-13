@@ -131,12 +131,12 @@ onMounted(() => {
   h3 {
     font-weight: 500;
     line-height: 1.1;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     text-transform: capitalize;
   }
   h4 {
     font-weight: 100;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     line-height: 1.1;
     text-transform: uppercase;
     color: red;

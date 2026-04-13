@@ -1,6 +1,6 @@
 <template>
   <GlobalLayout>
-    <AdComp id="AdSense" />
+    <!-- <AdComp id="AdSense" /> -->
     <MainRatesComp id="charts" />
     <section class="seo-text" style="opacity: 0; height: 0; overflow: hidden">
       <h2>{{ t("seoText.heading") }}</h2>
@@ -8,10 +8,10 @@
       <p>{{ t("seoText.paragraph2") }}</p>
     </section>
     <MainCoinsComp id="coins" />
-    <AdComp id="AdSense" />
+    <!-- <AdComp id="AdSense" /> -->
     <MainExchangesComp />
     <MainNewsComp id="news" />
-    <AdComp id="AdSense" />
+    <!-- <AdComp id="AdSense" /> -->
   </GlobalLayout>
 </template>
 

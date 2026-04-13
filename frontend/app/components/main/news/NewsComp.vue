@@ -90,7 +90,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .title {
   font-size: 21px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   line-height: 1.4;
   display: inline-block;
@@ -130,7 +130,7 @@ onBeforeUnmount(() => {
 .item__title {
   flex: 1;
   a {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 100;
     line-height: 1.1;
@@ -153,7 +153,7 @@ onBeforeUnmount(() => {
 .item__link {
   a {
     font-size: 14px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 100;
     color: var(--text-color);
     transition: color 0.3s ease;
@@ -176,7 +176,7 @@ onBeforeUnmount(() => {
   }
   .item__title {
     a {
-      font-family: "Montserrat", sans-serif;
+      font-family: "Inter", sans-serif;
       font-size: 18px;
       font-weight: 500;
     }

@@ -64,7 +64,7 @@ onMounted(async () => {
 .rates__bank {
   color: rgb(14, 154, 63);
   font-weight: 100;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .rates__currency {
