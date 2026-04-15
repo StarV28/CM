@@ -25,17 +25,19 @@
             t("footer.priv")
           }}</NuxtLink>
         </div>
-        <div class="footer-box__email">
-          <p>{{ t("footer.proposal") }}</p>
-          <p>
-            <a :href="`mailto:${email}`">E-mail: {{ email }}</a>
-          </p>
-          <p>
-            <a href="https://my.wpslab.app" target="_blanc"
-              >Developer's website: my.wpslab.app</a
-            >
-          </p>
-        </div>
+      </div>
+    </div>
+    <div class="footer__email">
+      <p>{{ t("footer.proposal") }}</p>
+      <div class="footer__email-box">
+        <p>
+          <a :href="`mailto:${email}`">E-mail: {{ email }}</a>
+        </p>
+        <p>
+          <a href="https://my.wpslab.app" target="_blanc"
+            >Developer's website: my.wpslab.app</a
+          >
+        </p>
       </div>
     </div>
     <div class="footer__copyright">
@@ -60,8 +62,6 @@ const { t } = useI18n();
   gap: 15px;
   padding: 15px;
   border-top: 1px solid var(--accent-color);
-  // box-shadow: 0 -4px 8px -2px var(--accent-color);
-  // border-radius: 6px;
 }
 .footer__donate {
   border-bottom: 1px solid var(--accent-color);
@@ -72,6 +72,8 @@ const { t } = useI18n();
   justify-content: space-between;
   align-items: center;
   gap: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--accent-color);
 }
 .menu__logo {
   display: flex;
@@ -115,7 +117,7 @@ const { t } = useI18n();
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
-    color: var(--text-color);
+    color: var(--fan-color);
     transition: color 0.3s ease;
     &:hover {
       transition: color 0.3s ease;
@@ -124,19 +126,29 @@ const { t } = useI18n();
     }
   }
 }
-.footer-box__email {
-  max-width: 270px;
+.footer__email {
+  display: flex;
+  align-items: center;
+
+  p {
+    width: 50%;
+    text-align: left;
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 200;
+    line-height: 1.3;
+    margin: 0;
+  }
+}
+.footer__email-box {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  text-align: end;
   gap: 10px;
 
   p {
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    line-height: 1.3;
-    margin: 0;
+    width: 100%;
+    text-align: right;
     a {
       color: var(--text-color);
       transition: color 0.3s ease;
@@ -155,8 +167,8 @@ const { t } = useI18n();
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  padding-top: 15px;
-  border-top: 1px solid var(--accent-color);
+  // padding-top: 15px;
+  // border-top: 1px solid var(--accent-color);
 
   span {
     display: inline-flex;

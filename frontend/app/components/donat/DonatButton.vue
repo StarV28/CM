@@ -40,7 +40,7 @@ const { t } = useI18n();
     font-size: 14px;
     font-weight: 200;
     color: var(--text-color);
-    border-bottom: 1px solid var(--accent-color);
+    // border-bottom: 1px solid var(--accent-color);
     padding-bottom: 5px;
   }
 }

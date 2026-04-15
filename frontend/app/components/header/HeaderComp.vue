@@ -58,8 +58,8 @@
             }}</NuxtLink>
           </li>
           <li class="seo-text__item">
-            <NuxtLink class="seo-text__link" @click="scrollTo('charts')">{{
-              t("seo.charts")
+            <NuxtLink class="seo-text__link" @click="scrollTo('footer')">{{
+              t("seo.contact")
             }}</NuxtLink>
           </li>
           <li class="seo-text__item">

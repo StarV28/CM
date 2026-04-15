@@ -9,7 +9,7 @@
         <slot />
       </main>
       <footer>
-        <footer-comp />
+        <footer-comp id="footer" />
       </footer>
     </div>
   </div>

@@ -22,7 +22,7 @@ class ItemDBService {
     try {
       const pool = await getPool();
       const [rows] = await pool.query<RowDataPacket[]>(
-        `SELECT * FROM \`${db}\``
+        `SELECT * FROM \`${db}\``,
       );
       return rows;
     } catch (error: unknown) {
@@ -36,7 +36,7 @@ class ItemDBService {
     try {
       const pool = await getPool();
       const sql = `INSERT INTO \`${db}\` SET ?`;
-      const [result] = await pool.query<ResultSetHeader>(sql, data);
+      const [result] = await pool.query<ResultSetHeader>(sql, [data]);
       return { id: result.insertId, ...data };
     } catch (error: unknown) {
       console.error("Error saving data:", error);
@@ -48,7 +48,7 @@ class ItemDBService {
   static async getByID(
     db: string,
     nameID: string,
-    id: string | number
+    id: string | number,
   ): Promise<RowDataPacket | null> {
     try {
       const pool = await getPool();
@@ -66,7 +66,7 @@ class ItemDBService {
     db: string,
     nameID: string,
     id: string | number,
-    data: Record
+    data: Record,
   ): Promise<CreateResult | null> {
     try {
       const pool = await getPool();
@@ -88,7 +88,7 @@ class ItemDBService {
   static async deleteById(
     db: string,
     idName: string,
-    id: string | number
+    id: string | number,
   ): Promise<DeleteResult | null> {
     try {
       const pool = await getPool();
