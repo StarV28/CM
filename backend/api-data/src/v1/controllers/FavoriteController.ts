@@ -34,7 +34,7 @@ export default class FavoriteController {
   //---------------------------------------//
   static async favoriteCreate(req: Request, res: Response, next: NextFunction) {
     try {
-      await FavoriteService.favoritesTable();
+      // await FavoriteService.favoritesTable();
 
       const data = req.body.data;
       if (
