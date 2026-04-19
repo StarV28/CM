@@ -112,6 +112,8 @@ onBeforeUnmount(() => {
   align-items: start;
   gap: 15px;
   flex: 1 0 auto;
+  padding: 15px;
+  box-shadow: 2px 2px 15px var(--accent-color);
 }
 .item__image {
   position: relative;
