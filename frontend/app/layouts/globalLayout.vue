@@ -2,6 +2,7 @@
   <div class="container">
     <LoadingComp v-if="loading" />
     <div class="wrapper">
+      <MainRatesComp v-if="route.path === localPath('/')" />
       <header>
         <header-comp />
       </header>
@@ -16,12 +17,12 @@
 </template>
 
 <script setup lang="ts">
-// import { useSeoI18n } from "../composables/useSeoI18n";
-
+import { useRoute } from "vue-router";
+import { useLocalePath } from "#i18n";
 //---------------------------------------//
+const route = useRoute();
+const localPath = useLocalePath();
 const loading = ref(true);
-// useSeoI18n();
-// const { t } = useI18n();
 //---------------------------------------//
 onMounted(() => {
   loading.value = false;

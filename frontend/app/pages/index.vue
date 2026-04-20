@@ -1,7 +1,7 @@
 <template>
   <GlobalLayout>
     <!-- <AdComp id="AdSense" /> -->
-    <MainRatesComp id="charts" />
+    <!-- <MainRatesComp id="charts" /> -->
     <section class="seo-text" style="opacity: 0; height: 0; overflow: hidden">
       <h2>{{ t("seoText.heading") }}</h2>
       <p>{{ t("seoText.paragraph1") }}</p>

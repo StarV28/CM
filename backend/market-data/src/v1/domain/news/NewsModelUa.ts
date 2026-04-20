@@ -4,7 +4,6 @@ import NewsHelperRSS from "./NewsHelperRSS.js";
 
 //-------------------------------------------------------------------------------------//
 const feeds = [
-  "https://www.ukrinform.ua/rss",
   "https://incrypted.com/feed/",
   "https://cryptonews.com.ua/feed",
   "https://forklog.com/rss",

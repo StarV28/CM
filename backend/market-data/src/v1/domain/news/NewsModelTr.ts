@@ -4,9 +4,7 @@ import type { News } from "./types/news.type.js";
 
 //-------------------------------------------------------------------------------------//
 const feeds = [
-  "https://www.trthaber.com/ekonomi_articles.rss",
   "https://www.kriptofoni.com/kripto-para-haberleri/feed/",
-  "https://www.haberturk.com/rss/ekonomi.xml",
   "https://www.kriptofoni.com/nft-haberleri/feed/",
   "https://www.kriptofoni.com/finans-ve-ekonomi-haberleri/feed/",
 ];

@@ -25,15 +25,15 @@
           {{ t("coins.titleAll") }}
         </button>
       </div>
-      <div class="coins__qr-donate qr-donate">
+      <!-- <div class="coins__qr-donate qr-donate">
         <div class="qr-donate__title">
-          <!-- <span>Support</span>
+          <span>Support</span>
           <span>the project</span>
-          <span>with a Donation</span> -->
+          <span>with a Donation</span>
           <span>{{ t("donat.title") }}</span>
         </div>
         <qrcode-comp />
-      </div>
+      </div> -->
     </div>
     <popup-inform-favorite-comp />
     <popup-info-popup-comp />
@@ -73,7 +73,7 @@ import type {
 import type { Coins, RowData, ExchangeName } from "../../../../types/coin";
 import type { User } from "../../../../types/user";
 import type { Favorite } from "../../../../types/favorite";
-import QrcodeComp from "../../donat/QrcodeComp.vue";
+// import QrcodeComp from "../../donat/QrcodeComp.vue";
 
 //-------------------------------------------------------------------------------------//
 const coinsStore = useCoinsStore();

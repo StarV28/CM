@@ -2,16 +2,16 @@
   <loading-comp v-if="loading" />
   <div v-else>
     <div v-if="coin" class="coin">
-      <section class="seo-text">
-        <h1>{{ t("seo.coinTitle", { name: coin.name }) }}</h1>
-        <p>{{ t("seo.coinDescription", { name: coin.name }) }}</p>
-      </section>
-
       <div class="coin__back">
         <nuxt-link :to="localePath('/')">{{ t("menu.main") }}</nuxt-link>
         <span> -> </span>
         <span>{{ coin.name }}</span>
       </div>
+      <section class="seo-text">
+        <h1>{{ t("seo.coinTitle", { name: coin.name }) }}</h1>
+        <p>{{ t("seo.coinDescription", { name: coin.name }) }}</p>
+      </section>
+
       <div class="coin__main-coin main-coin">
         <div class="main-coin__title">
           <div class="main-coin__image">
@@ -343,7 +343,7 @@ h5 {
 .coin {
   display: flex;
   flex-direction: column;
-  gap: 55px;
+  gap: 15px;
   align-items: start;
   width: 100%;
   flex: 1;
@@ -355,8 +355,10 @@ h5 {
     line-height: 1.1;
     font-weight: 500;
     color: var(--fan-color);
+    margin: 0;
   }
   p {
+    margin: 0;
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
     line-height: 1.5;
@@ -365,10 +367,10 @@ h5 {
   }
 }
 .coin__back {
-  padding: 15px 0 0 0;
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-top: 25px;
   a {
     font-size: 18px;
     text-decoration: none;

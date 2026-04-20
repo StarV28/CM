@@ -38,7 +38,6 @@ export default class NewsApiModel {
     try {
       const res = await apiNewsApi.get("/everything", {
         params: {
-          // q: "cryptocurrency OR finance",
           q: "cryptocurrency OR bitcoin OR ethereum",
           language: `${lang}`,
           sortBy: "publishedAt",

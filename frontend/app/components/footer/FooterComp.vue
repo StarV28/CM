@@ -13,7 +13,13 @@
         />
         <span>
           <h5>TradMon</h5>
-          <p>cryptocurrency aggregator</p>
+          <!-- <p>cryptocurrency aggregator</p> -->
+          <section>
+            <div class="seo-text">
+              <h1>{{ t("seo.bottomText1") }}</h1>
+              <p>{{ t("seo.bottomText2") }}</p>
+            </div>
+          </section>
         </span>
       </div>
       <div class="menu__footer-box footer-box">
@@ -42,7 +48,7 @@
     </div>
     <div class="footer__copyright">
       <span> © 2025 TradMon </span>
-      <span> Made by Starovoit Volodymyr </span>
+      <span> Made by TradMon</span>
     </div>
   </div>
 </template>
@@ -80,6 +86,12 @@ const { t } = useI18n();
   align-items: center;
   gap: 10px;
 
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+
   span {
     display: flex;
     flex-direction: column;
@@ -92,13 +104,30 @@ const { t } = useI18n();
       color: rgb(226, 176, 50);
       letter-spacing: 1px;
     }
-    p {
-      font-family: "Inter", sans-serif;
-      margin: 0;
-      font-size: 12px;
-      font-weight: 200;
-      text-transform: capitalize;
-    }
+    // p {
+    //   font-family: "Inter", sans-serif;
+    //   margin: 0;
+    //   font-size: 12px;
+    //   font-weight: 200;
+    //   text-transform: capitalize;
+    // }
+  }
+}
+.seo-text {
+  h1 {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 1.4;
+    margin: 0;
+  }
+  p {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    line-height: 1.5;
+    font-weight: 200;
+    color: var(--text-color);
+    margin: 0;
   }
 }
 .footer-box {
@@ -150,6 +179,7 @@ const { t } = useI18n();
     width: 100%;
     text-align: right;
     a {
+      text-decoration: none;
       color: var(--text-color);
       transition: color 0.3s ease;
       &:hover {

@@ -45,7 +45,7 @@ onMounted(async () => {
 
 <style scoped lang="scss">
 .rates {
-  padding: 15px 0;
+  padding: 10px 0 5px 0;
 }
 .rates__wrapper {
   display: flex;
@@ -59,6 +59,7 @@ onMounted(async () => {
   align-items: center;
   gap: 10px;
   font-weight: 500;
+  font-size: 12px;
 }
 
 .rates__bank {
@@ -91,13 +92,5 @@ onMounted(async () => {
 .separator {
   margin-left: 5px;
   color: #9ca3af;
-}
-@media (max-width: 768px) {
-  .rates__bank,
-  .rates__currency,
-  .rates__values .buy,
-  .rates__values .sell {
-    font-size: 12px;
-  }
 }
 </style>

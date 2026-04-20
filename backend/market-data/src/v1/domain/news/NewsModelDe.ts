@@ -5,7 +5,6 @@ import type { News } from "./types/news.type.js";
 const feeds: string[] = [
   "https://www.btc-echo.de/feed/",
   "https://de.cointelegraph.com/rss",
-  "https://blockzeit.com/de/feed/",
 ];
 
 export default class NewsModelDe {
