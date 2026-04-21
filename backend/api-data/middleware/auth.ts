@@ -14,6 +14,7 @@ const auth = (app: Express): void => {
       "Access-Control-Allow-Methods",
       "GET, POST, OPTIONS, PUT, PATCH, DELETE",
     );
+    res.setHeader('Cache-Control', 'no-store');
     next();
   });
 

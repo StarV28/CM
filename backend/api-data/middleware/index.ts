@@ -15,6 +15,7 @@ const __dirname = path.dirname(__filename);
 
 const middleware = (app: Express): void => {
   app.set("trust proxy", 1);
+  app.set('etag', false)
   // Middleware для CORS
   app.use(cors());
 
