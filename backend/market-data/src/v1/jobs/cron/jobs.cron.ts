@@ -81,7 +81,7 @@ export const jobs: CronJobConfig[] = [
   {
     name: "exchanges",
     schedule: "*/45 * * * * *",
-    ttlMs: 1000 * 60,
+    ttlMs: 1000 * 55,
     retries: 2,
     handler: collectEx,
   },

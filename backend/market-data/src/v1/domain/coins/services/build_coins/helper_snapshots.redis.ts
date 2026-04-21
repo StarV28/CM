@@ -5,14 +5,6 @@ import { cacheRedisServer } from "../../../../../../utils/cacheRedisServer.js";
 //-------------------------------------------------------------------------------------//
 
 export async function trCoinsRedisSnapshots(): Promise<TradingCoinRedisView[]> {
-  const lockKey = "lock:snapshot";
-  const isLocked = await cacheRedisServer.setKey(lockKey, 90);
-
-  if (!isLocked) {
-    console.log("Snapshots: Lock------------>", isLocked);
-    const cached = await cacheRedisServer.get("coins:snapshots");
-    return (cached as TradingCoinRedisView[]) || [];
-  }
   const coins = await buildTradingCoins();
 
   const redisCoins = coins.map((c) => ({
@@ -44,11 +36,7 @@ export async function trCoinsRedisSnapshots(): Promise<TradingCoinRedisView[]> {
     kraken: c.kraken,
   }));
 
-  try {
-    // await syncRedis("coins:snapshots", redisCoins, 120);
-    await cacheRedisServer.set("coins:snapshots", redisCoins, 120);
-    return redisCoins;
-  } finally {
-    await cacheRedisServer.del(lockKey);
-  }
+  // await syncRedis("coins:snapshots", redisCoins, 120);
+  await cacheRedisServer.set("coins:snapshots", redisCoins, 120);
+  return redisCoins;
 }
