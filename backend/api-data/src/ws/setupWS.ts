@@ -1,6 +1,7 @@
 import WebSocket, { WebSocketServer } from "ws";
 import http from "http";
 import redisClient from "../../db/connect_Redis.js";
+import { cacheRedisServer } from "../../utils/cacheRedisServer.js";
 import CoinsModel from "../v1/external/coins/CoinsModel.js";
 
 const clients: Set<WebSocket> = new Set();
@@ -23,7 +24,8 @@ export function setupWs(server: http.Server) {
       switch (msg.type) {
         case "get-coins": {
           const cacheKey = "coins:snapshots";
-          const cachedCoins = await redisClient.get(cacheKey);
+          // const cachedCoins = await redisClient.get(cacheKey);
+          const cachedCoins = await cacheRedisServer.get(cacheKey);
           if (cachedCoins) {
             ws.send(
               JSON.stringify({ type: "coins:snapshots", data: cachedCoins }),
@@ -53,7 +55,8 @@ export function setupWs(server: http.Server) {
   //------SetInterval---coins:delta------------
   setInterval(async () => {
     try {
-      const coins = await redisClient.get("coins:delta");
+      // const coins = await redisClient.get("coins:delta");
+      const coins = await cacheRedisServer.get("coins:delta");
       const delta = coins || (await CoinsModel.getAllCoins());
       if (!delta) return;
 
@@ -74,7 +77,8 @@ export function setupWs(server: http.Server) {
 
   setInterval(async () => {
     try {
-      const coins = await redisClient.get("coins:snapshots");
+      // const coins = await redisClient.get("coins:snapshots");
+      const coins = await cacheRedisServer.get("coins:snapshots");
       const snapshots = coins || (await CoinsModel.getAllCoins());
       if (!snapshots) return;
       const payload = JSON.stringify({

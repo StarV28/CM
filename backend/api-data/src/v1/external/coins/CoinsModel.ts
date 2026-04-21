@@ -1,7 +1,8 @@
 import ItemDBService from "../../modules/CRUD.js";
-import redisClient from "../../../../db/connect_Redis.js";
+// import redisClient from "../../../../db/connect_Redis.js";
 import getPool from "../../../../db/connect_MySQL.js";
 import type { CoinsRedis } from "../../../types/coins.type.js";
+import { cacheRedisServer } from "../../../../utils/cacheRedisServer.js";
 
 //-------------------------------------------------------------------------------------//
 
@@ -10,7 +11,8 @@ class CoinsModel {
   static async getAllCoins() {
     try {
       const cacheKey = "coins:snapshots";
-      const cachedData = await redisClient.get<CoinsRedis>(cacheKey);
+      // const cachedData = await redisClient.get<CoinsRedis>(cacheKey);
+      const cachedData = await cacheRedisServer.get<CoinsRedis>(cacheKey);
       if (cachedData) {
         const data = (
           typeof cachedData === "string"
@@ -37,7 +39,8 @@ class CoinsModel {
 
       // ----- Redis cache
       const cacheKey = "coins:snapshots";
-      const cachedData = await redisClient.get<CoinsRedis>(cacheKey);
+      // const cachedData = await redisClient.get<CoinsRedis>(cacheKey);
+      const cachedData = await cacheRedisServer.get<CoinsRedis>(cacheKey);
       if (cachedData) {
         const data = (
           typeof cachedData === "string"
