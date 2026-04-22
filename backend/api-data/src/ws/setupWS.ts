@@ -57,6 +57,9 @@ export function setupWs(server: http.Server) {
     try {
       // const coins = await redisClient.get("coins:delta");
       const coins = await cacheRedisServer.get("coins:delta");
+      if (coins) {
+        console.log("[Coins] delta redis success");
+      }
       const delta = coins || (await CoinsModel.getAllCoins());
       if (!delta) return;
 
@@ -72,13 +75,16 @@ export function setupWs(server: http.Server) {
     } catch (err) {
       console.error("❌ Error updating WS data:", (err as Error).message);
     }
-  }, 45 * 1000);
+  }, 30 * 1000);
   //------SetInterval----coins:snapshot-----------------------------//
 
   setInterval(async () => {
     try {
       // const coins = await redisClient.get("coins:snapshots");
       const coins = await cacheRedisServer.get("coins:snapshots");
+      if (coins) {
+        console.log("[Coins] snapshots redis success");
+      }
       const snapshots = coins || (await CoinsModel.getAllCoins());
       if (!snapshots) return;
       const payload = JSON.stringify({
@@ -93,7 +99,7 @@ export function setupWs(server: http.Server) {
     } catch (err) {
       console.error("❌ Error updating WS data:", (err as Error).message);
     }
-  }, 90 * 1000);
+  }, 120 * 1000);
 
   //---------------------------------------//
 
