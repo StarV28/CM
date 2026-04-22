@@ -144,7 +144,6 @@ watch(
 watch(
   () => socketStore.data.coin,
   (delta) => {
-    console.log("delta--------->", delta?.length);
     if (!delta || !Array.isArray(delta)) return;
 
     for (const upd of delta) {
