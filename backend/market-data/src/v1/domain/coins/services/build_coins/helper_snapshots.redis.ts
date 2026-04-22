@@ -1,12 +1,20 @@
 import { buildTradingCoins } from "./buildTrCoins.js";
-import { TradingCoinRedisView } from "../../type/buildTrCoins.types.js";
+import type { TradingCoinRedisView } from "../../type/buildTrCoins.types.js";
+import type { TradingCoinView } from "../../type/buildTrCoins.types.js";
 // import { syncRedis } from "../../../../infrastructure/storage/redis/redis.repository.js";
 import { cacheRedisServer } from "../../../../../../utils/cacheRedisServer.js";
 //-------------------------------------------------------------------------------------//
 
 export async function trCoinsRedisSnapshots(): Promise<TradingCoinRedisView[]> {
   const coins = await buildTradingCoins();
+  const redisCoins = normalizeSnapshot(coins);
 
+  // await syncRedis("coins:snapshots", redisCoins, 120);
+  await cacheRedisServer.set("coins:snapshots", redisCoins, 120);
+  return redisCoins;
+}
+
+function normalizeSnapshot(coins: TradingCoinView[]) {
   const redisCoins = coins.map((c) => ({
     id: c.cmc_id,
     symbol: c.symbol,
@@ -35,8 +43,5 @@ export async function trCoinsRedisSnapshots(): Promise<TradingCoinRedisView[]> {
     okx: c.okx,
     kraken: c.kraken,
   }));
-
-  // await syncRedis("coins:snapshots", redisCoins, 120);
-  await cacheRedisServer.set("coins:snapshots", redisCoins, 120);
   return redisCoins;
 }

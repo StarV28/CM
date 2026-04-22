@@ -11,14 +11,19 @@ import type {
   ExData,
 } from "../../type/buildTrCoins.types.js";
 import NodeCache from "node-cache";
+import { cacheRedisServer } from "../../../../../../utils/cacheRedisServer.js";
 
 //-------------------------------------------------------------------------------------//
 const priceCache = new NodeCache({ stdTTL: 45 });
 
 export async function buildTradingCoins(): Promise<TradingCoinView[]> {
   try {
-    const tradingCoins = await getMatcherCoins();
+    const cacheKeyTrCoins = "buildTrCoins";
+    const cachedTrCoins =
+      await cacheRedisServer.get<TradingCoinView[]>(cacheKeyTrCoins);
+    if (cachedTrCoins) return cachedTrCoins;
 
+    const tradingCoins = await getMatcherCoins();
     const [topDataCmc, quotesCmc, marketCmc, exData] = await Promise.all([
       topData(),
       quotesData(),
@@ -106,6 +111,7 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
         changed: changed,
       });
     }
+    await cacheRedisServer.set(cacheKeyTrCoins, result, 25);
     return result;
   } catch (err) {
     console.error("Error collect trading coins", (err as Error).message);
