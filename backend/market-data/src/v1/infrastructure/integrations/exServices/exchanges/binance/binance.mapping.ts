@@ -3,7 +3,7 @@ import type { BinanceInfo, BinanceSymbol } from "../../types/exchangesMapp.js";
 
 export async function getBinanceSpotUsdtMarkets() {
   const { data } = await axios.get<BinanceInfo>(
-    "https://api.binance.com/api/v3/exchangeInfo"
+    "https://api.binance.com/api/v3/exchangeInfo",
   );
 
   return data.symbols
@@ -11,7 +11,7 @@ export async function getBinanceSpotUsdtMarkets() {
       (s: BinanceSymbol) =>
         s.status === "TRADING" &&
         s.isSpotTradingAllowed === true &&
-        s.quoteAsset === "USDT"
+        s.quoteAsset === "USDT",
     )
     .map((s: BinanceSymbol) => ({
       exchange: "binance" as const,

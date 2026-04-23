@@ -7,7 +7,7 @@ import { getKrakenTicker } from "./exchanges/kraken/kraken.js";
 
 //-------------------------------------------------------------------------------------//
 export async function collectTickers(
-  symbols: CollectCoins
+  symbols: CollectCoins,
 ): Promise<RawTicker[]> {
   const promises: Promise<RawTicker>[] = [];
 
@@ -20,7 +20,7 @@ export async function collectTickers(
 
   return results
     .filter(
-      (r): r is PromiseFulfilledResult<RawTicker> => r.status === "fulfilled"
+      (r): r is PromiseFulfilledResult<RawTicker> => r.status === "fulfilled",
     )
     .map((r) => r.value);
 }

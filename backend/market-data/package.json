@@ -7,7 +7,7 @@
     "my-app": "dist/bin.js"
   },
   "scripts": {
-    "dev": "npx nodemon",
+    "dev": "dotenv -e .env.local npx nodemon",
     "build": "rimraf ./dist && npx tsc",
     "start": "node dist/bin/www.js",
     "lint": "npx eslint ./src ./bin ./config ./db ./middleware ./utils ./app.ts",

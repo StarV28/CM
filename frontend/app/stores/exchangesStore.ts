@@ -23,7 +23,7 @@ export const useExchangesStore = defineStore("exchangesStore", () => {
       const result = await api.get<ExchangesApiResponse>(
         "/exchanges",
         {},
-        true
+        true,
       );
       const resObj = result?.result ?? {};
       const exchangesArray: Exchanges[] = Object.values(resObj);

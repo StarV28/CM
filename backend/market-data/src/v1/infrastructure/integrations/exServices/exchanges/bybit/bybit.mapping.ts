@@ -6,12 +6,12 @@ import type {
 
 export async function getBybitSpotUsdtMarkets() {
   const { data } = await axios.get<BybitExchangeInfo>(
-    "https://api.bybit.com/v5/market/instruments-info?category=spot"
+    "https://api.bybit.com/v5/market/instruments-info?category=spot",
   );
 
   return data.result.list
     .filter(
-      (s: BybitSymbol) => s.status === "Trading" && s.quoteCoin === "USDT"
+      (s: BybitSymbol) => s.status === "Trading" && s.quoteCoin === "USDT",
     )
     .map((s: BybitSymbol) => ({
       exchange: "bybit" as const,
