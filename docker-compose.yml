@@ -5,8 +5,7 @@ services:
     restart: unless-stopped
     env_file: .env
     ports:
-      # - "${API_DATA_PORT}:${API_DATA_PORT}"
-      - "3001:3000"
+      - "${API_DATA_PORT}:${API_DATA_PORT}"
     mem_limit: 2500m
     cpus: 1
 
@@ -16,8 +15,7 @@ services:
     restart: unless-stopped
     env_file: .env
     ports:
-      # - "${MARKET_DATA_PORT}:${MARKET_DATA_PORT}"
-      - "4000:4000"
+      - "${MARKET_DATA_PORT}:${MARKET_DATA_PORT}"
     mem_limit: 2500m
     cpus: 1
 
@@ -38,8 +36,6 @@ services:
     image: redis:7-alpine
     container_name: cm_redis
     restart: unless-stopped
-    ports:
-      - "127.0.0.1:6379:6379"
     command: redis-server --appendonly yes --requirepass the_LonG_PaSsWorD --maxmemory 200mb --maxmemory-policy allkeys-lru
     mem_limit: 256m
 
