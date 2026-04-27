@@ -55,7 +55,7 @@ export async function syncCoins(coins: TradingCoinView[]) {
 
       c.added_at ?? null,
     ]);
-
+    console.log("coins.repo-----------", values);
     await conn.query(
       `
       INSERT INTO coins (

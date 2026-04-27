@@ -6,9 +6,8 @@ import { RawTicker } from "../../../cmc/types/rawTicker.js";
 export async function getBinanceTicker(symbol: string): Promise<RawTicker> {
   const { data } = await axios.get(
     "https://api.binance.com/api/v3/ticker/24hr",
-    { params: { symbol } }
+    { params: { symbol } },
   );
-
   return {
     exchange: "binance",
     symbol: data.symbol,

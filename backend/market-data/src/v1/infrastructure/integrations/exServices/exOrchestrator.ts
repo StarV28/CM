@@ -17,7 +17,6 @@ export async function exOrchestrator() {
     coins = ((await getMatcherCoins()) as CollectCoins[]) ?? [];
   }
   //---------------------------------------//
-
   const tasks = coins.map((coin) =>
     limit(async () => {
       try {
@@ -33,7 +32,6 @@ export async function exOrchestrator() {
   //---------------------------------------//
 
   const results = await Promise.allSettled(tasks);
-
   const snapshots = results
     .filter(
       (

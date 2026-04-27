@@ -15,7 +15,7 @@ const QUOTES = ["USDT"];
 
 export async function getKrakenSpotUsdtMarkets(): Promise<ExchangePair[]> {
   const { data } = await axios.get<KrakenResponse>(
-    "https://api.kraken.com/0/public/AssetPairs"
+    "https://api.kraken.com/0/public/AssetPairs",
   );
 
   return Object.values(data.result)
@@ -24,7 +24,7 @@ export async function getKrakenSpotUsdtMarkets(): Promise<ExchangePair[]> {
         pair.altname &&
         pair.status === "online" &&
         pair.wsname &&
-        QUOTES.some((q) => pair.altname.toUpperCase().endsWith(q))
+        QUOTES.some((q) => pair.altname.toUpperCase().endsWith(q)),
     )
     .map((pair) => {
       const altname = pair.altname!.toUpperCase();
