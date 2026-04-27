@@ -56,6 +56,10 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
       const exBybit = exSources.includes("bybit") ? "bybit" : null;
       const exOkx = exSources.includes("okx") ? "okx" : null;
       const exKraken = exSources.includes("kraken") ? "kraken" : null;
+      const symbolBinance = ex?.symbolBinance ?? null;
+      const symbolBybit = ex?.symbolBybit ?? null;
+      const symbolOkx = ex?.symbolOkx ?? null;
+      const symbolKraken = ex?.symbolKraken ?? null;
 
       if (!top || !quote || !market || !ex) continue;
 
@@ -99,6 +103,11 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
         description: market?.description,
         website: market.website,
         explorer: market.explorer,
+
+        symbolBinance: symbolBinance,
+        symbolBybit: symbolBybit,
+        symbolOkx: symbolOkx,
+        symbolKraken: symbolKraken,
 
         binance: exBinance,
         bybit: exBybit,

@@ -48,6 +48,11 @@ export async function syncCoins(coins: TradingCoinView[]) {
       c.website,
       c.explorer,
 
+      c.symbolBinance,
+      c.symbolBybit,
+      c.symbolOkx,
+      c.symbolKraken,
+
       c.binance,
       c.bybit,
       c.okx,
@@ -65,8 +70,7 @@ export async function syncCoins(coins: TradingCoinView[]) {
         volume_24h, volume_change_24h,
         percent_change_24h, percent_change_7d, percent_change_30d,
         fully_diluted_market_cap,
-        description, website, explorer,
-        binance, bybit, okx, kraken,
+        description, website, explorer,symbolBinance, symbolBybit, symbolOkx, symbolKraken, binance, bybit, okx, kraken,
         added_at
       )
       VALUES ?
@@ -93,6 +97,11 @@ export async function syncCoins(coins: TradingCoinView[]) {
         description = VALUES(description),
         website = VALUES(website),
         explorer = VALUES(explorer),
+
+        symbolBinance = VALUES(symbolBinance),
+        symbolBybit = VALUES(symbolBybit),
+        symbolOkx = VALUES(symbolOkx),
+        symbolKraken = VALUES(symbolKraken),
 
         binance = VALUES(binance),
         bybit = VALUES(bybit),
