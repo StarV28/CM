@@ -38,6 +38,11 @@ function normalizeSnapshot(coins: TradingCoinView[]) {
     percent_change_7d: c.percent_change_7d,
     percent_change_30d: c.percent_change_30d,
 
+    symbolBinance: c.symbolBinance,
+    symbolBybit: c.symbolBybit,
+    symbolOkx: c.symbolOkx,
+    symbolKraken: c.symbolKraken,
+
     binance: c.binance,
     bybit: c.bybit,
     okx: c.okx,

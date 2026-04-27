@@ -30,7 +30,7 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
       marketData(),
       exOrchestrator(),
     ]);
-
+    console.log("exOrchestartor--------", exData[0]);
     const topMap = new Map<number, CmcTopCoin>();
     Object.values(topDataCmc).forEach((c) => topMap.set(c.cmc_id, c));
 

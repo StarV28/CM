@@ -8,6 +8,10 @@ export interface TradingCoins {
   sources: string[];
   sourceCount: number;
   timestamp: string;
+  symbolBinance: string | null;
+  symbolBybit: string | null;
+  symbolOkx: string | null;
+  symbolKraken: string | null;
 }
 
 export interface CmcCoinsTop {
