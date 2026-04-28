@@ -41,7 +41,7 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
 
     const exMap = new Map<string, ExData>();
     Object.values(exData).forEach((c) => exMap.set(c.symbol.toUpperCase(), c));
-
+    console.log("buildTr-------------", exData[0]);
     const result: TradingCoinView[] = [];
 
     for (const coin of tradingCoins) {
@@ -50,14 +50,15 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
       const market = marketMap.get(coin.cmc_id);
       const ex = exMap.get(coin.symbol.toUpperCase());
 
+      if (!top || !quote || !market || !ex) continue;
+
       const exSources = ex?.sources ?? [];
       const exBinance = exSources.includes("binance") ? "binance" : null;
       const exBybit = exSources.includes("bybit") ? "bybit" : null;
       const exOkx = exSources.includes("okx") ? "okx" : null;
       const exKraken = exSources.includes("kraken") ? "kraken" : null;
-      if (!top || !quote || !market || !ex) continue;
-
       const symbolsEx = ex.symbolsEx;
+
       //---------------------------------------//
 
       const cacheKey = `coin:${coin.cmc_id}`;
@@ -112,6 +113,7 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
         changed: changed,
       });
     }
+
     await cacheRedisServer.set(cacheKeyTrCoins, result, 25);
     return result;
   } catch (err) {

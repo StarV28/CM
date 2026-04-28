@@ -54,7 +54,7 @@ export async function calcCoinRating(trCoins: TradingCoins[]) {
 
     const ratedCoins = enriched.map((coin, index) => ({
       symbol: coin.symbol,
-      symbolEx: coin.symbolsEx,
+      symbolsEx: coin.symbolsEx,
       price_usd: coin.price_usd,
       high24h: coin.high24h,
       low24h: coin.low24h,
