@@ -7,11 +7,7 @@ import type { TradingCoinView } from "../../../domain/coins/type/buildTrCoins.ty
 export async function syncCoins(coins: TradingCoinView[]) {
   if (!coins.length) return;
   const pool = await getPool();
-  //---------------------------------------//
-  // const [rows] = await pool.query(`SHOW TABLES LIKE 'coins'`);
-  // if (!rows || (Array.isArray(rows) && rows.length <= 0)) {
-  //   await createCoinsCmcTable();
-  // }
+
   //---------------------------------------//
 
   const conn = await pool.getConnection();
@@ -48,10 +44,10 @@ export async function syncCoins(coins: TradingCoinView[]) {
       c.website,
       c.explorer,
 
-      c.symbolBinance,
-      c.symbolBybit,
-      c.symbolOkx,
-      c.symbolKraken,
+      c.symbolEx.symbolBinance,
+      c.symbolEx.symbolBybit,
+      c.symbolEx.symbolOkx,
+      c.symbolEx.symbolKraken,
 
       c.binance,
       c.bybit,
@@ -115,13 +111,9 @@ export async function syncCoins(coins: TradingCoinView[]) {
 
     const cmcIds = coins.map((c) => c.cmc_id);
 
-    await conn.query(
-      `
-      DELETE FROM coins
-      WHERE cmc_id NOT IN (?)
-      `,
-      [cmcIds],
-    );
+    if (cmcIds.length) {
+      await conn.query(`DELETE FROM coins WHERE cmc_id NOT IN (?)`, [cmcIds]);
+    }
 
     await conn.commit();
   } catch (err) {

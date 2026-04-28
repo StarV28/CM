@@ -1,3 +1,6 @@
+import type { SymbolsEx } from "../../../shared/types/coins.type.js";
+//---------------------------------------//
+
 export interface TradingCoins {
   symbol: string;
   price_usd: number;
@@ -8,10 +11,7 @@ export interface TradingCoins {
   sources: string[];
   sourceCount: number;
   timestamp: string;
-  symbolBinance: string | null;
-  symbolBybit: string | null;
-  symbolOkx: string | null;
-  symbolKraken: string | null;
+  symbolsEx: SymbolsEx;
 }
 
 export interface CmcCoinsTop {

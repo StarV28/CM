@@ -1,3 +1,5 @@
+import { SymbolsEx } from "../../../shared/types/coins.type.js";
+
 export type TradingCoinView = {
   cmc_id: number;
   symbol: string;
@@ -27,10 +29,7 @@ export type TradingCoinView = {
   percent_change_30d?: number;
   fully_diluted_market_cap?: number;
 
-  symbolBinance: string | null;
-  symbolBybit: string | null;
-  symbolOkx: string | null;
-  symbolKraken: string | null;
+  symbolEx: SymbolsEx;
 
   binance: string | null;
   bybit: string | null;

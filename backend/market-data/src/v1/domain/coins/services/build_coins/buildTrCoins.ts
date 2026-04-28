@@ -30,7 +30,6 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
       marketData(),
       exOrchestrator(),
     ]);
-    console.log("exOrchestartor--------", exData[0]);
     const topMap = new Map<number, CmcTopCoin>();
     Object.values(topDataCmc).forEach((c) => topMap.set(c.cmc_id, c));
 
@@ -49,13 +48,14 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
       const top = topMap.get(coin.cmc_id);
       const quote = quotesMap.get(coin.cmc_id);
       const market = marketMap.get(coin.cmc_id);
-      const ex = exMap.get(coin.symbol);
+      const ex = exMap.get(coin.symbol.toUpperCase());
 
       const exSources = ex?.sources ?? [];
       const exBinance = exSources.includes("binance") ? "binance" : null;
       const exBybit = exSources.includes("bybit") ? "bybit" : null;
       const exOkx = exSources.includes("okx") ? "okx" : null;
       const exKraken = exSources.includes("kraken") ? "kraken" : null;
+
       const symbolBinance = ex?.symbolBinance ?? null;
       const symbolBybit = ex?.symbolBybit ?? null;
       const symbolOkx = ex?.symbolOkx ?? null;
@@ -104,10 +104,12 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
         website: market.website,
         explorer: market.explorer,
 
-        symbolBinance: symbolBinance,
-        symbolBybit: symbolBybit,
-        symbolOkx: symbolOkx,
-        symbolKraken: symbolKraken,
+        symbolEx: {
+          symbolBinance,
+          symbolBybit,
+          symbolOkx,
+          symbolKraken,
+        },
 
         binance: exBinance,
         bybit: exBybit,

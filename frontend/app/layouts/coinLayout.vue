@@ -8,8 +8,8 @@
       <main>
         <div class="main">
           <main-coins-coin-comp />
-          <main-news-comp />
-          <!-- <main-exchanges-comp /> -->
+          <!-- <main-news-comp /> -->
+          <main-exchanges-comp />
         </div>
       </main>
       <footer>

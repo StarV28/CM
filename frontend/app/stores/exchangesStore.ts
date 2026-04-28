@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { useApi } from "@/composables/useApi";
+// import { useCoinStore } from "@/stores/coinStore";
 
 //-------------------------------------------------------------------------------------//
 const loading = ref<boolean>(false);
@@ -16,6 +17,8 @@ interface ExchangesApiResponse {
 //-------------------------------------------------------------------------------------//
 export const useExchangesStore = defineStore("exchangesStore", () => {
   const api = useApi();
+  // const coinStore = useCoinStore();
+
   //-------------------------------------------------------------------------------------//
   const getExchanges = async (): Promise<Exchanges[]> => {
     loading.value = true;

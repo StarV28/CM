@@ -212,7 +212,7 @@
 
 <script setup lang="ts">
 import { useRoute } from "vue-router";
-import { useCoinsStore } from "@/stores/coinsStore";
+import { useCoinStore } from "@/stores/coinStore";
 import type { CoinWithDescription, ExchangeName } from "../../../../types/coin";
 import { useSSRLocale } from "@/composables/useSSRLocale";
 // import { useSocketStore } from "@/stores/socketStore";
@@ -221,7 +221,7 @@ import { buildTradeUrl } from "../../../utils/buildLinksEx.helper";
 
 //-------------------------------------------------------------------------------------//
 
-const coinsStore = useCoinsStore();
+const coinStore = useCoinStore();
 const route = useRoute();
 const id = String(route.params.id).split("-")[0] ?? "";
 const coin = ref<CoinWithDescription | null>();
@@ -231,10 +231,11 @@ const localePath = useLocalePath();
 const descriptionTranslator = ref<string | null>(null);
 const { t } = useI18n();
 // const socketStore = useSocketStore();
-const loading = computed(() => coinsStore.loading);
+const loading = computed(() => coinStore.loading);
 //-------------------------------------------------------------------------------------//
-coin.value = await coinsStore.getCoinId(id);
-const res: unknown = await coinsStore.getDescriptionCoinId(id);
+coin.value = await coinStore.getCoinId(id);
+const res: unknown = await coinStore.getDescriptionCoinId(id, locale.value);
+
 if (res == null) {
   descriptionTranslator.value = null;
 } else if (typeof res === "string") {
@@ -293,7 +294,7 @@ watch(coinAmount, (newVal) => {
 //--------Locale-----------------------------------------------------------------------------//
 watch(locale, async (newLocale, oldLocale) => {
   if (newLocale && newLocale !== oldLocale && id) {
-    const res: unknown = await coinsStore.getDescriptionCoinId(id);
+    const res: unknown = await coinStore.getDescriptionCoinId(id, locale.value);
     if (res == null) {
       descriptionTranslator.value = null;
     } else if (typeof res === "string") {

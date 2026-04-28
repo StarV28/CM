@@ -47,10 +47,12 @@ export function aggregateTickers(tickers: RawTicker[]): MarketSnapshot | null {
   }
   return {
     symbol,
-    symbolBinance,
-    symbolBybit,
-    symbolOkx,
-    symbolKraken,
+    symbolsEx: {
+      symbolBinance,
+      symbolBybit,
+      symbolOkx,
+      symbolKraken,
+    },
     price_usd: priceSum / tickers.length,
     high24h: high,
     low24h: low,
