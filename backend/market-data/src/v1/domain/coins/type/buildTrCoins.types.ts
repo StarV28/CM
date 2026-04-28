@@ -29,7 +29,7 @@ export type TradingCoinView = {
   percent_change_30d?: number;
   fully_diluted_market_cap?: number;
 
-  symbolEx: SymbolsEx;
+  symbolsEx: SymbolsEx;
 
   binance: string | null;
   bybit: string | null;
@@ -98,10 +98,7 @@ export type ExData = {
   market_cap_change_percentage_24h: number;
   market_cap: number;
   rating: number;
-  symbolBinance: string | null;
-  symbolBybit: string | null;
-  symbolOkx: string | null;
-  symbolKraken: string | null;
+  symbolsEx: SymbolsEx;
   sources: string[];
 };
 

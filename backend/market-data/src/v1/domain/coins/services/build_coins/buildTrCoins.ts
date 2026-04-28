@@ -55,14 +55,9 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
       const exBybit = exSources.includes("bybit") ? "bybit" : null;
       const exOkx = exSources.includes("okx") ? "okx" : null;
       const exKraken = exSources.includes("kraken") ? "kraken" : null;
-
-      const symbolBinance = ex?.symbolBinance ?? null;
-      const symbolBybit = ex?.symbolBybit ?? null;
-      const symbolOkx = ex?.symbolOkx ?? null;
-      const symbolKraken = ex?.symbolKraken ?? null;
-
       if (!top || !quote || !market || !ex) continue;
 
+      const symbolsEx = ex.symbolsEx;
       //---------------------------------------//
 
       const cacheKey = `coin:${coin.cmc_id}`;
@@ -104,12 +99,7 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
         website: market.website,
         explorer: market.explorer,
 
-        symbolEx: {
-          symbolBinance,
-          symbolBybit,
-          symbolOkx,
-          symbolKraken,
-        },
+        symbolsEx: symbolsEx,
 
         binance: exBinance,
         bybit: exBybit,

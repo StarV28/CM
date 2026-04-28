@@ -44,10 +44,10 @@ export async function syncCoins(coins: TradingCoinView[]) {
       c.website,
       c.explorer,
 
-      c.symbolEx.symbolBinance,
-      c.symbolEx.symbolBybit,
-      c.symbolEx.symbolOkx,
-      c.symbolEx.symbolKraken,
+      c.symbolsEx.symbolBinance,
+      c.symbolsEx.symbolBybit,
+      c.symbolsEx.symbolOkx,
+      c.symbolsEx.symbolKraken,
 
       c.binance,
       c.bybit,

@@ -4,7 +4,7 @@ import { MarketSnapshot } from "./types/marketSnapshot.js";
 export function aggregateTickers(tickers: RawTicker[]): MarketSnapshot | null {
   if (!tickers.length) return null;
   const symbol = tickers[0].symbol;
-  // console.log("tickers-----------", tickers);
+
   let priceSum = 0;
   let volumeSum = 0;
   let changeSum = 0;
