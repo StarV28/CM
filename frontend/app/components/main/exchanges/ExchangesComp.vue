@@ -103,9 +103,9 @@ onMounted(async () => {
   try {
     exchanges.value = (await exchangesStore.getExchanges()) || [];
 
-    if (socketStore?.send) {
-      socketStore.send({ type: "get-exchanges" });
-    }
+    // if (socketStore?.send) {
+    //   socketStore.send({ type: "get-exchanges" });
+    // }
   } catch (error) {
     console.error("MainExchangesComp mounted error:", error);
   }

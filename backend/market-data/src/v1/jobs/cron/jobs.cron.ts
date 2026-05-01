@@ -1,5 +1,5 @@
 import CollectRedis from "../../application/coins/collectCoinsRedis.js";
-import { collectEx } from "../../application/exchanges/collectEx.js";
+// import { collectEx } from "../../application/exchanges/collectEx.js";
 import { collectRates } from "../../application/rates/collectRates.js";
 import ColectDataCMC from "../../application/coins/collectDataCMC.js";
 import { collectTrCoinsMySQL } from "../../application/coins/collectCoinsMySQL.js";
@@ -84,14 +84,14 @@ export const jobs: CronJobConfig[] = [
     retryDelayMs: 1000, // retry через 1с
     handler: CollectRedis.deltaRedis,
   },
-  {
-    name: "exchanges",
-    schedule: "*/45 * * * * *", // каждые 45 секунд
-    ttlMs: 1000 * 40, // lock 40 сек
-    retries: 2,
-    retryDelayMs: 1500, // retry через 1.5с, 3с
-    handler: collectEx,
-  },
+  // {
+  //   name: "exchanges",
+  //   schedule: "*/45 * * * * *", // каждые 45 секунд
+  //   ttlMs: 1000 * 40, // lock 40 сек
+  //   retries: 2,
+  //   retryDelayMs: 1500, // retry через 1.5с, 3с
+  //   handler: collectEx,
+  // },
   {
     name: "rates",
     schedule: "0 0 */8 * * *", // каждые 8 часов

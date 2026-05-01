@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import Ex from "../external/exchanges/ExModel.js";
-// import { allEx } from "../external/exchanges/ExchangesModel.js";
 
 //-------------------------------------------------------------------------------------//
 class ExchangesController {
@@ -17,9 +16,8 @@ class ExchangesController {
       if (!Number.isInteger(id) || id <= 0) {
         return res.status(400).json({ message: "Invalid id" });
       }
-      // const result = await allEx();
-      await Ex.exData(id);
-      return res.status(202).json({ message: "Update started" });
+      const data = await Ex.exData(id);
+      return res.status(200).json(data);
     } catch (err) {
       next(err);
     }
