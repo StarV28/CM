@@ -59,7 +59,8 @@
     "back": "Hesaba Dön"
   },
   "exchanges": {
-    "btn-open": "Borsaları Göster"
+    "btn-open": "Borsaları Göster",
+    "btn-close": "Kapat"
   },
   "coins": {
     "title50": "En İyi 50 Coin",

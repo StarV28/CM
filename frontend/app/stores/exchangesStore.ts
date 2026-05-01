@@ -33,7 +33,7 @@ export const useExchangesStore = defineStore("exchangesStore", () => {
         true,
       );
 
-      const resObj = result?.result ?? {};
+      const resObj = result ?? {};
       exchanges.value = Object.values(resObj);
 
       return exchanges.value;

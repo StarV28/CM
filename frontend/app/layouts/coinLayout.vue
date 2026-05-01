@@ -40,7 +40,7 @@ main {
 @media (max-width: 768px) {
   .main {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 25px;
   }
 }

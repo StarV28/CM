@@ -59,7 +59,8 @@
     "back": "Zurück zum Konto"
   },
   "exchanges": {
-    "btn-open": "Börsen anzeigen"
+    "btn-open": "Börsen anzeigen",
+    "btn-close": "Schließen"
   },
   "coins": {
     "title50": "Top 50 Coins",

@@ -59,7 +59,8 @@
     "back": "Back Account"
   },
   "exchanges": {
-    "btn-open": "Show Exchanges"
+    "btn-open": "Show Exchanges",
+    "btn-close": "Close"
   },
   "coins": {
     "title50": "Top 50 Coins",
