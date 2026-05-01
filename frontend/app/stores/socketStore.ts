@@ -49,6 +49,13 @@ export const useSocketStore = defineStore("socketStore", () => {
   const connect = () => {
     if (!import.meta.client) return;
     if (!baseUrl) throw new Error("WS base URL is not defined");
+
+    if (
+      (socket.value && socket.value.readyState === WebSocket.OPEN) ||
+      socket.value?.readyState === WebSocket.CONNECTING
+    ) {
+      return;
+    }
     socket.value = new WebSocket(baseUrl);
 
     socket.value.onopen = () => {
@@ -98,11 +105,15 @@ export const useSocketStore = defineStore("socketStore", () => {
   };
 
   const send = (payload: WsRequest) => {
-    if (socket.value && isConnected.value) {
-      socket.value.send(JSON.stringify(payload));
-    }
-  };
+    if (!socket.value) return;
 
+    if (socket.value.readyState !== WebSocket.OPEN) {
+      console.warn("WS not ready");
+      return;
+    }
+
+    socket.value.send(JSON.stringify(payload));
+  };
   return {
     data,
     isConnected,

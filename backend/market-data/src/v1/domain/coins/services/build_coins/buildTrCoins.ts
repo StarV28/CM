@@ -41,7 +41,6 @@ export async function buildTradingCoins(): Promise<TradingCoinView[]> {
 
     const exMap = new Map<string, ExData>();
     Object.values(exData).forEach((c) => exMap.set(c.symbol.toUpperCase(), c));
-    console.log("buildTr-------------", exData[0]);
     const result: TradingCoinView[] = [];
 
     for (const coin of tradingCoins) {

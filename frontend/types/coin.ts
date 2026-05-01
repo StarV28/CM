@@ -1,5 +1,5 @@
 export interface Coin {
-  id: number;
+  cmc_id: number;
   symbol: string;
   slug: string;
   name: string;
@@ -37,7 +37,7 @@ export interface Coin {
 }
 
 export interface CoinWithDescription {
-  id: number;
+  cmc_id: number;
   symbol: string;
   slug: string;
   name: string;

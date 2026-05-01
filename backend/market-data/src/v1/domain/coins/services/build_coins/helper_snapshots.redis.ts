@@ -45,6 +45,5 @@ function normalizeSnapshot(coins: TradingCoinView[]) {
     okx: c.okx,
     kraken: c.kraken,
   }));
-  console.log("helper_snap------------", redisCoins[0]);
   return redisCoins;
 }

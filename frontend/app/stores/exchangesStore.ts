@@ -1,10 +1,11 @@
 import { defineStore } from "pinia";
 import { useApi } from "@/composables/useApi";
-// import { useCoinStore } from "@/stores/coinStore";
+import { useCoinStore } from "@/stores/coinStore";
 
 //-------------------------------------------------------------------------------------//
 const loading = ref<boolean>(false);
 const error = ref<string | null>(null);
+const exchanges = ref([]);
 
 interface Exchanges {
   key: string;
@@ -17,21 +18,25 @@ interface ExchangesApiResponse {
 //-------------------------------------------------------------------------------------//
 export const useExchangesStore = defineStore("exchangesStore", () => {
   const api = useApi();
-  // const coinStore = useCoinStore();
+  const coinStore = useCoinStore();
+  const coin = computed(() => coinStore.coin);
 
   //-------------------------------------------------------------------------------------//
   const getExchanges = async (): Promise<Exchanges[]> => {
+    if (loading.value) return exchanges.value;
     loading.value = true;
     try {
+      const id = coin.value?.cmc_id;
       const result = await api.get<ExchangesApiResponse>(
-        "/exchanges",
+        `/exchanges/${id}`,
         {},
         true,
       );
-      const resObj = result?.result ?? {};
-      const exchangesArray: Exchanges[] = Object.values(resObj);
 
-      return exchangesArray;
+      const resObj = result?.result ?? {};
+      exchanges.value = Object.values(resObj);
+
+      return exchanges.value;
     } catch (err) {
       error.value = (err as Error)?.message;
       return [];
@@ -44,5 +49,6 @@ export const useExchangesStore = defineStore("exchangesStore", () => {
     loading,
     error,
     getExchanges,
+    exchanges,
   };
 });

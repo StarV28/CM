@@ -4,6 +4,6 @@ import { globalRateLimit } from "../../../middleware/globalRateLimit.js";
 
 const router: Router = express.Router();
 
-router.use("/", globalRateLimit, ExchangesController.allExController);
+router.get("/:id", globalRateLimit, ExchangesController.allExController);
 
 export default router;

@@ -51,7 +51,7 @@ const exchanges = ref<Exchanges[]>([]);
 const socketStore = useSocketStore();
 const exchangesStore = useExchangesStore();
 
-exchanges.value = (await exchangesStore.getExchanges()) || [];
+// exchanges.value = (await exchangesStore.getExchanges()) || [];
 const loading = computed(() => exchangesStore.loading);
 //-------------------------------------------------------------------------------------//
 watch(
@@ -62,6 +62,7 @@ watch(
     newValue.forEach((update) => {
       const index = exchanges.value.findIndex((ind) => ind.key === update.key);
       if (index !== -1 && exchanges.value[index]) {
+        if (!update.candles?.length) return;
         const apexCandles = (update.candles as Candle[]).map((c) => ({
           x: c.time,
           y: [c.open, c.high, c.low, c.close],
@@ -98,8 +99,16 @@ const openEx = () => {
   isActive.value = !isActive.value;
 };
 //-------------------------------------------------------------------------------------//
-onMounted(() => {
-  socketStore.send({ type: "get-exchanges" });
+onMounted(async () => {
+  try {
+    exchanges.value = (await exchangesStore.getExchanges()) || [];
+
+    if (socketStore?.send) {
+      socketStore.send({ type: "get-exchanges" });
+    }
+  } catch (error) {
+    console.error("MainExchangesComp mounted error:", error);
+  }
 });
 </script>
 

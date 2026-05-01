@@ -37,6 +37,7 @@ export const useCoinStore = defineStore("coinStore", () => {
       if (kraken) exchanges.push("Kraken");
 
       coin.value = { ...rest, exchanges };
+
       return {
         ...rest,
         exchanges,
