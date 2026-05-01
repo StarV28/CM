@@ -247,6 +247,8 @@ onMounted(async () => {
 <script setup lang="ts">
 import { useExchangesStore } from "@/stores/exchangesStore";
 import LoadingComp from "../../LoadingComp.vue";
+import { useI18n } from "vue-i18n";
+//---------------------------------------//
 
 interface Candle {
   time: number;
@@ -261,6 +263,7 @@ interface ExchangeItem {
   pair: string;
   candles: Candle[];
 }
+//---------------------------------------//
 
 const exchangesStore = useExchangesStore();
 

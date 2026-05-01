@@ -3,9 +3,6 @@ import { useApi } from "@/composables/useApi";
 import { useCoinStore } from "@/stores/coinStore";
 
 //-------------------------------------------------------------------------------------//
-const loading = ref<boolean>(false);
-const error = ref<string | null>(null);
-const exchanges = ref([]);
 
 interface Exchanges {
   key: string;
@@ -21,12 +18,18 @@ export const useExchangesStore = defineStore("exchangesStore", () => {
   const coinStore = useCoinStore();
   const coin = computed(() => coinStore.coin);
 
+  const loading = ref<boolean>(false);
+  const error = ref<string | null>(null);
+  const exchanges = ref([]);
+
   //-------------------------------------------------------------------------------------//
   const getExchanges = async (): Promise<Exchanges[]> => {
     if (loading.value) return exchanges.value;
     loading.value = true;
     try {
       const id = coin.value?.cmc_id;
+      if (!id) return [];
+
       const result = await api.get<ExchangesApiResponse>(
         `/exchanges/${id}`,
         {},
