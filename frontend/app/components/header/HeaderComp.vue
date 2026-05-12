@@ -42,10 +42,6 @@
     </div>
     <div v-if="IsMain" class="header__bottom">
       <section class="seo-text">
-        <!-- <div class="seo-text__title">
-          <h1>{{ t("seo.bottomText1") }}</h1>
-          <p>{{ t("seo.bottomText2") }}</p>
-        </div> -->
         <ul class="seo-text__menu">
           <li class="seo-text__item">
             <NuxtLink :to="localePath('analytics')" class="seo-text__link">{{
@@ -109,7 +105,6 @@ const closesWindLand = () => {
   showLand.value = false;
 };
 const setLand = (land: LocaleCode) => {
-  // locale.value = land;
   showLand.value = false;
   setLang(land);
 };

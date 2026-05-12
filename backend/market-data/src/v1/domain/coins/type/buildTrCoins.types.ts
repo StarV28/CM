@@ -104,7 +104,7 @@ export type ExData = {
 
 //---------------------------------------//
 export type TradingCoinRedisView = {
-  id: number;
+  cmc_id: number;
   symbol: string;
   name: string;
   logo?: string;
@@ -133,7 +133,7 @@ export type TradingCoinRedisView = {
 };
 
 export type TradingCoinRedisDelta = {
-  id: number;
+  cmc_id: number;
   price_usd: number;
   rating: number;
 

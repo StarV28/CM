@@ -7,6 +7,7 @@ export default defineEventHandler((event: H3Event) => {
   // 1️⃣ Получаем IP клиента
   // -----------------------------
   const headers = getRequestHeaders(event);
+
   const cookieLang = getCookie(event, "lang"); // сначала смотрим cookie
   if (cookieLang) {
     (event as H3Event & { detectedLang?: string }).detectedLang = cookieLang;

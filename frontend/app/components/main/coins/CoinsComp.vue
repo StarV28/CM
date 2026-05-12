@@ -133,7 +133,7 @@ watch(
     if (!snapshots || !Array.isArray(snapshots)) return;
 
     for (const upd of snapshots) {
-      const coin = coins.value.find((c) => c.id === upd.id);
+      const coin = coins.value.find((c) => c.cmc_id === upd.cmc_id);
       if (!coin) continue;
       Object.assign(coin, upd);
     }
@@ -147,7 +147,7 @@ watch(
     if (!delta || !Array.isArray(delta)) return;
 
     for (const upd of delta) {
-      const res = coins.value.find((c) => c.id === upd.id);
+      const res = coins.value.find((c) => c.cmc_id === upd.cmc_id);
       if (!res) continue;
       Object.assign(res, upd);
     }
@@ -369,7 +369,7 @@ function mapCoinsToRowData(coinsArray: Coins[]): RowData[] {
     if (el.kraken) exchanges.push("Kraken");
 
     return {
-      id: el.id,
+      id: el.cmc_id,
       rank: el.rating,
       name: el.name,
       symbol: el.symbol,

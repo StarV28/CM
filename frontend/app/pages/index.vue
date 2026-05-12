@@ -2,11 +2,11 @@
   <GlobalLayout>
     <!-- <AdComp id="AdSense" /> -->
     <!-- <MainRatesComp id="charts" /> -->
-    <section class="seo-text" style="opacity: 0; height: 0; overflow: hidden">
+    <!-- <section class="seo-text" style="opacity: 0; height: 0; overflow: hidden">
       <h2>{{ t("seoText.heading") }}</h2>
       <p>{{ t("seoText.paragraph1") }}</p>
       <p>{{ t("seoText.paragraph2") }}</p>
-    </section>
+    </section> -->
     <MainCoinsComp id="coins" />
     <!-- <AdComp id="AdSense" /> -->
     <!-- <MainExchangesComp /> -->
@@ -22,7 +22,7 @@ import { useTheme } from "@/utils/useThems";
 import { useSeo } from "@/composables/useSeo";
 useSeo();
 //-------------------------------------------------------------------------------------//
-const { t } = useI18n();
+// const { t } = useI18n();
 //-------------------------------------------------------------------------------------//
 onMounted(() => {
   const { setTheme } = useTheme();

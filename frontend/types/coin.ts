@@ -72,7 +72,7 @@ export interface CoinWithDescription {
 }
 
 export interface Coins {
-  id: number;
+  cmc_id: number;
   symbol: string;
   name: string;
   logo: string;

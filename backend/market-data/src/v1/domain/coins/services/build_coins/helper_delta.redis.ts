@@ -1,6 +1,8 @@
 import { buildTradingCoins } from "./buildTrCoins.js";
-import type { TradingCoinRedisDelta } from "../../type/buildTrCoins.types.js";
-import type { TradingCoinView } from "../../type/buildTrCoins.types.js";
+import type {
+  TradingCoinRedisDelta,
+  TradingCoinView,
+} from "../../type/buildTrCoins.types.js";
 // import { syncRedis } from "../../../../infrastructure/storage/redis/redis.repository.js";
 import { cacheRedisServer } from "../../../../../../utils/cacheRedisServer.js";
 
@@ -24,7 +26,7 @@ function normalizeDelta(
 
   for (const el of coins) {
     delta[el.symbol] = {
-      id: el.cmc_id,
+      cmc_id: el.cmc_id,
       price_usd: el.price_usd,
       rating: el.rating,
       volume_24h: Number(el.volume_24h),
