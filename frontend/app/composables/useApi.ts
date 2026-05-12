@@ -44,8 +44,8 @@ export const useApi = () => {
         store: storeName,
         message: error.message,
         stack: error.stack,
-        url: window.location.href,
-        userAgent: navigator.userAgent,
+        url: import.meta.client ? window.location.href : "SSR",
+        userAgent: import.meta.client ? navigator.userAgent : "SSR",
         time: new Date().toISOString(),
       };
       await errorPluginSend(payload);

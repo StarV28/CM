@@ -2,8 +2,6 @@ import { defineStore } from "pinia";
 import { useApi } from "@/composables/useApi";
 
 //-------------------------------------------------------------------------------------//
-const loading = ref<boolean>(false);
-const error = ref<string | null>(null);
 
 interface News {
   title: string;
@@ -15,6 +13,9 @@ interface News {
 
 //-------------------------------------------------------------------------------------//
 export const useNewsStore = defineStore("newsStore", () => {
+  const loading = ref<boolean>(false);
+  const error = ref<string | null>(null);
+
   const api = useApi();
   const news = ref<News[]>([]);
   const lastFetched = ref<number | null>(null);
