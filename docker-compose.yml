@@ -38,7 +38,7 @@ services:
       - "127.0.0.1:6379:6379"
     container_name: cm_redis
     restart: unless-stopped
-    command: redis-server --appendonly yes --requirepass the_LonG_PaSsWorD --maxmemory 200mb --maxmemory-policy allkeys-lru
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD} --maxmemory 200mb --maxmemory-policy allkeys-lru
     mem_limit: 256m
 
   redis-commander:
@@ -46,7 +46,7 @@ services:
     container_name: redis_commander
     restart: unless-stopped
     environment:
-      - REDIS_HOSTS=local:cm_redis:6379:0:the_LonG_PaSsWorD
+      - REDIS_HOSTS=local:cm_redis:6379:0:${REDIS_PASSWORD}
     ports:
       - "127.0.0.1:8081:8081"
     depends_on:
