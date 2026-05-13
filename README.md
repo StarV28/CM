@@ -120,7 +120,7 @@ This is an actively running production system built as an independent product fo
 
 ---
 
-## 👤 Author
+##  Author
 
 Vladimir Starovoit  
 Backend Engineer | Node.js | TypeScript | Redis | MySQL | Realtime Systems
