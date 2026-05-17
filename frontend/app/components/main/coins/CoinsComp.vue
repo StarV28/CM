@@ -1,6 +1,6 @@
 <template>
-  <loading-comp v-if="loading" />
-  <div v-else id="coins" class="coins">
+  <!-- <loading-comp v-if="loading" /> -->
+  <div id="coins" class="coins">
     <div class="coins__head">
       <div class="coins__top-btn">
         <button
@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onBeforeUnmount } from "vue";
+import { ref, watch, onMounted, onBeforeUnmount } from "vue";
 import { useCoinsStore } from "@/stores/coinsStore";
 import { useSocketStore } from "@/stores/socketStore";
 import { useFavoriteStore } from "@/stores/favoriteStore";
@@ -85,7 +85,7 @@ const coins = ref<Coins[]>([]);
 const rowData = ref<RowData[]>();
 const colDefs = ref();
 const { t } = useI18n();
-const loading = computed(() => coinsStore.loading);
+// const loading = computed(() => coinsStore.loading);
 const component = {
   favoriteCoin: FavoriteCoinComp,
   tradButton: TradButtonComp,
