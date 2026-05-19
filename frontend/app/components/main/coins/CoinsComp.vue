@@ -1,6 +1,6 @@
 <template>
-  <!-- <loading-comp v-if="loading" /> -->
-  <div id="coins" class="coins">
+  <loading-comp v-if="loading" />
+  <div v-else id="coins" class="coins">
     <div class="coins__head">
       <div class="coins__top-btn">
         <button
@@ -25,15 +25,6 @@
           {{ t("coins.titleAll") }}
         </button>
       </div>
-      <!-- <div class="coins__qr-donate qr-donate">
-        <div class="qr-donate__title">
-          <span>Support</span>
-          <span>the project</span>
-          <span>with a Donation</span>
-          <span>{{ t("donat.title") }}</span>
-        </div>
-        <qrcode-comp />
-      </div> -->
     </div>
     <popup-inform-favorite-comp />
     <popup-info-popup-comp />
@@ -59,7 +50,6 @@ import { useCoinsStore } from "@/stores/coinsStore";
 import { useSocketStore } from "@/stores/socketStore";
 import { useFavoriteStore } from "@/stores/favoriteStore";
 import { formatNumber } from "@/utils/formatNumber";
-import { useAuthStore } from "@/stores/authStore";
 import FavoriteCoinComp from "@/components/main/coins/FavoriteCoinComp.vue";
 import CoinLink from "@/components/main/coins/CoinLinkComp.vue";
 import TradButtonComp from "@/components/main/coins/TradButtonComp.vue";
@@ -73,27 +63,29 @@ import type {
 import type { Coins, RowData, ExchangeName } from "../../../../types/coin";
 import type { User } from "../../../../types/user";
 import type { Favorite } from "../../../../types/favorite";
-// import QrcodeComp from "../../donat/QrcodeComp.vue";
 
 //-------------------------------------------------------------------------------------//
 const coinsStore = useCoinsStore();
 const socketStore = useSocketStore();
 const favoriteStore = useFavoriteStore();
-const authStore = useAuthStore();
-const coins = ref<Coins[]>([]);
+const { coins, loading } = storeToRefs(coinsStore);
+
+const { t } = useI18n();
+
+const user = ref<User | null>(null);
+const favorites = ref<Favorite[] | null>([]);
+const activeLimit = ref<number | null>(50);
 
 const rowData = ref<RowData[]>();
 const colDefs = ref();
-const { t } = useI18n();
-// const loading = computed(() => coinsStore.loading);
+const gridApi = ref<GridApi | null>(null);
+
+//---------------------------------------//
+
 const component = {
   favoriteCoin: FavoriteCoinComp,
   tradButton: TradButtonComp,
 };
-const user = ref<User | null>(null);
-const favorites = ref<Favorite[] | null>([]);
-const activeLimit = ref<number | null>(50);
-const gridApi = ref<GridApi | null>(null);
 
 //---------------------------------------//
 
@@ -102,30 +94,41 @@ const toNumber = (v: unknown): number | null => {
   return Number.isFinite(n) ? n : null;
 };
 
-//-------------------------------------------------------------------------------------//
-async function loadCoins(limit: number | null) {
+//---------------------------------------//
+
+function resolveUserFavorites() {
   user.value = useCookie<User | null>("user").value;
-  if (user.value) {
-    favorites.value = favoriteStore.favoriteArr ?? null;
-  } else {
-    favorites.value = null;
-  }
-  coins.value = (await coinsStore.getCoinsApi(limit, favorites.value)) || [];
-  rowData.value = sortByFavorites(mapCoinsToRowData(coins.value));
+
+  favorites.value = user.value ? (favoriteStore.favoriteArr ?? null) : null;
 }
 
 //---------------------------------------//
+
 const onShowTopCoins = async (limit: number | null) => {
   activeLimit.value = limit;
-  await loadCoins(limit);
+  resolveUserFavorites();
+  await coinsStore.getCoinsApi(limit, favorites.value);
 };
+
 //--API ag-grid-------------------------------------//
+
 const onGridReady = (params: GridReadyEvent) => {
   gridApi.value = params.api;
   updateColHeaders();
 };
 
-//-------------------------------------------------------------------------------------//
+//---------------------------------------//
+watch(
+  coins,
+  (newCoins) => {
+    resolveUserFavorites();
+
+    rowData.value = sortByFavorites(mapCoinsToRowData(newCoins));
+  },
+  { immediate: true, deep: true },
+);
+
+//---------------------------------------//
 
 watch(
   () => socketStore.data.coins,
@@ -155,7 +158,7 @@ watch(
   },
 );
 
-//-------------------------------------------------------------------------------------//
+//---------------------------------------//
 function sortByFavorites(rows: RowData[]): RowData[] {
   if (!user.value || !favorites.value?.length) {
     return [...rows].sort((a, b) => a.rank - b.rank);
@@ -171,7 +174,7 @@ function sortByFavorites(rows: RowData[]): RowData[] {
   });
 }
 
-//-------------------------------------------------------------------------------------//
+//---------------------------------------//
 watch(
   () => favoriteStore.favoriteArr,
   () => {
@@ -182,7 +185,7 @@ watch(
   { deep: true },
 );
 
-//-------------------------------------------------------------------------------------//
+//---------------------------------------//
 colDefs.value = [
   {
     field: "rank",
@@ -397,10 +400,11 @@ function mapCoinsToRowData(coinsArray: Coins[]): RowData[] {
   });
 }
 
-//-------------------------------------------------------------------------------------//
+//---------------------------------------//
 function updateColHeaders() {
   if (!colDefs.value || colDefs.value.length < 3) return;
   if (!gridApi.value) return;
+  if (gridApi.value.isDestroyed?.()) return;
 
   const isMobile = window.innerWidth < 768;
 
@@ -459,29 +463,21 @@ function updateColHeaders() {
   });
 }
 
-//-------------------------------------------------------------------------------------//
+//---------------------------------------//
 onMounted(async () => {
-  updateColHeaders();
-  window.addEventListener("resize", updateColHeaders);
+  socketStore.connect();
 
-  const tokenCookie = useCookie("token");
-  if (tokenCookie.value) {
-    const userData = useCookie("user").value;
-    if (userData) {
-      await favoriteStore.getListFavorite();
-    }
-    await loadCoins(50);
-    socketStore.connect();
-  } else {
-    authStore.logout();
-    await loadCoins(50);
-    socketStore.connect();
-  }
+  updateColHeaders();
+
+  window.addEventListener("resize", updateColHeaders);
 });
+
 onBeforeUnmount(() => {
   window.removeEventListener("resize", updateColHeaders);
+  gridApi.value = null;
 });
 </script>
+//-------------------------------------------------------------------------------------//
 
 <style lang="scss" scoped>
 .coins {

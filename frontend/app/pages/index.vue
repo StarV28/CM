@@ -20,9 +20,27 @@ import { onMounted } from "vue";
 import GlobalLayout from "~/layouts/globalLayout.vue";
 import { useTheme } from "@/utils/useThems";
 import { useSeo } from "@/composables/useSeo";
+import { useCoinsStore } from "@/stores/coinsStore";
+import { useFavoriteStore } from "@/stores/favoriteStore";
 useSeo();
 //-------------------------------------------------------------------------------------//
 // const { t } = useI18n();
+const coinsStore = useCoinsStore();
+const favoriteStore = useFavoriteStore();
+
+const user = useCookie("user");
+const token = useCookie("token");
+
+await useAsyncData("home-page", async () => {
+  let favorites = null;
+
+  if (token.value && user.value) {
+    await favoriteStore.getListFavorite();
+    favorites = favoriteStore.favoriteArr;
+  }
+
+  return await coinsStore.getCoinsApi(50, favorites);
+});
 //-------------------------------------------------------------------------------------//
 onMounted(() => {
   const { setTheme } = useTheme();

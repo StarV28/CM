@@ -80,11 +80,9 @@ export const useFavoriteStore = defineStore("favoriteStore", () => {
 
   async function deleteCoin(coinId: number, userId: number) {
     try {
-      const res = await api.del<FavoriteCoinRes>(
-        "/favorite/delete",
-        { params: { coinId, userId } },
-        false,
-      );
+      const res = await api.del<FavoriteCoinRes>("/favorite/delete", {
+        params: { coinId, userId },
+      });
 
       if (res?.success) {
         favoriteArr.value = favoriteArr.value!.filter(
@@ -100,11 +98,9 @@ export const useFavoriteStore = defineStore("favoriteStore", () => {
   //---------------------------------------//
   async function getListFavorite() {
     try {
-      const res = await api.get<{ result: Favorite[] }>(
-        "/favorite/list",
-        { query: {} },
-        false,
-      );
+      const res = await api.get<{ result: Favorite[] }>("/favorite/list", {
+        query: {},
+      });
       favoriteArr.value = (res?.result ?? []).map((f) => ({
         coinId: f.coinId,
         userId: f.userId,

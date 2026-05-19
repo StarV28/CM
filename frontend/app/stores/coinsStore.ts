@@ -6,8 +6,6 @@ import type { Favorite } from "../../types/favorite";
 // import { useSSRLocale } from "@/composables/useSSRLocale";
 
 //-------------------------------------------------------------------------------------//
-const loading = ref<boolean>(false);
-const error = ref<string | null>(null);
 
 interface CoinsApiResult {
   total: number;
@@ -17,7 +15,9 @@ interface CoinsApiResult {
 //-------------------------------------------------------------------------------------//
 export const useCoinsStore = defineStore("coinsStore", () => {
   const api = useApi();
-
+  const loading = ref<boolean>(false);
+  const error = ref<string | null>(null);
+  const coins = ref<Coins[]>([]);
   //-------------------------------------------------------------------------------------//
   const getCoinsApi = async (
     limit: number | null = 50,
@@ -33,9 +33,10 @@ export const useCoinsStore = defineStore("coinsStore", () => {
             favorites: favorites?.map((f) => f.coinId).join(","),
           },
         },
-        true,
+        // true,
       );
-      return res?.result ?? [];
+      coins.value = res?.result ?? [];
+      return coins.value;
     } catch (err) {
       error.value = (err as Error)?.message;
       return [];
@@ -48,5 +49,6 @@ export const useCoinsStore = defineStore("coinsStore", () => {
     loading,
     error,
     getCoinsApi,
+    coins,
   };
 });
