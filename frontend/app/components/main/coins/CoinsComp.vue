@@ -28,8 +28,10 @@
     </div>
     <popup-inform-favorite-comp />
     <popup-info-popup-comp />
+    <main-coins-seo-tab-coins v-if="!hydrated" :coins="coins" />
     <client-only>
       <ag-grid-vue
+        v-if="hydrated"
         class="ag-theme-custom"
         :row-data="rowData"
         :column-defs="colDefs"
@@ -79,6 +81,7 @@ const activeLimit = ref<number | null>(50);
 const rowData = ref<RowData[]>();
 const colDefs = ref();
 const gridApi = ref<GridApi | null>(null);
+const hydrated = ref(false);
 
 //---------------------------------------//
 
@@ -465,6 +468,7 @@ function updateColHeaders() {
 
 //---------------------------------------//
 onMounted(async () => {
+  hydrated.value = true;
   socketStore.connect();
 
   updateColHeaders();
