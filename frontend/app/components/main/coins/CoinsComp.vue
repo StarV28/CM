@@ -1,5 +1,5 @@
 <template>
-  <!-- <loading-comp v-if="loading" /> -->
+  <loading-comp v-if="loading" />
   <div id="coins" class="coins">
     <div class="coins__head">
       <div class="coins__top-btn">
@@ -70,7 +70,7 @@ import type { Favorite } from "../../../../types/favorite";
 const coinsStore = useCoinsStore();
 const socketStore = useSocketStore();
 const favoriteStore = useFavoriteStore();
-const { coins } = storeToRefs(coinsStore);
+const { coins, loading } = storeToRefs(coinsStore);
 
 const { t } = useI18n();
 

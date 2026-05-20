@@ -47,7 +47,7 @@
           </td>
 
           <td class="p-3">
-            {{ toNumber(coin.price_usd) }}
+            {{ formatPrice(coin.price_usd) }}
           </td>
 
           <td
@@ -88,15 +88,15 @@
           </td>
 
           <td class="p-3">
-            {{ toNumber(coin.low24h) }}
+            {{ formatPrice(coin.low24h ?? 0) }}
           </td>
 
-          <td class="p-3">${{ toNumber(coin.market_cap) }}</td>
+          <td class="p-3">${{ formatPrice(coin.market_cap) }}</td>
 
-          <td class="p-3">${{ toNumber(coin.volume_24h) }}</td>
+          <td class="p-3">${{ formatPrice(coin.volume_24h) }}</td>
 
           <td class="p-3">
-            {{ toNumber(coin.max_supply) }}
+            {{ formatPrice(coin.max_supply ?? 0) }}
           </td>
         </tr>
       </tbody>
@@ -116,6 +116,23 @@ defineProps<{ coins: Coins[] }>();
 const toNumber = (v: unknown): number | null => {
   const n = Number(v);
   return Number.isFinite(n) ? n : null;
+};
+
+const formatPrice = (value: number): string => {
+  if (!Number.isFinite(value)) return "—";
+
+  let maximumFractionDigits: number;
+
+  if (value >= 1000) maximumFractionDigits = 2;
+  else if (value >= 1) maximumFractionDigits = 4;
+  else if (value >= 0.01) maximumFractionDigits = 6;
+  else maximumFractionDigits = 10;
+
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits,
+  }).format(value);
 };
 </script>
 
